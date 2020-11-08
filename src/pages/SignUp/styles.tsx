@@ -7,7 +7,7 @@ import CustomTextBase from '../../components/CustomTextBase';
 import TextBold from '../../components/TextBold';
 import CheckBoxBase from '../../components/CheckBox';
 
-import logo from '../../images/logo.png';
+import logo from '../../images/ic_logo.png';
 import { rsize } from '../../utils/size';
 
 export const Background = styled.View`

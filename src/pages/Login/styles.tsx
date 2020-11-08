@@ -27,7 +27,7 @@ export const Logo = styled.Image.attrs({
 })`
   flex: 1;
   align-self: stretch;
-  width: ${wp("100%") - rsize(40, "w")};
+  width: ${wp("100%") - rsize(40, "w")}px;
   margin: 0 ${rsize(20, "w")}px;
 `;
 
@@ -43,7 +43,7 @@ export const LogoSmall = styled.Image.attrs({
 })`
   height: ${rsize(46)}px;
   width: ${rsize(46)}px;
-  margin-right: ${rsize(18)};
+  margin-right: ${rsize(18)}px;
 `;
 
 export const Container = styled.View`

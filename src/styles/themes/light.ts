@@ -3,24 +3,29 @@ import { getFontSizes } from '../../utils/size';
 
 const light: DefaultTheme = {
   colors: {
-    backgroundPrimary: '#8257e5',
-    backgroundSecondary: '#04d361',
-    backgroudnLighter: '#fff',
-    backgroundLigth: '#F2F2F2',
+    gradient: ["#E6007E", "#E94834"],
+    backgroundPrimary: '#E6007E',
+    backgroundSecondary: '#E94834',
+    backgroundLighter: '#FFFFFF',
+    backgroundLight: '#FAFAFA',
     primary: '#E6007E',
-    secondary: '#04d361',
-    buttonPrimary: '#9871f5',
-    buttonSecondary: '#04d361',
-    textLight: '#d4c2ff',
-    textColor: '#8D97B5'
+    secondary: '#41D886',
+    buttonPrimary: '',
+    buttonSecondary: '#FFFFFF',
+    textLight: '#383838',
+    textColor: '#FFFFFF',
+    textSecondary: 'rgba(169, 169, 169, 0.8)',
+    subtitle: 'rgba(56, 56, 56, 0.8)'
+
   }, 
   fontSizes: getFontSizes(),
   fontFamily: {
-    text: 'Montserrat',
-    textRegular: 'Montserrat-Regular',
-    textBold: 'Montserrat-Bold',
-    titleRegular: 'Montserrat-Regular',
-    titleBold: 'Montserrat-Bold'
+    text: 'Gilroy-Regular',
+    textRegular: 'Gilroy-Regular',
+    textMedium: 'Gilroy-Medium',
+    textBold: 'Gilroy-Bold',
+    titleRegular: 'Gilroy-Regular',
+    titleBold: 'Circular-Std-Bold'
   }
 };
 

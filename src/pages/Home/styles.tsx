@@ -1,177 +1,173 @@
-import styled, { css } from 'styled-components/native';
+import styled from 'styled-components/native';
 import { StatusBar } from 'react-native'
-import { CardMedia } from '../../components/Card'
-import Customtag from '../../components/CustomTag'
+import { CardMedia } from '../../components/CustomCard'
+import { LinearGradient } from 'expo-linear-gradient'
 import CustomTextBase from '../../components/CustomTextBase'
 import TextBold from '../../components/TextBold'
+import logo from '../../images/logo_horizontal_2.png'
 import { Feather } from '@expo/vector-icons'
-import background from "../../images/banner1.png"
-import { LinearGradient } from 'expo-linear-gradient';
 import { rsize } from '../../utils/size'
 
 export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false
 })`
+  height: 100%;
   margin-top: ${StatusBar.currentHeight}px;
+  background-color: ${props => props.theme.colors.backgroundLight};
 `
-export const Header = styled.View`
-  height: ${rsize(149, "w")}px;
+export const Header = styled(LinearGradient).attrs(props => ({
+  colors: props.theme.colors.gradient
+}))`
+  height: ${rsize(181, "w")}px;
   width: 100%;
-
-  padding: 0 ${rsize(22, "w")}px 0 ${rsize(22, "w")}px;
-  background-color: #33C899;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: ${rsize(24, "w")}px ${rsize(22, "w")}px 0 ${rsize(30, "w")}px;
 `
 export const HeaderContent = styled.View`
+  width: 100%;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  top: ${rsize(29, "w")}px;
+`
+export const AppBarContent = styled.View`
+  flex-direction: row;
 `
 export const MainContent = styled.View`
-  width: 100%;
-
-  top: ${rsize(-46, "w")}px;
+  top: ${rsize(-88, "w")}px;
 `
-export const Padding = styled.View`
-  padding: 0 ${rsize(11, "w")}px 0 ${rsize(11, "w")}px;
-`
-export const Banner = styled.View`
-  margin-top: ${rsize(14, "w")}px;
-`
-export const SectionHeader = styled.View`
-  margin: ${rsize(24, "w")}px 0 ${rsize(25, "w")}px 0;
-  flex-direction: row;
+export const BannerCard = styled(CardMedia)`
+  height: ${rsize(235, "w")}px;
+  width: ${rsize(290, "w")}px;
   justify-content: space-between;
-  align-items: center;
-`
-interface LessonsCardProps {
-  fistChild?: number
-}
-export const LessonsCard = styled(CardMedia)<LessonsCardProps>`
-  height: ${rsize(186, "w")}px;
-  width: ${rsize(150, "w")}px;
-
-  align-items: center;
-  justify-content: flex-end;
-  margin-right: ${rsize(12, "w")}px;
-  padding-bottom: ${rsize(12, "w")}px;
-  ${props =>
-  props.fistChild === 0 &&
-  css`
-    margin-left: ${rsize(11, "w")}px;
-  `}
-`
-export const TeacherCard = styled.View<LessonsCardProps>`
-  align-items: center;
-  margin-right: ${rsize(33, "w")}px;
-  ${props =>
-  props.fistChild === 0 &&
-  css`
-    margin-left: ${rsize(11, "w")}px;
-  `}
-`
-export const Background = styled.ImageBackground.attrs({
-  source: background,
-})`
-  height: ${rsize(184, "w")}px;
-`
-export const Gradient = styled(LinearGradient).attrs({
-  colors: ["#33C899", "#334399"]
-})`
-  position: absolute;
-
-  height: ${rsize(184, "w")}px;
-  width: 100%;
-
-  opacity: 0.2;
-  border-radius: ${rsize(15, "w")}px;
+  border-radius: ${rsize(30, "w")}px;
+  margin-left: ${rsize(30, "w")}px;
+  background-color: ${props => props.theme.colors.backgroundLighter};
 `
 export const BannerContent = styled.View`
   flex: 1;
-  flex-direction: row;
-  align-items: flex-end;
   justify-content: space-between;
-  border-bottom-left-radius: ${rsize(15, "w")}px;
-  border-bottom-right-radius: ${rsize(15, "w")}px;
-  padding: 0 ${rsize(12, "w")}px ${rsize(8, "w")}px ${rsize(15, "w")}px;
+  margin: 
+  ${rsize(17, "w")}px
+  ${rsize(19, "w")}px
+  ${rsize(19, "w")}px
+  ${rsize(19, "w")}px;
 `
-export const ProfileImage = styled.Image`
-  height: ${rsize(53, "w")}px;
-  width: ${rsize(53, "w")}px;
+export const BalanceCard = styled(CardMedia)`
+  height: ${rsize(100, "w")}px;
+  width: ${rsize(327, "w")}px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: ${rsize(24, "w")}px;
+  margin-left: ${rsize(24, "w")}px;
+  margin-right: ${rsize(24, "w")}px;
+  background-color:${props => props.theme.colors.secondary};
+  padding: 0 ${rsize(21, "w")}px 0 ${rsize(21, "w")}px;
+`
+export const BalanceButton = styled.TouchableOpacity`
+  height: ${rsize(45, "w")}px;
+  width: ${rsize(45, "w")}px;
+  align-items: center;
+  justify-content: center;
+  border-radius:${rsize(23, "w")}px;
+  background: ${props => props.theme.colors.buttonSecondary};
+  border: ${rsize(2, "w")}px solid rgba(255, 255, 255, 0.4);
+`
+export const BalanceTitle = styled(TextBold)`
+  font-size: ${props => props.theme.fontSizes.sm}px;
+  line-height: ${props => props.theme.fontSizes.md}px;
+  color: ${props => props.theme.colors.textColor};
+`
+export const BalanceCash = styled(BalanceTitle)`
+  font-size: ${props => props.theme.fontSizes.xl - 2}px;
+  line-height: ${props => props.theme.fontSizes.xl + 1}px;
+`
+export const ActionContainer = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+export const ActionCard = styled(CardMedia)`
+height: ${rsize(71, "w")}px;
+width: ${rsize(156, "w")}px;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+border-radius: ${rsize(20, "w")}px;
+background-color: ${props => props.theme.colors.primary};
+`
+export const ActionTitle = styled(TextBold)`
+  height: 100%;
+  flex: 2;
+  flex-wrap: wrap;
+  background-color: green;
 
-  border-radius: ${rsize(27, "w")}px;
+  font-size: ${props => props.theme.fontSizes.sm}px;
+  line-height: ${props => props.theme.fontSizes.xxs - 2}px;
+  text-align-vertical: center;
 `
-export const LessonsImage = styled.Image`
-  max-height: ${rsize(131, "w")}px;
-  max-width: ${rsize(131, "w")}px;
+export const ActionIcon = styled.Image`
+  flex: 1;
+  height: ${rsize(30, "w")}px;
+  width: ${rsize(30, "w")}px;
+  background-color: red;
 `
-export const TeacherImage = styled.Image`
-  height: ${rsize(120, "w")}px;
-  width: ${rsize(120, "w")}px;
-  border-radius: ${rsize(60, "w")}px;
+export const CardMediaContainer = styled(CardMedia)`
+height: ${rsize(156, "w")}px;
+width: ${rsize(156, "w")}px;
+align-items: center;
+justify-content: flex-end;
+background-color: ${props => props.theme.colors.textSecondary};
+border-radius: ${rsize(20, "w")}px;
+padding: 0 ${rsize(12, "w")}px ${rsize(12, "w")}px ${rsize(12, "w")}px;
 `
-export const HeaderText = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.lg}px;
-  line-height: ${props => props.theme.fontSizes.xl}px;
-  text-align: left;
-  color: #FFF;
+export const BackgroundMedia = styled.Image`
+`
+export const CardMediaTitle = styled(TextBold)`
+height: ${rsize(38, "w")}px;
+width: 100%;
+border-radius: ${rsize(10, "w")}px;
+background-color: ${props => props.theme.colors.backgroundLighter};
+
+font-size: ${props => props.theme.fontSizes.sm}px;
+text-align: center;
+text-align-vertical: center;
+color: ${props => props.theme.colors.textLight};
+`
+export const Logo = styled.Image.attrs({
+  source: logo
+})`
+  height: ${rsize(46, "w")}px;
+  width: ${rsize(189, "w")}px;
+`
+export const BannerImage = styled.Image`
+  height: ${rsize(131, "w")}px;
+  width: ${rsize(290, "w")}px;
+  border-top-left-radius: ${rsize(30, "w")}px;
+  border-top-right-radius: ${rsize(30, "w")}px;
 `
 export const BannerTitle = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.lg}px;
-  line-height: ${props => props.theme.fontSizes.xl}px;
-  color: #FFFFFF;
-`
-export const BannerTag = styled(Customtag)`
-  margin-top: ${rsize(5, "w")}px;
-  width: ${rsize(60, "w")}px;
-`
-export const SectionTitle = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.lg}px;
-  line-height: ${props => props.theme.fontSizes.xl}px;
-  color: #303030;
-`
-export const TextSeeAll = styled(CustomTextBase)`
-  font-size: ${props => props.theme.fontSizes.xs}px;
-  line-height: ${props => props.theme.fontSizes.md}px;
-  text-decoration-line: underline;
-  color: #33C899;
-`
-export const LessonsTitle = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.md - 1}px;
-  line-height: ${props => props.theme.fontSizes.lg}px;
-  color: #303030;
-`
-export const LessonsDescription = styled(CustomTextBase)`
-  font-size: ${props => props.theme.fontSizes.md - 1}px;
-  line-height: ${props => props.theme.fontSizes.lg}px;
-  letter-spacing: ${rsize(-0.3, "w")}px;
-  color: #8D97B5;
-
-  margin-top: ${rsize(4, "w")}px;
-`
-export const TeacherName = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.sm - 1}px;
-  line-height: ${props => props.theme.fontSizes.md}px;
+  font-size: ${props => props.theme.fontSizes.xl + 2}px;
+  line-height: ${props => props.theme.fontSizes.xl + 2}px;
   text-align: center;
-  color: #303030;
-
-  margin-top: ${rsize(5, "w")}px;
+  color: ${props => props.theme.colors.textLight};
 `
-export const TeacherExercise = styled(CustomTextBase)`
-  font-size: ${props => props.theme.fontSizes.xs - 1}px;
-  line-height: ${props => props.theme.fontSizes.sm - 1}px;
+export const BannerDescription = styled(CustomTextBase)`
+  font-size: ${props => props.theme.fontSizes.sm}px;
+  line-height: ${props => props.theme.fontSizes.lg + 2}px;
   text-align: center;
-  color: #8D97B5;
-
-  margin-top: ${rsize(5, "w")}px;
+  color: ${props => props.theme.colors.textLight};
 `
-export const ButtonSeeAll = styled.TouchableOpacity`
-  padding: ${rsize(2, "w")}px 0 ${rsize(2, "w")}px ${rsize(2, "w")}px;
-`
-export const IconChevronRight = styled(Feather).attrs({
-  name: "chevron-right",
-  size: rsize(26, "w"),
+export const IconCash = styled(Feather).attrs({
+  name: "dollar-sign",
+  size: rsize(24, "w"),
 })`
-  color: white;
-  margin-bottom: 3px;
+  color: ${props => props.theme.colors.textColor};
 `
-
+export const IconPlus = styled(Feather).attrs({
+  name: "plus",
+  size: rsize(24, "w"),
+})`
+  color: ${props => props.theme.colors.secondary};
+`

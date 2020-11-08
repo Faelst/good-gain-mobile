@@ -8,17 +8,21 @@ import { light } from './styles/themes/light';
 
 const App: React.FC = () => {
   const [loaded, error] = useFonts({
-    Montserrat: {
-      uri: require('../assets/fonts/Montserrat/Montserrat-Light.ttf'),
+    'Gilroy-Regular': {
+      uri: require('../assets/fonts/Gilroy/Gilroy-Regular.ttf'),
       display: FontDisplay.AUTO
     },
-    'Montserrat-Regular': {
-      uri: require('../assets/fonts/Montserrat/Montserrat-Regular.ttf'),
+    'Gilroy-Medium': {
+      uri: require('../assets/fonts/Gilroy/Gilroy-Medium.ttf'),
       display: FontDisplay.AUTO
     },
-    'Montserrat-Bold': {
-      display: FontDisplay.AUTO,
-      uri: require('../assets/fonts/Montserrat/Montserrat-Bold.ttf')
+    'Gilroy-Bold': {
+      uri: require('../assets/fonts/Gilroy/Gilroy-Bold.ttf'),
+      display: FontDisplay.AUTO
+    },
+    'Circular-Std-Bold': {
+      uri: require('../assets/fonts/Circular/Circular-Std-Bold.ttf'),
+      display: FontDisplay.AUTO
     }
   });
 
@@ -30,11 +34,8 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={light}>
-      <>
-        {/* <Login /> */}
-        <Routes />
-        <StatusBar style="light" />
-      </>
+      <StatusBar style="light" />
+      <Routes />
     </ThemeProvider>
   );
 };

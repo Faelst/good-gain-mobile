@@ -1,192 +1,121 @@
 import React from 'react'
-import { View, FlatList, TouchableOpacity, SafeAreaView } from 'react-native'
-import { useNavigation } from "@react-navigation/native";
-
+import { SafeAreaView, FlatList, View } from 'react-native'
 import {
   Container,
   Header,
   HeaderContent,
-  HeaderText,
-  ProfileImage,
+  AppBarContent,
+  Logo,
   MainContent,
-  Padding,
-  Banner,
-  Gradient,
+  BannerCard,
+  BannerImage,
   BannerContent,
-  Background,
   BannerTitle,
-  BannerTag,
-  IconChevronRight,
-  SectionHeader,
-  SectionTitle,
-  ButtonSeeAll,
-  TextSeeAll,
-  LessonsCard,
-  LessonsImage,
-  LessonsTitle,
-  LessonsDescription,
-  TeacherCard,
-  TeacherImage,
-  TeacherName,
-  TeacherExercise,
+  BannerDescription,
+  BalanceCard,
+  BalanceTitle,
+  BalanceCash,
+  BalanceButton,
+  IconCash,
+  IconPlus,
+  ActionContainer,
+  ActionCard,
+  ActionTitle,
+  ActionIcon,
+  CardMediaContainer,
+  BackgroundMedia,
+  CardMediaTitle,
 } from './styles'
 
-import GoalCard from '../../components/GoalCard'
+import { useNavigation } from "@react-navigation/native";
+
 import CardMedia from '../../components/CardMedia'
+import { Feather } from '@expo/vector-icons'
+import banner from '../../images/banner_challenge.png'
 
-import profileImage from '../../images/profile-avatar.png'
-import yogaImage from '../../images/yoga.png'
-import cardioImage from '../../images/cardio.png'
-import banner2 from '../../images/banner2.png'
-import banner3 from '../../images/banner3.png'
-import teacherAline from '../../images/professor-avatar.png'
-import teacherLeticia from '../../images/profile-avatar.png'
-
-const dataLessons = [
+const dataChallenge = [
   {
-    name: "Yoga",
-    lessons: 15,
-    image: yogaImage
+    image: banner ,
+    title: "Desafie!",
+    description: "Participe de partidas rápidas ou de campeonatos com jogadores reais."
+  },{
+    image: banner ,
+    title: "Desafie2!",
+    description: "Participe de partidas rápidas ou de campeonatos com jogadores reais."
   },
-  {
-    name: "Cardio",
-    lessons: 25,
-    image: cardioImage
-  },
-  {
-    name: "Pilates",
-    lessons: 20,
-    image: yogaImage
-  }
-]
-const dataArticles = [
-  {
-    image: banner2,
-    title: "Como manter o foco em época de home office.",
-    tag: "Blog",
-  },
-  {
-    image: banner3,
-    title: "10 dicas para um treino em grupo ser incrível.",
-    tag: "Blog",
-  }
-]
-const dataTeachers = [
-  {
-    name: "Aline Figueiredo",
-    exercise: "Artes marciais",
-    image: teacherLeticia
-  },
-  {
-    name: "Letícia Guimarães",
-    exercise: "Funcional",
-    image: teacherLeticia
-  },
-  {
-    name: "Ricardo",
-    exercise: "Funcional",
-    image: teacherAline
-  }
 ]
 
 const Home: React.FC = () => {
-  const navigation = useNavigation();
-
-  const sectionHeader = ( title: string, onPress?: () => void ) => (
-    <SectionHeader>
-      <SectionTitle>{title}</SectionTitle>
-        <ButtonSeeAll onPress={onPress}>
-          <TextSeeAll>Ver todos</TextSeeAll>
-        </ButtonSeeAll>
-    </SectionHeader>
-  )
+  const navigation = useNavigation()
 
   return (
     <SafeAreaView>
       <Container>
         <Header>
           <HeaderContent>
-            <HeaderText>
-              Olá {"\n"}
-              Fernanda Amaral
-            </HeaderText>
-            <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-              <ProfileImage source={profileImage}/>
-            </TouchableOpacity>
+            <Logo />
+            <AppBarContent>
+              <Feather name="search" size={24} color="white" />
+              <Feather name="bell" size={24} color="white" />
+            </AppBarContent>
           </HeaderContent>
         </Header>
 
         <MainContent>
-          <Padding>
-            <GoalCard />
-
-            <Banner>
-              <TouchableOpacity>
-                <Background>
-                  <Gradient />
-                  <BannerContent>
-                    <View>
-                      <BannerTitle>Aulão inaugural</BannerTitle>
-                      <BannerTag>Funcional</BannerTag>
-
-                    </View>
-                    <IconChevronRight />
-                  </BannerContent>
-                </Background>
-              </TouchableOpacity>
-            </Banner>
-          
-            {sectionHeader("Aulas mais curtidas")}
-          </Padding>
-
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={dataLessons}
-            keyExtractor={item => item.name}
-            renderItem={item => (
-              <LessonsCard fistChild={item.index}>
-                <LessonsImage source={item.item.image} />
-                <LessonsTitle>{item.item.name}</LessonsTitle>
-                <LessonsDescription>{item.item.lessons} Aulas</LessonsDescription>
-              </LessonsCard>
+            data={dataChallenge}
+            keyExtractor={item => item.title}
+            renderItem={({item, index}) => (
+              <BannerCard>
+                <BannerImage source={item.image} />
+                <BannerContent>
+                  <BannerTitle>{item.title}</BannerTitle>
+                  <BannerDescription>{item.description}</BannerDescription>
+                </BannerContent>
+              </BannerCard>
             )}
           />
 
-          <Padding>
-            {sectionHeader("Nossos artigos")}
+          <BalanceCard enabled={false}>
+            <IconCash />
+            <View>
+              <BalanceTitle>Saldo atual</BalanceTitle>
+              <BalanceCash>R$150,00</BalanceCash>
+            </View>
+            <BalanceButton>
+              <IconPlus />
+            </BalanceButton>
+          </BalanceCard>
 
-            {dataArticles.map((item, index) => (
-              <CardMedia
-                key={index}
-                marginTop={index >= 1 ? true : false}
-                image={item.image}
-                title={item.title}
-                tag={item.tag}
-              />
-            ))}
+          <ActionContainer>
+            <ActionCard>
+              <ActionIcon />
+              <ActionTitle>Partidas rápidas</ActionTitle>
+            </ActionCard>
+            
+            <ActionCard>
+              <ActionIcon />
+              <ActionTitle>Campeonatos</ActionTitle>
+            </ActionCard>
 
-            {sectionHeader(
-              "Professores em destaque",
-              () => navigation.navigate("Teachers")
-            )}
-          </Padding>
+            <CardMediaContainer>
+              <BackgroundMedia />
+              <CardMediaTitle>Jogos disponiveis</CardMediaTitle>
+            </CardMediaContainer>
 
-          <FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            data={dataTeachers}
-            keyExtractor={item => item.name}
-            renderItem={item => (
-              <TouchableOpacity>
-                <TeacherCard fistChild={item.index}>
-                  <TeacherImage source={item.item.image} />  
-                  <TeacherName>{item.item.name}</TeacherName>
-                  <TeacherExercise>{item.item.exercise}</TeacherExercise>
-                </TeacherCard>
-              </TouchableOpacity>
-            )}
-          />
+            <CardMediaContainer>
+              <BackgroundMedia />
+              <CardMediaTitle>Jogos disponiveis</CardMediaTitle>
+            </CardMediaContainer>
+
+            <CardMediaContainer>
+              <BackgroundMedia />
+              <CardMediaTitle>Jogos disponiveis</CardMediaTitle>
+            </CardMediaContainer>
+            
+          </ActionContainer>
         </MainContent>
       </Container>
     </SafeAreaView>
