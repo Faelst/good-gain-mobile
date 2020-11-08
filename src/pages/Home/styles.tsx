@@ -1,7 +1,9 @@
 import styled from 'styled-components/native';
 import { StatusBar } from 'react-native'
 import { CardMedia } from '../../components/CustomCard'
+import { RectButton, TouchableOpacity } from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient'
+import SvgUri from "expo-svg-uri";
 import CustomTextBase from '../../components/CustomTextBase'
 import TextBold from '../../components/TextBold'
 import logo from '../../images/logo_horizontal_2.png'
@@ -23,7 +25,7 @@ export const Header = styled(LinearGradient).attrs(props => ({
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  padding: ${rsize(24, "w")}px ${rsize(22, "w")}px 0 ${rsize(30, "w")}px;
+  padding: ${rsize(24, "w")}px ${rsize(8, "w")}px 0 ${rsize(30, "w")}px;
 `
 export const HeaderContent = styled.View`
   width: 100%;
@@ -34,8 +36,19 @@ export const HeaderContent = styled.View`
 export const AppBarContent = styled.View`
   flex-direction: row;
 `
+export const AppBarButton = styled(TouchableOpacity)`
+  height: ${rsize(45, "w")}px;
+  width: ${rsize(45, "w")}px;
+  align-items: center;
+  justify-content: center;
+  margin-right: ${rsize(4, "w")}px;
+  border-radius: ${rsize(25, "w")}px;
+`
 export const MainContent = styled.View`
   top: ${rsize(-88, "w")}px;
+`
+export const Padding = styled.View`
+  padding: ${rsize(24, "w")}px ${rsize(24, "w")}px 0 ${rsize(24, "w")}px;
 `
 export const BannerCard = styled(CardMedia)`
   height: ${rsize(235, "w")}px;
@@ -43,7 +56,6 @@ export const BannerCard = styled(CardMedia)`
   justify-content: space-between;
   border-radius: ${rsize(30, "w")}px;
   margin-left: ${rsize(30, "w")}px;
-  background-color: ${props => props.theme.colors.backgroundLighter};
 `
 export const BannerContent = styled.View`
   flex: 1;
@@ -57,16 +69,27 @@ export const BannerContent = styled.View`
 export const BalanceCard = styled(CardMedia)`
   height: ${rsize(100, "w")}px;
   width: ${rsize(327, "w")}px;
+
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: ${rsize(24, "w")}px;
-  margin-left: ${rsize(24, "w")}px;
-  margin-right: ${rsize(24, "w")}px;
   background-color:${props => props.theme.colors.secondary};
   padding: 0 ${rsize(21, "w")}px 0 ${rsize(21, "w")}px;
 `
-export const BalanceButton = styled.TouchableOpacity`
+export const Rectangle = styled.View`
+  position: absolute;
+  width: ${rsize(73.78, "w")}px;
+  height: ${rsize(73.78, "w")}px;
+  left: ${rsize(23.66, "w")}px;
+
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: ${rsize(5, "w")}px;
+  transform: rotate(45deg);
+`
+export const Rectangle2 = styled(Rectangle)`
+  left: ${rsize(-11, "w")}px;
+`
+export const BalanceButton = styled(TouchableOpacity)`
   height: ${rsize(45, "w")}px;
   width: ${rsize(45, "w")}px;
   align-items: center;
@@ -81,59 +104,68 @@ export const BalanceTitle = styled(TextBold)`
   color: ${props => props.theme.colors.textColor};
 `
 export const BalanceCash = styled(BalanceTitle)`
+  max-height: ${rsize(80, "w")}px;
+  max-width: ${rsize(180, "w")}px;
   font-size: ${props => props.theme.fontSizes.xl - 2}px;
   line-height: ${props => props.theme.fontSizes.xl + 1}px;
 `
 export const ActionContainer = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 `
 export const ActionCard = styled(CardMedia)`
-height: ${rsize(71, "w")}px;
-width: ${rsize(156, "w")}px;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-border-radius: ${rsize(20, "w")}px;
-background-color: ${props => props.theme.colors.primary};
+  height: ${rsize(71, "w")}px;
+  width: ${rsize(156, "w")}px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: ${rsize(15, "w")}px;
+  border-radius: ${rsize(20, "w")}px;
+  background-color: ${props => props.theme.colors.primary};
+`
+export const ActionCard2 = styled(ActionCard)`
+  background-color: ${props => props.theme.colors.backgroundSecondary};
 `
 export const ActionTitle = styled(TextBold)`
   height: 100%;
+  width: 100%;
   flex: 2;
-  flex-wrap: wrap;
-  background-color: green;
 
   font-size: ${props => props.theme.fontSizes.sm}px;
-  line-height: ${props => props.theme.fontSizes.xxs - 2}px;
+  line-height: ${props => props.theme.fontSizes.sm}px;
   text-align-vertical: center;
 `
-export const ActionIcon = styled.Image`
+export const ActionIcon = styled(SvgUri)`
   flex: 1;
-  height: ${rsize(30, "w")}px;
-  width: ${rsize(30, "w")}px;
-  background-color: red;
+  align-items: center;
+  justify-content: center;
 `
 export const CardMediaContainer = styled(CardMedia)`
-height: ${rsize(156, "w")}px;
-width: ${rsize(156, "w")}px;
-align-items: center;
-justify-content: flex-end;
-background-color: ${props => props.theme.colors.textSecondary};
-border-radius: ${rsize(20, "w")}px;
-padding: 0 ${rsize(12, "w")}px ${rsize(12, "w")}px ${rsize(12, "w")}px;
+  height: ${rsize(156, "w")}px;
+  width: ${rsize(156, "w")}px;
+  margin-top: ${rsize(15, "w")}px;
+  background-color: ${props => props.theme.colors.textSecondary};
 `
-export const BackgroundMedia = styled.Image`
+export const BackgroundMedia = styled.ImageBackground`
+  height: ${rsize(156, "w")}px;
+  width: ${rsize(156, "w")}px;
+  align-items: center;
+  justify-content: flex-end;
+  border-radius: ${rsize(20, "w")}px;
+  padding: 0 ${rsize(12, "w")}px ${rsize(12, "w")}px ${rsize(12, "w")}px;
+`
+export const MediaButton = styled(RectButton)`
+  height: ${rsize(38, "w")}px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: ${rsize(10, "w")}px;
+  background-color: ${props => props.theme.colors.backgroundLighter};
 `
 export const CardMediaTitle = styled(TextBold)`
-height: ${rsize(38, "w")}px;
-width: 100%;
-border-radius: ${rsize(10, "w")}px;
-background-color: ${props => props.theme.colors.backgroundLighter};
-
-font-size: ${props => props.theme.fontSizes.sm}px;
-text-align: center;
-text-align-vertical: center;
-color: ${props => props.theme.colors.textLight};
+  font-size: ${props => props.theme.fontSizes.sm}px;
+  color: ${props => props.theme.colors.textLight};
 `
 export const Logo = styled.Image.attrs({
   source: logo
@@ -155,7 +187,7 @@ export const BannerTitle = styled(TextBold)`
 `
 export const BannerDescription = styled(CustomTextBase)`
   font-size: ${props => props.theme.fontSizes.sm}px;
-  line-height: ${props => props.theme.fontSizes.lg + 2}px;
+  line-height: ${props => props.theme.fontSizes.lg}px;
   text-align: center;
   color: ${props => props.theme.colors.textLight};
 `
@@ -163,6 +195,10 @@ export const IconCash = styled(Feather).attrs({
   name: "dollar-sign",
   size: rsize(24, "w"),
 })`
+  height: ${rsize(45, "w")}px;
+  width: ${rsize(45, "w")}px;
+  text-align: center;
+  text-align-vertical: center;
   color: ${props => props.theme.colors.textColor};
 `
 export const IconPlus = styled(Feather).attrs({
@@ -170,4 +206,16 @@ export const IconPlus = styled(Feather).attrs({
   size: rsize(24, "w"),
 })`
   color: ${props => props.theme.colors.secondary};
+`
+export const IconSeacrh = styled(Feather).attrs({
+  name: "search",
+  size: rsize(24, "w"),
+})`
+  color: ${props => props.theme.colors.textColor};
+`
+export const IconBell = styled(Feather).attrs({
+  name: "bell",
+  size: rsize(24, "w"),
+})`
+  color: ${props => props.theme.colors.textColor};
 `

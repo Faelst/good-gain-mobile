@@ -4,11 +4,9 @@ import { rsize } from '../utils/size'
 
 export const Card = styled(RectButton)`
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: ${props => props.theme.colors.backgroundLighter};
   border-radius: ${rsize(7, "w")}px;
 `
-export const CardMedia = styled(RectButton)`
-  width: 100%;
+export const CardMedia = styled(Card)`
   border-radius: ${rsize(30, "w")}px;
-  background-color: #FCFCFC;
 `
