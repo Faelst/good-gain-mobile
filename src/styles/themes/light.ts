@@ -12,8 +12,8 @@ const light: DefaultTheme = {
     secondary: '#41D886',
     buttonPrimary: '',
     buttonSecondary: '#FFFFFF',
-    textLight: '#383838',
-    textColor: '#FFFFFF',
+    textLight: '#FFFFFF',
+    textColor: '#383838',
     textSecondary: 'rgba(169, 169, 169, 0.8)',
     subtitle: 'rgba(56, 56, 56, 0.8)'
 

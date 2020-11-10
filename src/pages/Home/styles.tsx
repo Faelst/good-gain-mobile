@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { StatusBar } from 'react-native'
 import { CardMedia } from '../../components/CustomCard'
-import { RectButton, TouchableOpacity } from 'react-native-gesture-handler'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient'
 import SvgUri from "expo-svg-uri";
 import CustomTextBase from '../../components/CustomTextBase'
@@ -55,7 +55,6 @@ export const BannerCard = styled(CardMedia)`
   width: ${rsize(290, "w")}px;
   justify-content: space-between;
   border-radius: ${rsize(30, "w")}px;
-  margin-left: ${rsize(30, "w")}px;
 `
 export const BannerContent = styled.View`
   flex: 1;
@@ -101,7 +100,7 @@ export const BalanceButton = styled(TouchableOpacity)`
 export const BalanceTitle = styled(TextBold)`
   font-size: ${props => props.theme.fontSizes.sm}px;
   line-height: ${props => props.theme.fontSizes.md}px;
-  color: ${props => props.theme.colors.textColor};
+  color: ${props => props.theme.colors.textLight};
 `
 export const BalanceCash = styled(BalanceTitle)`
   max-height: ${rsize(80, "w")}px;
@@ -155,7 +154,7 @@ export const BackgroundMedia = styled.ImageBackground`
   border-radius: ${rsize(20, "w")}px;
   padding: 0 ${rsize(12, "w")}px ${rsize(12, "w")}px ${rsize(12, "w")}px;
 `
-export const MediaButton = styled(RectButton)`
+export const MediaButton = styled.View`
   height: ${rsize(38, "w")}px;
   width: 100%;
   align-items: center;
@@ -165,7 +164,7 @@ export const MediaButton = styled(RectButton)`
 `
 export const CardMediaTitle = styled(TextBold)`
   font-size: ${props => props.theme.fontSizes.sm}px;
-  color: ${props => props.theme.colors.textLight};
+  color: ${props => props.theme.colors.textColor};
 `
 export const Logo = styled.Image.attrs({
   source: logo
@@ -183,13 +182,13 @@ export const BannerTitle = styled(TextBold)`
   font-size: ${props => props.theme.fontSizes.xl + 2}px;
   line-height: ${props => props.theme.fontSizes.xl + 2}px;
   text-align: center;
-  color: ${props => props.theme.colors.textLight};
+  color: ${props => props.theme.colors.textColor};
 `
 export const BannerDescription = styled(CustomTextBase)`
   font-size: ${props => props.theme.fontSizes.sm}px;
   line-height: ${props => props.theme.fontSizes.lg}px;
   text-align: center;
-  color: ${props => props.theme.colors.textLight};
+  color: ${props => props.theme.colors.textColor};
 `
 export const IconCash = styled(Feather).attrs({
   name: "dollar-sign",
@@ -199,7 +198,7 @@ export const IconCash = styled(Feather).attrs({
   width: ${rsize(45, "w")}px;
   text-align: center;
   text-align-vertical: center;
-  color: ${props => props.theme.colors.textColor};
+  color: ${props => props.theme.colors.textLight};
 `
 export const IconPlus = styled(Feather).attrs({
   name: "plus",
@@ -211,11 +210,11 @@ export const IconSeacrh = styled(Feather).attrs({
   name: "search",
   size: rsize(24, "w"),
 })`
-  color: ${props => props.theme.colors.textColor};
+  color: ${props => props.theme.colors.textLight};
 `
 export const IconBell = styled(Feather).attrs({
   name: "bell",
   size: rsize(24, "w"),
 })`
-  color: ${props => props.theme.colors.textColor};
+  color: ${props => props.theme.colors.textLight};
 `
