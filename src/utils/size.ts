@@ -9,7 +9,7 @@ const _w = 375; // largura base do layout
 const _p = 100 / _h;
 const _pw = 100 / _w;
 
-export function rsize(size: number, type: "w" | "h" = "h") {
+export function rsize(size: number, type: "w" | "h" = "w") {
   if (type === "h") return hp(`${size * _p}`);
   else if (type === "w") return wp(`${size * _pw}`);
   else return wp(`${size * _p}`);

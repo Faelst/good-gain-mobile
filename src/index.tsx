@@ -10,19 +10,19 @@ const App: React.FC = () => {
   const [loaded, error] = useFonts({
     'Gilroy-Regular': {
       uri: require('../assets/fonts/Gilroy/Gilroy-Regular.ttf'),
-      display: FontDisplay.AUTO
+      display: FontDisplay.BLOCK
     },
     'Gilroy-Medium': {
       uri: require('../assets/fonts/Gilroy/Gilroy-Medium.ttf'),
-      display: FontDisplay.AUTO
+      display: FontDisplay.BLOCK
     },
     'Gilroy-Bold': {
       uri: require('../assets/fonts/Gilroy/Gilroy-Bold.ttf'),
-      display: FontDisplay.AUTO
+      display: FontDisplay.BLOCK
     },
     'Circular-Std-Bold': {
       uri: require('../assets/fonts/Circular/Circular-Std-Bold.ttf'),
-      display: FontDisplay.AUTO
+      display: FontDisplay.BLOCK
     }
   });
 

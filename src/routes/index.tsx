@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Home from "../pages/Home";
+import BannerDetail from "../pages/BannerDetail";
 import ForgotPassword from "../pages/ForgotPassword";
 
 const { Navigator, Screen } = createStackNavigator();
@@ -17,6 +18,7 @@ function App() {
         <Screen name="SignUp" component={SignUp} />
         <Screen name="ForgotPassword" component={ForgotPassword} />
         <Screen name="Home" component={Home} />
+        <Screen name="BannerDetail" component={BannerDetail} />
       </Navigator>
     </NavigationContainer>
   );
