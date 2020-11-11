@@ -1,6 +1,9 @@
-import React from 'react'
-import { SafeAreaView, FlatList, View } from 'react-native'
-import { BorderlessButton, TouchableOpacity } from 'react-native-gesture-handler'
+import React from "react";
+import { SafeAreaView, FlatList, View } from "react-native";
+import {
+  BorderlessButton,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 import {
   Container,
   Header,
@@ -34,68 +37,74 @@ import {
   BackgroundMedia,
   MediaButton,
   CardMediaTitle,
-} from './styles'
+} from "./styles";
 
 import { useNavigation } from "@react-navigation/native";
 
-import CardMedia from '../../components/CardMedia'
-import { Feather } from '@expo/vector-icons'
-import { rsize } from '../../utils/size'
-import banner from '../../images/banner_challenge.png'
-import flash from '../../images/icons/flash.svg'
-import trophy from '../../images/icons/trophy.svg'
-import bgMedia1 from '../../images/bg_media1.png'
-import bgMedia2 from '../../images/bg_media2.png'
-import bgMedia3 from '../../images/bg_media3.png'
-import bgMedia4 from '../../images/bg_media4.png'
+import CardMedia from "../../components/CardMedia";
+import { Feather } from "@expo/vector-icons";
+import { rsize } from "../../utils/size";
+import banner from "../../images/banner_challenge.png";
+import flash from "../../images/icons/flash.svg";
+import trophy from "../../images/icons/trophy.svg";
+import bgMedia1 from "../../images/bg_media1.png";
+import bgMedia2 from "../../images/bg_media2.png";
+import bgMedia3 from "../../images/bg_media3.png";
+import bgMedia4 from "../../images/bg_media4.png";
 
 const dataChallenge = [
   {
-    image: banner ,
+    image: banner,
     title: "Desafie!",
-    description: "Participe de partidas rápidas ou de campeonatos com jogadores reais."
-  },{
-    image: banner ,
-    title: "Desafie2!",
-    description: "Participe de partidas rápidas ou de campeonatos com jogadores reais."
+    description:
+      "Participe de partidas rápidas ou de campeonatos com jogadores reais.",
   },
-]
+  {
+    image: banner,
+    title: "Desafie2!",
+    description:
+      "Participe de partidas rápidas ou de campeonatos com jogadores reais.",
+  },
+];
 
 const dataMedia = [
   {
-    image: bgMedia1 ,
+    image: bgMedia1,
     title: "Jogos disponiveis",
-  },{
-    image: bgMedia2 ,
+  },
+  {
+    image: bgMedia2,
     title: "Convidar amigos",
-  },{
-    image: bgMedia3 ,
+  },
+  {
+    image: bgMedia3,
     title: "Ranking",
-  },{
-    image: bgMedia4 ,
+  },
+  {
+    image: bgMedia4,
     title: "Suporte",
   },
-]
+];
 
 const Home: React.FC = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   const listMargin = (index: number) => {
-    if (index === dataChallenge.length - 1 ) {
+    if (index === dataChallenge.length - 1) {
       return {
         marginLeft: rsize(10, "w"),
-        marginRight: rsize(30, "w")
-      }
+        marginRight: rsize(30, "w"),
+      };
     } else if (index >= 1) {
       return {
-        marginLeft: rsize(10, "w")
-      }
+        marginLeft: rsize(10, "w"),
+      };
     } else if (index === 0) {
       return {
-        marginLeft: rsize(30, "w")
-      }
-    } 
-  }
+        marginLeft: rsize(30, "w"),
+      };
+    }
+  };
 
   return (
     <SafeAreaView>
@@ -105,10 +114,10 @@ const Home: React.FC = () => {
             <Logo />
             <AppBarContent>
               <AppBarButton>
-                <IconSeacrh/>
+                <IconSeacrh />
               </AppBarButton>
               <AppBarButton>
-                <IconBell/>
+                <IconBell />
               </AppBarButton>
             </AppBarContent>
           </HeaderContent>
@@ -119,8 +128,8 @@ const Home: React.FC = () => {
             horizontal
             showsHorizontalScrollIndicator={false}
             data={dataChallenge}
-            keyExtractor={item => item.title}
-            renderItem={({item, index}) => (
+            keyExtractor={(item) => item.title}
+            renderItem={({ item, index }) => (
               <BannerCard style={listMargin(index)}>
                 <BannerImage source={item.image} />
                 <BannerContent>
@@ -147,16 +156,16 @@ const Home: React.FC = () => {
 
             <ActionContainer>
               <ActionCard>
-                <ActionIcon source={flash}/>
+                <ActionIcon source={flash} />
                 <ActionTitle>Partidas rápidas</ActionTitle>
               </ActionCard>
-              
+
               <ActionCard2>
-                <ActionIcon source={trophy}/>
+                <ActionIcon source={trophy} />
                 <ActionTitle>Campeonatos</ActionTitle>
               </ActionCard2>
 
-              {dataMedia.map(item => (
+              {dataMedia.map((item) => (
                 <CardMediaContainer>
                   <BackgroundMedia source={item.image}>
                     <MediaButton>
@@ -165,13 +174,12 @@ const Home: React.FC = () => {
                   </BackgroundMedia>
                 </CardMediaContainer>
               ))}
-
             </ActionContainer>
           </Padding>
         </MainContent>
       </Container>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 export default Home;

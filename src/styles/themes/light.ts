@@ -13,7 +13,7 @@ const light: DefaultTheme = {
     buttonPrimary: '',
     buttonSecondary: '#FFFFFF',
     textLight: '#383838',
-    textColor: '#FFFFFF',
+    textColor: '#000',
     textSecondary: 'rgba(169, 169, 169, 0.8)',
     subtitle: 'rgba(56, 56, 56, 0.8)'
 
