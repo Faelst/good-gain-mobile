@@ -67,5 +67,6 @@ export const TextButton = styled(CustomTextBase)`
 `;
 export const ButtonTextStart = styled(TextBold)`
   text-align-vertical: center;
+  color: #fff;
   font-size: ${props => props.theme.fontSizes.md}px;
 `;

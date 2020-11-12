@@ -10,15 +10,19 @@ import { Button as ButtonComponent } from "../../components";
 import CustomTextBase from "../../components/CustomTextBase";
 import TextBold from "../../components/TextBold";
 
-import background from "../../images/background.jpg";
+import background from "../../images/background_login.jpg";
 import logo from "../../images/logo_horizontal.png";
 import logoSmall from "../../images/logo_small.png";
 import { rsize } from "../../utils/size";
 
-export const Background = styled.ImageBackground.attrs({
+export const Background = styled.Image.attrs({
   source: background,
+  resizeMode: "cover",
 })`
-  flex: 1;
+  position: absolute;
+  top: 0;
+  width: ${wp("100%")}px;
+  height: ${hp("50%")}px;
 `;
 
 export const Logo = styled.Image.attrs({
@@ -49,7 +53,7 @@ export const LogoSmall = styled.Image.attrs({
 export const Container = styled.View`
   flex: 1;
   justify-content: space-between;
-  padding-top: ${rsize(66)}px;
+  padding-top: ${rsize(25)}px;
 `;
 
 export const Form = styled.View`
@@ -116,7 +120,6 @@ export const ButtonSignUp = styled(ButtonComponent)`
 export const ButtonForgotPass = styled(ButtonComponent)`
   height: auto;
   font-weight: 400;
-  background-color: red;
   background-color: transparent;
   font-size: ${(props) => props.theme.fontSizes.md}px;
   align-self: flex-end;
