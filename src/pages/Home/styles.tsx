@@ -113,33 +113,6 @@ export const ActionContainer = styled.View`
   flex-wrap: wrap;
   justify-content: space-between;
 `
-export const ActionCard = styled(CardMedia)`
-  height: ${rsize(71, "w")}px;
-  width: ${rsize(156, "w")}px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: ${rsize(15, "w")}px;
-  border-radius: ${rsize(20, "w")}px;
-  background-color: ${props => props.theme.colors.primary};
-`
-export const ActionCard2 = styled(ActionCard)`
-  background-color: ${props => props.theme.colors.backgroundSecondary};
-`
-export const ActionTitle = styled(TextBold)`
-  height: 100%;
-  width: 100%;
-  flex: 2;
-
-  font-size: ${props => props.theme.fontSizes.sm}px;
-  line-height: ${props => props.theme.fontSizes.sm}px;
-  text-align-vertical: center;
-`
-export const ActionIcon = styled(SvgUri)`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-`
 export const CardMediaContainer = styled(CardMedia)`
   height: ${rsize(156, "w")}px;
   width: ${rsize(156, "w")}px;
