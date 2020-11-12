@@ -29,7 +29,7 @@ const Login: React.FC = () => {
   function signIn() {
     try {
       console.log("signin");
-      navigation.navigate("LandingPagePosCreation");
+      navigation.navigate("Home");
     } catch (error) {
       console.log("error", error);
     }
@@ -37,14 +37,14 @@ const Login: React.FC = () => {
 
   function signUp() {
     try {
-      navigation.navigate("SignUp");
+      // navigation.navigate("SignUp");
     } catch (error) {
       console.log("error", error);
     }
   }
 
   function forgotPassword() {
-    navigation.navigate("ForgotPassword");
+    // navigation.navigate("ForgotPassword");
   }
 
   return (
@@ -80,9 +80,8 @@ const Login: React.FC = () => {
 
             <Button onPress={signIn}>Entrar</Button>
             <ButtonSignUp onPress={signUp}>
-              <ButtonSignUpText>Ainda não possui uma conta?</ButtonSignUpText>
               <ButtonSignUpText>
-                <Strong>Crie agora mesmo.</Strong>
+                Ainda não possui uma conta? <Strong>Crie agora mesmo.</Strong>
               </ButtonSignUpText>
             </ButtonSignUp>
           </Form>

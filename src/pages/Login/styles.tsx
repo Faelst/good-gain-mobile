@@ -98,10 +98,11 @@ const CustomButton: React.FC<any> = ({ children, ...props }) => {
 export const Button = styled(CustomButton)`
   margin-top: ${rsize(21)}px;
   margin-bottom: ${rsize(21)}px;
+  background-color: ${(props) => props.theme.colors.primary};
 `;
 
 export const ButtonSignUpText = styled(CustomTextBase)<any>`
-  font-size: ${(props) => props.theme.fontSizes.md}px;
+  font-size: ${(props) => props.theme.fontSizes.sm}px;
   text-align: center;
 `;
 
@@ -110,7 +111,6 @@ export const ButtonSignUp = styled(ButtonComponent)`
   height: auto;
   font-weight: 400;
   background-color: transparent;
-  font-size: ${(props) => props.theme.fontSizes.md}px;
 `;
 
 export const ButtonForgotPass = styled(ButtonComponent)`
@@ -124,7 +124,7 @@ export const ButtonForgotPass = styled(ButtonComponent)`
 `;
 
 export const ButtonForgotPassText = styled(CustomTextBase)<any>`
-  font-size: ${(props) => props.theme.fontSizes.md}px;
+  font-size: ${(props) => props.theme.fontSizes.sm}px;
   width: 100%;
   text-align: right;
   text-decoration: underline;

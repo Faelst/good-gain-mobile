@@ -19,7 +19,7 @@ export const Input = styled.TextInput.attrs({
   height: ${rsize(55)}px;
   flex: 1;
   color: #8d97b5;
-  font-family: ${(props) => props.theme.fontFamily.textRegular};
+  font-family: ${(props) => props.theme.fontFamily.textRegular}; 
   font-size: ${(props) => props.theme.fontSizes.md}px;
 `;
 
@@ -32,5 +32,5 @@ export const Label = styled(CustomTextBase)`
   color: #000;
   font-family: ${(props) => props.theme.fontFamily.textRegular};
   font-size: ${(props) => props.theme.fontSizes.md}px;
-  margin-bottom: ${rsize(10)}px;
+  margin-bottom: ${rsize(5)}px;
 `;

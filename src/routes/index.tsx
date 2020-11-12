@@ -13,7 +13,7 @@ const { Navigator, Screen } = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Navigator initialRouteName="GGPanel" screenOptions={{ headerShown: false }}>
+      <Navigator initialRouteName="SignIn" screenOptions={{ headerShown: false }}>
 
         <Screen name="SignIn" component={Login} />
         <Screen name="SignUp" component={SignUp} />

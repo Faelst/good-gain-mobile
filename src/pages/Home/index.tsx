@@ -29,7 +29,7 @@ import {
   BackgroundMedia,
   MediaButton,
   CardMediaTitle,
-} from './styles'
+} from "./styles";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -59,39 +59,42 @@ const dataChallenge = [
 
 const dataMedia = [
   {
-    image: bgMedia1 ,
+    image: bgMedia1,
     title: "Jogos disponiveis",
-  },{
-    image: bgMedia2 ,
+  },
+  {
+    image: bgMedia2,
     title: "Convidar amigos",
-  },{
-    image: bgMedia3 ,
+  },
+  {
+    image: bgMedia3,
     title: "Ranking",
-  },{
-    image: bgMedia4 ,
+  },
+  {
+    image: bgMedia4,
     title: "Suporte",
   },
-]
+];
 
 const Home: React.FC = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   const listMargin = (index: number) => {
-    if (index === dataChallenge.length - 1 ) {
+    if (index === dataChallenge.length - 1) {
       return {
         marginLeft: rsize(10, "w"),
-        marginRight: rsize(30, "w")
-      }
+        marginRight: rsize(30, "w"),
+      };
     } else if (index >= 1) {
       return {
-        marginLeft: rsize(10, "w")
-      }
+        marginLeft: rsize(10, "w"),
+      };
     } else if (index === 0) {
       return {
-        marginLeft: rsize(30, "w")
-      }
-    } 
-  }
+        marginLeft: rsize(30, "w"),
+      };
+    }
+  };
 
   return (
     <SafeAreaView>
@@ -101,10 +104,10 @@ const Home: React.FC = () => {
             <Logo />
             <AppBarContent>
               <AppBarButton>
-                <IconSeacrh/>
+                <IconSeacrh />
               </AppBarButton>
               <AppBarButton>
-                <IconBell/>
+                <IconBell />
               </AppBarButton>
             </AppBarContent>
           </HeaderContent>
@@ -159,14 +162,13 @@ const Home: React.FC = () => {
                   </BackgroundMedia>
                 </CardMediaContainer>
               ))}
-
             </ActionContainer>
           </Padding>
         </MainContent>
       </Container>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 export default Home;
 
