@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { StatusBar } from "react-native";
 import { CardMedia } from "../../components/CustomCard";
-import { RectButton, TouchableOpacity } from "react-native-gesture-handler";
+import { RectButton, TouchableOpacity, BaseButton, TouchableHighlight } from "react-native-gesture-handler";
 import { LinearGradient } from "expo-linear-gradient";
 import SvgUri from "expo-svg-uri";
 import CustomTextBase from "../../components/CustomTextBase";
@@ -13,7 +13,6 @@ import { rsize } from "../../utils/size";
 export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
 })`
-  height: 100%;
   margin-top: ${StatusBar.currentHeight}px;
   background-color: ${(props) => props.theme.colors.backgroundLight};
 `;
@@ -36,7 +35,7 @@ export const HeaderContent = styled.View`
 export const AppBarContent = styled.View`
   flex-direction: row;
 `;
-export const AppBarButton = styled(TouchableOpacity)`
+export const AppBarButton = styled(TouchableHighlight)`
   height: ${rsize(45, "w")}px;
   width: ${rsize(45, "w")}px;
   align-items: center;
@@ -45,7 +44,9 @@ export const AppBarButton = styled(TouchableOpacity)`
   border-radius: ${rsize(25, "w")}px;
 `;
 export const MainContent = styled.View`
-  top: ${rsize(-88, "w")}px;
+  flex: 1;
+  margin-top: ${rsize(-88, "w")}px;
+  padding-bottom: ${rsize(42, "w")}px;
 `;
 export const Padding = styled.View`
   padding: ${rsize(24, "w")}px ${rsize(24, "w")}px 0 ${rsize(24, "w")}px;
@@ -85,7 +86,7 @@ export const Rectangle = styled.View`
 export const Rectangle2 = styled(Rectangle)`
   left: ${rsize(-11, "w")}px;
 `;
-export const BalanceButton = styled(TouchableOpacity)`
+export const BalanceButton = styled(TouchableHighlight)`
   height: ${rsize(45, "w")}px;
   width: ${rsize(45, "w")}px;
   align-items: center;

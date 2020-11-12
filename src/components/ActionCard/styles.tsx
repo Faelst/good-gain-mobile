@@ -25,12 +25,11 @@ export const Container = styled(CardMedia)<ContainerProps>`
   `};
 `
 export const ActionTitle = styled(TextBold)`
-  height: 100%;
-  width: 100%;
   flex: 2;
 
   font-size: ${props => props.theme.fontSizes.sm}px;
   line-height: ${props => props.theme.fontSizes.sm}px;
+  color: ${props => props.theme.colors.textLight};
   text-align-vertical: center;
 `
 export const ActionImage = styled(SvgUri)`

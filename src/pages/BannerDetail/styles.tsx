@@ -32,7 +32,7 @@ export const IconX = styled(Feather).attrs({
   name: "x",
   size: rsize(24),
 })`
-  color: ${props => props.theme.colors.textLight};
+  color: ${props => props.theme.colors.textColor};
 `;
 export const Description = styled(CustomTextBase)`
   height: ${rsize(67)}px;

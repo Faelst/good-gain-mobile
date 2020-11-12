@@ -208,7 +208,7 @@ export const MediaDate = styled(MediaSubtitle)`
   line-height: ${props => props.theme.fontSizes.sm}px;
   color: rgba(56, 56, 56, 0.8);
 
-  margin-top: ${rsize(-7)}px;
+  margin-top: ${rsize(-10)}px;
 `
 export const MediaActionButton = styled(RectButton)`
   height: ${rsize(71)}px;
@@ -220,6 +220,7 @@ export const MediaActionButton = styled(RectButton)`
 `
 export const MediaActionButtonText = styled(TextBold)`
   font-size: ${props => props.theme.fontSizes.xl - 2}px;
+  color: ${props => props.theme.colors.textLight};
   text-align: left;
 `
 export const MediaFooterText = styled(CustomTextBase)`
