@@ -7,13 +7,14 @@ import ForgotPassword from "../pages/ForgotPassword";
 import Home from "../pages/Home";
 import BannerDetail from "../pages/BannerDetail";
 import GGPanel from "../pages/GGPanel";
+import GamesAvailable from "../pages/GamesAvailable";
 
 const { Navigator, Screen } = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Navigator initialRouteName="SignIn" screenOptions={{ headerShown: false }}>
+      <Navigator initialRouteName="GamesAvailable" screenOptions={{ headerShown: false }}>
 
         <Screen name="SignIn" component={Login} />
         <Screen name="SignUp" component={SignUp} />
@@ -21,6 +22,7 @@ function App() {
         <Screen name="Home" component={Home} />
         <Screen name="BannerDetail" component={BannerDetail} />
         <Screen name="GGPanel" component={GGPanel} />
+        <Screen name="GamesAvailable" component={GamesAvailable} />
       </Navigator>
     </NavigationContainer>
   );
