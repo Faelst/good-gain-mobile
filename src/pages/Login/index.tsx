@@ -29,7 +29,7 @@ const Login: React.FC = () => {
   function signIn() {
     try {
       console.log("signin");
-      navigation.navigate("Home");
+      navigation.navigate("Principal");
     } catch (error) {
       console.log("error", error);
     }
@@ -48,7 +48,8 @@ const Login: React.FC = () => {
   }
 
   return (
-    <Background resizeMode="cover">
+    <>
+      <Background />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <Container>
           <LogoContainer>
@@ -87,7 +88,7 @@ const Login: React.FC = () => {
           </Form>
         </Container>
       </ScrollView>
-    </Background>
+    </>
   );
 };
 

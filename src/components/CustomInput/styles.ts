@@ -24,8 +24,8 @@ export const Input = styled.TextInput.attrs({
 `;
 
 export const View = styled.View`
-  padding: 0 ${rsize(24, "w")}px ${rsize(5, "w")}px;
-  margin-bottom: ${rsize(14)}px;
+  padding: 0 ${rsize(24, "w")}px;
+  margin-top: ${rsize(14)}px;
 `;
 
 export const Label = styled(CustomTextBase)`
