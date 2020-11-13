@@ -152,7 +152,9 @@ export const BackgroundMedia = styled.ImageBackground`
   border-radius: ${rsize(20, "w")}px;
   padding: 0 ${rsize(12, "w")}px ${rsize(12, "w")}px ${rsize(12, "w")}px;
 `;
-export const MediaButton = styled.View`
+export const MediaButton = styled.TouchableHighlight.attrs({
+  underlayColor: "rgba(224, 224, 224, 0.950)"
+})`
   height: ${rsize(38, "w")}px;
   width: 100%;
   align-items: center;

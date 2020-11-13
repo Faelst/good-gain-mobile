@@ -111,7 +111,7 @@ const GamesAvailable: React.FC = () => {
                 </ListTitle>
 
                   <ListButton
-                    onPress={() => {alert(item.name)}}
+                    onPress={() => {}}
                     disabled={!item.available}
                     style={handleButtonDisabled(item.available)}
                   >

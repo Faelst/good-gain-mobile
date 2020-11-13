@@ -71,18 +71,22 @@ const dataMedia = [
   {
     image: bgMedia1,
     title: "Jogos disponiveis",
+    navigation: "GamesAvailable"
   },
   {
     image: bgMedia2,
     title: "Convidar amigos",
+    navigation: "Home"
   },
   {
     image: bgMedia3,
     title: "Ranking",
+    navigation: "Home"
   },
   {
     image: bgMedia4,
     title: "Suporte",
+    navigation: "Home"
   },
 ];
 
@@ -92,6 +96,11 @@ const Home: React.FC = () => {
   function handleBannerSelected(banner: any) {
     console.log("BannerSelected");
     navigation.navigate("BannerDetail", { banner });
+  }
+
+  function handleItemSelected(item: string) {
+    console.log(item);
+    navigation.navigate(item);
   }
 
   const listMargin = (index: number) => {
@@ -172,7 +181,9 @@ const Home: React.FC = () => {
             {dataMedia.map((item, index) => (
               <CardMediaContainer key={index}>
                 <BackgroundMedia source={item.image}>
-                  <MediaButton>
+                  <MediaButton
+                    onPress={() => handleItemSelected(item.navigation)}
+                  >
                     <CardMediaTitle>{item.title}</CardMediaTitle>
                   </MediaButton>
                 </BackgroundMedia>
@@ -186,21 +197,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-  circleDiv: {
-    height: 10,
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  whiteCircle: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    margin: 5,
-    backgroundColor: "#333",
-  },
-});
