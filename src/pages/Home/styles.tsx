@@ -1,9 +1,8 @@
 import styled from "styled-components/native";
 import { StatusBar } from "react-native";
 import { CardMedia } from "../../components/CustomCard";
-import { RectButton, TouchableOpacity, BaseButton, TouchableHighlight } from "react-native-gesture-handler";
+import { RectButton, TouchableHighlight } from "react-native-gesture-handler";
 import { LinearGradient } from "expo-linear-gradient";
-import SvgUri from "expo-svg-uri";
 import CustomTextBase from "../../components/CustomTextBase";
 import TextBold from "../../components/TextBold";
 import logo from "../../images/logo_horizontal_2.png";
@@ -14,7 +13,7 @@ export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
 })`
   margin-top: ${StatusBar.currentHeight}px;
-  background-color: ${(props) => props.theme.colors.backgroundLight};
+  background-color: ${props => props.theme.colors.backgroundLighter};
 `;
 export const Header = styled(LinearGradient).attrs((props) => ({
   colors: props.theme.colors.gradient,
@@ -67,6 +66,7 @@ export const BalanceCard = styled(CardMedia)`
   height: ${rsize(100, "w")}px;
   width: ${rsize(327, "w")}px;
 
+  overflow: hidden;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -111,33 +111,6 @@ export const ActionContainer = styled.View`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
-export const ActionCard = styled(CardMedia)`
-  height: ${rsize(71, "w")}px;
-  width: ${rsize(156, "w")}px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-top: ${rsize(15, "w")}px;
-  border-radius: ${rsize(20, "w")}px;
-  background-color: ${(props) => props.theme.colors.primary};
-`;
-export const ActionCard2 = styled(ActionCard)`
-  background-color: ${(props) => props.theme.colors.backgroundSecondary};
-`;
-export const ActionTitle = styled(TextBold)`
-  height: 100%;
-  width: 100%;
-  flex: 2;
-
-  font-size: ${(props) => props.theme.fontSizes.sm}px;
-  line-height: ${(props) => props.theme.fontSizes.sm}px;
-  text-align-vertical: center;
-`;
-export const ActionIcon = styled(SvgUri).attrs({ stroke: "#fff" })`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-`;
 export const CardMediaContainer = styled(CardMedia)`
   height: ${rsize(156, "w")}px;
   width: ${rsize(156, "w")}px;
@@ -152,8 +125,8 @@ export const BackgroundMedia = styled.ImageBackground`
   border-radius: ${rsize(20, "w")}px;
   padding: 0 ${rsize(12, "w")}px ${rsize(12, "w")}px ${rsize(12, "w")}px;
 `;
-export const MediaButton = styled.TouchableHighlight.attrs({
-  underlayColor: "rgba(224, 224, 224, 0.950)"
+export const MediaButton = styled(RectButton).attrs({
+  rippleColor: "rgb(0, 0, 0, 0)"
 })`
   height: ${rsize(38, "w")}px;
   width: 100%;
@@ -162,7 +135,7 @@ export const MediaButton = styled.TouchableHighlight.attrs({
   border-radius: ${rsize(10, "w")}px;
   background-color: ${(props) => props.theme.colors.backgroundLighter};
 `;
-export const CardMediaTitle = styled(TextBold)`
+export const MediaButtonText = styled(TextBold)`
   font-size: ${(props) => props.theme.fontSizes.sm}px;
   color: ${(props) => props.theme.colors.textColor};
 `;

@@ -1,80 +1,105 @@
-import React from "react";
-import { FlatList } from "react-native";
-import { BaseButton, RectButton } from "react-native-gesture-handler";
+import React, { memo } from "react";
+import { FlatList, View } from "react-native";
 import {
   Container,
   ImageBackground,
   HeaderTitle,
-  Header,
-  ListHorizontalButton,
-  ListHorizontalButtonText,
+  Button,
+  Filter,
+  FilterButtonView,
+  FilterButtonText,
   Main,
-  ListContent,
+  Card,
   ImageItem,
-  ListItemDescription,
-  ListTitle,
-  ListSubtitle,
-  ListButton,
-  ListButtonText,
+  DescriptionContainer,
+  ItemTitle,
+  ItemSubtitle,
+  ItemButtonView,
+  ItemButtonText,
+  ModalContent,
+  ModalIndicator,
+  ModalTitle,
+  MediaContainer,
+  Modal,
+  ModalButton,
+  MediaBorder,
 } from "./styles";
 
-import { rsize } from '../../utils/size'
-import bgGames from '../../images/bg_games.png'
-import bgCod from '../../images/bg_cod.png'
-import bgFifa from '../../images/bg_fifa.png'
+import ModalItem from './components/ModalItem'
+import { separatorVertical, separatorHorizontal } from '../../utils/separator'
 
-const dataGamesTypes = ["Todos","PS4", "PS5", "xbox"]
+import bgGames from '../../images/bg_games.png'
+import imCod from '../../images/im_games2.png'
+import imFifa from '../../images/im_games1.png'
+import imMedia1 from '../../images/im_games3.png'
+import imMedia2 from '../../images/im_games4.png'
+
+const dataFilter = ["Todos","PS4", "PS5", "xbox"]
 const dataGames = [
   {
     id: 1,
-    image: bgFifa,
+    image: imFifa,
     name: "FIFA 20",
     type: "PS4",
-    available: true
+    available: true,
+    mode: [
+      { 
+        id: 1,
+        image: imMedia1,
+        name: "Ultimate Team"
+      },
+      {
+        id: 2,
+        image: imMedia2,
+        name: "Tradicional"
+      }
+    ]
   },
   {
     id: 2,
-    image: bgFifa,
+    image: imFifa,
     name: "FIFA 20",
     type: "xbox",
     available: true
   },
   {
     id: 3,
-    image: bgCod,
+    image: imCod,
     name: "Call of Duty - MW",
     type: "xbox",
     available: false
   }
 ]
+const dataGameMode = [
+  {
+    id: 1,
+    image: bgGames,
+    title: "Ultimate Team"
+  },
+  {
+    id: 2,
+    image: bgGames,
+    title: "Tradicional"
+  }
+]
 
 const GamesAvailable: React.FC = () => {
-  const listMarginGamesTypes = (index: number) => {
-    if (index === dataGamesTypes.length - 1) {
-      return {marginLeft: rsize(12), marginRight: rsize(12)}
-    } else if (index >= 1) {
-      return {marginLeft: rsize(12)}
-    } else if (index === 0) {
-      return {marginLeft: rsize(24)}
-    }
+  const [isFilterSelected, setFilterSelected] = React.useState(0)
+  const [isModalVisible, setModalVisible] = React.useState(false);
+  const [isGameModeSelected, setGameModeSelected] = React.useState(undefined)
+
+  const handleFilter = (index: number) => {
+    setFilterSelected(index)
+    console.log(`filter ${index}`)
   }
-  const listMarginGames = (index: number) => {
-    if (index === dataGames.length - 1) {
-      return {marginTop: rsize(14), marginBottom: rsize(50)}
-    } else if (index >= 1) {
-      return {marginTop: rsize(14)}
-    }
-    else if (index === 0) {
-      return {marginTop: rsize(58)}
-    }
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
   }
-  const handleButtonDisabled = (available: boolean) => {
-    if (!available) {
-      return {
-        color: "#a9a9a9",
-        borderColor: "#a9a9a9"
-      }
-    }
+
+  const handleModal = (index: number | any) => {
+    setGameModeSelected(index)
+    console.log(`game mode ${index}`)
   }
 
   return (
@@ -83,19 +108,24 @@ const GamesAvailable: React.FC = () => {
         <HeaderTitle>Jogos disponíveis</HeaderTitle>
       </ImageBackground>
 
-      <Header>
+      <Filter>
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
-          data={dataGamesTypes}
+          data={dataFilter}
           keyExtractor={item => String(item)}
           renderItem={({item, index}) => (
-            <ListHorizontalButton style={listMarginGamesTypes(index)}>
-              <ListHorizontalButtonText>{item}</ListHorizontalButtonText>
-            </ListHorizontalButton>
+            <FilterButtonView
+              selected={isFilterSelected === index ? true :  false}
+              style={separatorHorizontal(index, dataFilter, 24, 12, 12 )}
+            >
+              <Button onPress={() => handleFilter(index)}>
+                <FilterButtonText>{item}</FilterButtonText>
+              </Button>
+            </FilterButtonView>
           )}
         />
-      </Header>
+      </Filter>
         
       <Main>
         <FlatList
@@ -103,31 +133,74 @@ const GamesAvailable: React.FC = () => {
           data={dataGames}
           keyExtractor={item => String(item.id)}
           renderItem={({item, index}) => (
-            <ListContent style={listMarginGames(index)}>
+            <Card style={separatorVertical(index, dataGames, 58, 14, 50 )}>
               <ImageItem source={item.image} />
-              <ListItemDescription>
-                <ListTitle>{item.name} {"\n"}
-                  <ListSubtitle>{item.type}</ListSubtitle>
-                </ListTitle>
+              <DescriptionContainer>
+                <ItemTitle>{item.name} {"\n"}
+                  <ItemSubtitle>{item.type}</ItemSubtitle>
+                </ItemTitle>
 
-                  <ListButton
-                    onPress={() => {}}
-                    disabled={!item.available}
-                    style={handleButtonDisabled(item.available)}
-                  >
-                    <ListButtonText
-                      style={handleButtonDisabled(item.available)}
-                    >
+                <ItemButtonView availabled={item.available}>
+                  <Button enabled={item.available} onPress={toggleModal}>
+                    <ItemButtonText availabled={item.available}>
                       {item.available ? "Selecionar" : "Em breve"}
-                    </ListButtonText>
-                  </ListButton>
-              </ListItemDescription>
-            </ListContent>
+                    </ItemButtonText>
+                  </Button>
+                </ItemButtonView>
+              </DescriptionContainer>
+            </Card>
           )}
         />
+
+        <View>
+          <Modal
+            onBackButtonPress={toggleModal}
+            onBackdropPress={toggleModal}
+            onSwipeComplete={toggleModal}
+            isVisible={isModalVisible}
+          >
+            <ModalContent>
+              <ModalIndicator />
+              <ModalTitle>Escolha o modo de jogo online desejado:</ModalTitle>
+
+              <MediaContainer>
+                {dataGameMode.map((item, index) => {
+                  if (isGameModeSelected === index) {
+                    return (
+                      <MediaBorder key={item.id}>
+                        <ModalItem
+                          title={item.title}
+                          image={item.image}
+                          onPress={() => handleModal(index)}
+                        />
+                      </MediaBorder>
+                    )
+                  } else {
+                    return (
+                      <ModalItem
+                        key={item.id}
+                        index={index}
+                        title={item.title}
+                        image={item.image}
+                        onPress={() => handleModal(index)}
+                        isFocused={isGameModeSelected}
+                      />
+                    )
+                  }
+                })}
+              </MediaContainer>
+
+              <ModalButton
+                disabled={isGameModeSelected === undefined ? true : false}
+                onPress={() => console.log("next")}
+              >Próximo
+              </ModalButton>
+            </ModalContent>
+          </Modal>
+        </View>
       </Main>
     </Container>
   )
 }
 
-export default GamesAvailable
+export default memo(GamesAvailable)

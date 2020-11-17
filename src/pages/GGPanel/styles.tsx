@@ -2,10 +2,9 @@ import styled from 'styled-components/native';
 import { StatusBar } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { CardMedia } from '../../components/CustomCard'
-import SvgUri from 'expo-svg-uri'
 import TextBold from '../../components/TextBold'
 import CustomTextBase from '../../components/CustomTextBase'
-import { BaseButton, RectButton } from 'react-native-gesture-handler'
+import { RectButton } from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons'
 import { rsize } from '../../utils/size'
 
@@ -59,7 +58,10 @@ export const DetailContent = styled.View`
   justify-content: center;
   margin-right: ${rsize(8)}px;
 `
-export const DetailImage = styled(SvgUri)`
+export const DetailImage = styled.Image.attrs({
+  resizeMode: "contain",
+  fadeDuration: 0
+})`
   height: ${rsize(25)}px;
   width: ${rsize(25)}px;
   flex: 1;
@@ -84,7 +86,7 @@ export const SectionTitle = styled(TextBold)`
   font-size: ${props => props.theme.fontSizes.sm}px;
   color: ${props => props.theme.colors.textColor};
 `
-export const SectionButton = styled(BaseButton)`
+export const SectionButton = styled(RectButton)`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  FlatList,
-  View,
-  StyleSheet,
-  NativeSyntheticEvent,
-  NativeScrollEvent,
-} from "react-native";
+import { FlatList, View } from "react-native";
 import {
   Container,
   Header,
@@ -35,33 +28,32 @@ import {
   CardMediaContainer,
   BackgroundMedia,
   MediaButton,
-  CardMediaTitle,
+  MediaButtonText,
 } from "./styles";
 
-import { useNavigation } from "@react-navigation/native";
+import bnHome1 from "../../images/bn_home1.png";
+import bnHome2 from "../../images/bn_home2.png";
+import icFlashWT from "../../images/icons/ic_flash.png";
+import icTrophyWT from "../../images/icons/ic_trophy_wt.png";
+import mdHome1 from "../../images/md_home1.png";
+import mdHome2 from "../../images/md_home2.png";
+import mdHome3 from "../../images/md_home3.png";
+import mdHome4 from "../../images/md_home4.png";
 
-import CardMedia from "../../components/CardMedia";
 import ActionCard from "../../components/ActionCard";
-import { rsize } from "../../utils/size";
-import banner1 from "../../images/banner1.png";
-import banner2 from "../../images/banner2.png";
-import flash from "../../images/icons/flash.svg";
-import trophy from "../../images/icons/trophy.svg";
-import bgMedia1 from "../../images/bg_media1.png";
-import bgMedia2 from "../../images/bg_media2.png";
-import bgMedia3 from "../../images/bg_media3.png";
-import bgMedia4 from "../../images/bg_media4.png";
 import SimpleButton from "../../components/SimpleButton";
+import { rsize } from "../../utils/size";
+import { useNavigation } from "@react-navigation/native";
 
 const dataChallenge = [
   {
-    image: banner1,
+    image: bnHome1,
     title: "Desafie!",
     description:
       "Participe de partidas rápidas ou de campeonatos com jogadores reais.",
   },
   {
-    image: banner2,
+    image: bnHome2,
     title: "Divirta-se!",
     description: "Jogue com outras pessoas no conforto da sua casa.",
   },
@@ -69,22 +61,22 @@ const dataChallenge = [
 
 const dataMedia = [
   {
-    image: bgMedia1,
+    image: mdHome1,
     title: "Jogos disponiveis",
     navigation: "GamesAvailable"
   },
   {
-    image: bgMedia2,
+    image: mdHome2,
     title: "Convidar amigos",
     navigation: "Home"
   },
   {
-    image: bgMedia3,
+    image: mdHome3,
     title: "Ranking",
     navigation: "Home"
   },
   {
-    image: bgMedia4,
+    image: mdHome4,
     title: "Suporte",
     navigation: "Home"
   },
@@ -171,9 +163,14 @@ const Home: React.FC = () => {
           </BalanceCard>
 
           <ActionContainer>
-            <ActionCard image={flash} title="Partidas rápidas" />
             <ActionCard
-              image={trophy}
+              size="md"
+              image={icFlashWT}
+              title="Partidas rápidas"
+            />
+            <ActionCard
+              size="md" 
+              image={icTrophyWT}
               title="Campeonatos"
               backgroundColor="secondary"
             />
@@ -184,7 +181,7 @@ const Home: React.FC = () => {
                   <MediaButton
                     onPress={() => handleItemSelected(item.navigation)}
                   >
-                    <CardMediaTitle>{item.title}</CardMediaTitle>
+                    <MediaButtonText>{item.title}</MediaButtonText>
                   </MediaButton>
                 </BackgroundMedia>
               </CardMediaContainer>

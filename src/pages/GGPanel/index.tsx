@@ -30,7 +30,6 @@ import {
   BackgroundImage,
   BackgroundTitle,
   ButtonGradient,
-  ActionButton,
   ActionButtonText,
   ActionIcon,
   MediaDate,
@@ -39,15 +38,16 @@ import {
   MediaFooterText,
 } from "./styles";
 
-import ActionCard from "../../components/ActionCard";
 import profilePics from "../../images/profile_pics.png";
-import ggImage1 from "../../images/gg_image1.png";
-import ggImage2 from "../../images/gg_image2.png";
-import ggImage3 from "../../images/gg_image3.png";
-import control from "../../images/icons/control.svg";
-import pfTrofeu from "../../images/icons/pf_trophy.svg";
-import trophy from "../../images/icons/trophy.svg";
-import flash from "../../images/icons/flash.svg";
+import imPanelGG from "../../images/im_panelgg.png";
+import bnPanelGG from "../../images/bn_panelgg.png";
+import imPanelGG2 from "../../images/im_panelgg2.png";
+import icControl from "../../images/icons/ic_control.png";
+import icTrophy from "../../images/icons/ic_trophy.png";
+import icTrophyWT from "../../images/icons/ic_trophy_wt.png";
+import icFlashWT from "../../images/icons/ic_flash.png";
+
+import ActionCard from "../../components/ActionCard";
 import { rsize } from "../../utils/size";
 
 const GGPanel: React.FC = () => {
@@ -67,7 +67,7 @@ const GGPanel: React.FC = () => {
 
           <ProfileDetailsContainer>
             <DetailCard>
-              <DetailImage source={pfTrofeu} />
+              <DetailImage source={icTrophy} />
               <DetailContent>
                 <DetailBigTitle>20°</DetailBigTitle>
                 <DetailSubtitle>Ranking GG</DetailSubtitle>
@@ -75,7 +75,7 @@ const GGPanel: React.FC = () => {
             </DetailCard>
 
             <DetailCard>
-              <DetailImage source={control} />
+              <DetailImage source={icControl} />
               <DetailContent>
                 <DetailBigTitle>16</DetailBigTitle>
                 <DetailSubtitle>Partidas</DetailSubtitle>
@@ -96,7 +96,7 @@ const GGPanel: React.FC = () => {
           <ExpansionPanel open={openPanel}>
             <MediaCard>
               <MediaHeader>
-                <MediaImage source={ggImage1} />
+                <MediaImage source={imPanelGG} />
 
                 <MediaDescription>
                   <MediaTitle>FIFA 20 PS4</MediaTitle>
@@ -116,20 +116,20 @@ const GGPanel: React.FC = () => {
               <MediaStrong>20° no ranking deste jogo</MediaStrong>
               <MediaActionContent>
                 <ActionCard
-                  image={flash}
+                  image={icFlashWT}
                   title="Partidas rápidas"
-                  width={144}
+                  size="sm"
                 />
                 <ActionCard
-                  image={trophy}
+                  image={icTrophyWT}
                   title="Campeonatos"
-                  width={144}
+                  size="sm"
                   backgroundColor="secondary"
                 />
               </MediaActionContent>
             </MediaCard>
 
-            <BackgroundImage source={ggImage2}>
+            <BackgroundImage source={bnPanelGG}>
               <BackgroundTitle>
                 Campeonatos que está participando
               </BackgroundTitle>
@@ -146,7 +146,7 @@ const GGPanel: React.FC = () => {
 
             <MediaCard style={{ height: rsize(200) }}>
               <MediaHeader>
-                <MediaImage source={ggImage3} />
+                <MediaImage source={imPanelGG2} />
 
                 <MediaDescription>
                   <MediaTitle>FIFA 20 GLOBAL SERIES</MediaTitle>

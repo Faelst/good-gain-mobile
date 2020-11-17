@@ -1,6 +1,5 @@
 import React from "react";
 import { ScrollView } from "react-native";
-
 import {
   Container,
   Title,
@@ -12,11 +11,13 @@ import {
   TextButton,
   ButtonTextStart,
 } from "./styles";
+
+import bnDetail from "../../images/bn_detail.png";
+import bnPs5 from "../../images/bn_ps5.png";
+import icFlash from "../../images/icons/ic_flash.png";
+
 import CloseButton from "../../components/IconButton";
 import ActionCard from "../../components/ActionCard";
-import banner from "../../images/banner_detail.png";
-import productExample from "../../images/product_example.png";
-import flash from "../../images/icons/flash.svg";
 import { useNavigation } from "@react-navigation/native";
 
 const BannerDetail: React.FC = () => {
@@ -25,7 +26,7 @@ const BannerDetail: React.FC = () => {
   return (
     <ScrollView>
       <Container>
-        <ImageBackground source={banner}>
+        <ImageBackground source={bnDetail}>
           <CloseButton onPress={() => navigation.goBack()}>
             <IconX />
           </CloseButton>
@@ -38,9 +39,9 @@ const BannerDetail: React.FC = () => {
           primeiros do ranking.
         </Description>
 
-        <Image source={productExample} />
+        <Image source={bnPs5} />
         <TextButton>Ver regulamento</TextButton>
-        <ActionCard width={287} image={flash}>
+        <ActionCard size="xl" image={icFlash}>
           <ButtonTextStart>Iniciar uma partida rápida</ButtonTextStart>
         </ActionCard>
       </Container>

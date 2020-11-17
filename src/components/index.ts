@@ -3,7 +3,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import { rsize } from '../utils/size';
 
 export const Button = styled(RectButton)`
-  background-color: #33c899;
+  background-color: transparent;
   /* height: ${rsize(55)}px; */
   padding: ${rsize(14, 'w')}px 0;
   margin: 0 ${rsize(24, 'w')}px;
