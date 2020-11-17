@@ -5,13 +5,16 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import HomeScreen from "../pages/Home";
 import GGPanelScreen from "../pages/GGPanel";
+import GamesAvailable from "../pages/GamesAvailable";
 
 import ic_home from "../images/icons/ic_home.png";
 import ic_ggpanel from "../images/icons/ic_ggpanel.png";
+import ic_gamesavailable from "../images/icons/ic_gamesavailable.png";
 
 const icons: any = {
   home: ic_home,
   ggpanel: ic_ggpanel,
+  gamesavailable: ic_gamesavailable,
 };
 const Tab = createBottomTabNavigator();
 
@@ -48,6 +51,7 @@ function BottomTabs() {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="GGPanel" component={GGPanelScreen} />
+      <Tab.Screen name="GamesAvailable" component={GamesAvailable} />
     </Tab.Navigator>
   );
 }
