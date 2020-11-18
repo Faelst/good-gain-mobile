@@ -5,36 +5,28 @@ import {
   ImageBackground,
   HeaderTitle,
   Button,
-  Filter,
-  FilterButtonView,
-  FilterButtonText,
+  Tab,
+  TabView,
+  TabTitle,
   Main,
   Card,
-  ImageItem,
+  Image,
   DescriptionContainer,
-  ItemTitle,
-  ItemSubtitle,
-  ItemButtonView,
-  ItemButtonText,
-  ModalContent,
-  ModalIndicator,
-  ModalTitle,
-  MediaContainer,
+  Title,
+  Subtitle,
+  ButtonView,
+  ButtonText,
   Modal,
-  ModalButton,
-  MediaBorder,
 } from "./styles";
 
-import ModalItem from './components/ModalItem'
+import ModalContent from './components/ModalContent'
 import { separatorVertical, separatorHorizontal } from '../../utils/separator'
 
 import bgGames from '../../images/bg_games.png'
 import imCod from '../../images/im_games2.png'
 import imFifa from '../../images/im_games1.png'
-import imMedia1 from '../../images/im_games3.png'
-import imMedia2 from '../../images/im_games4.png'
 
-const dataFilter = ["Todos","PS4", "PS5", "xbox"]
+const dataTab = ["Todos","PS4", "PS5", "xbox"]
 const dataGames = [
   {
     id: 1,
@@ -42,18 +34,6 @@ const dataGames = [
     name: "FIFA 20",
     type: "PS4",
     available: true,
-    mode: [
-      { 
-        id: 1,
-        image: imMedia1,
-        name: "Ultimate Team"
-      },
-      {
-        id: 2,
-        image: imMedia2,
-        name: "Tradicional"
-      }
-    ]
   },
   {
     id: 2,
@@ -70,36 +50,18 @@ const dataGames = [
     available: false
   }
 ]
-const dataGameMode = [
-  {
-    id: 1,
-    image: bgGames,
-    title: "Ultimate Team"
-  },
-  {
-    id: 2,
-    image: bgGames,
-    title: "Tradicional"
-  }
-]
 
 const GamesAvailable: React.FC = () => {
-  const [isFilterSelected, setFilterSelected] = React.useState(0)
+  const [isTabSelected, setTabSelected] = React.useState(0)
   const [isModalVisible, setModalVisible] = React.useState(false);
-  const [isGameModeSelected, setGameModeSelected] = React.useState(undefined)
 
-  const handleFilter = (index: number) => {
-    setFilterSelected(index)
-    console.log(`filter ${index}`)
+  const handleTab = (index: number) => {
+    setTabSelected(index)
+    console.log(`tab ${index}`)
   }
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
-  }
-
-  const handleModal = (index: number | any) => {
-    setGameModeSelected(index)
-    console.log(`game mode ${index}`)
   }
 
   return (
@@ -108,24 +70,24 @@ const GamesAvailable: React.FC = () => {
         <HeaderTitle>Jogos disponíveis</HeaderTitle>
       </ImageBackground>
 
-      <Filter>
+      <Tab>
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
-          data={dataFilter}
+          data={dataTab}
           keyExtractor={item => String(item)}
           renderItem={({item, index}) => (
-            <FilterButtonView
-              selected={isFilterSelected === index ? true :  false}
-              style={separatorHorizontal(index, dataFilter, 24, 12, 12 )}
+            <TabView
+              selected={isTabSelected === index ? true :  false}
+              style={separatorHorizontal(index, dataTab, 24, 12, 12 )}
             >
-              <Button onPress={() => handleFilter(index)}>
-                <FilterButtonText>{item}</FilterButtonText>
+              <Button onPress={() => handleTab(index)}>
+                <TabTitle>{item}</TabTitle>
               </Button>
-            </FilterButtonView>
+            </TabView>
           )}
         />
-      </Filter>
+      </Tab>
         
       <Main>
         <FlatList
@@ -134,19 +96,19 @@ const GamesAvailable: React.FC = () => {
           keyExtractor={item => String(item.id)}
           renderItem={({item, index}) => (
             <Card style={separatorVertical(index, dataGames, 58, 14, 50 )}>
-              <ImageItem source={item.image} />
+              <Image source={item.image} />
               <DescriptionContainer>
-                <ItemTitle>{item.name} {"\n"}
-                  <ItemSubtitle>{item.type}</ItemSubtitle>
-                </ItemTitle>
+                <Title>{item.name} {"\n"}
+                  <Subtitle>{item.type}</Subtitle>
+                </Title>
 
-                <ItemButtonView availabled={item.available}>
+                <ButtonView availabled={item.available}>
                   <Button enabled={item.available} onPress={toggleModal}>
-                    <ItemButtonText availabled={item.available}>
+                    <ButtonText availabled={item.available}>
                       {item.available ? "Selecionar" : "Em breve"}
-                    </ItemButtonText>
+                    </ButtonText>
                   </Button>
-                </ItemButtonView>
+                </ButtonView>
               </DescriptionContainer>
             </Card>
           )}
@@ -159,43 +121,7 @@ const GamesAvailable: React.FC = () => {
             onSwipeComplete={toggleModal}
             isVisible={isModalVisible}
           >
-            <ModalContent>
-              <ModalIndicator />
-              <ModalTitle>Escolha o modo de jogo online desejado:</ModalTitle>
-
-              <MediaContainer>
-                {dataGameMode.map((item, index) => {
-                  if (isGameModeSelected === index) {
-                    return (
-                      <MediaBorder key={item.id}>
-                        <ModalItem
-                          title={item.title}
-                          image={item.image}
-                          onPress={() => handleModal(index)}
-                        />
-                      </MediaBorder>
-                    )
-                  } else {
-                    return (
-                      <ModalItem
-                        key={item.id}
-                        index={index}
-                        title={item.title}
-                        image={item.image}
-                        onPress={() => handleModal(index)}
-                        isFocused={isGameModeSelected}
-                      />
-                    )
-                  }
-                })}
-              </MediaContainer>
-
-              <ModalButton
-                disabled={isGameModeSelected === undefined ? true : false}
-                onPress={() => console.log("next")}
-              >Próximo
-              </ModalButton>
-            </ModalContent>
+            <ModalContent />
           </Modal>
         </View>
       </Main>
