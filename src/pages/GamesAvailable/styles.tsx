@@ -15,7 +15,7 @@ interface ListItemProps {
 }
 export const Container = styled.View`
   flex: 1;
-  margin-top: ${StatusBar.currentHeight}px;
+  margin-top: ${props => props.theme.StatusBarHeight}px;
 `;
 export const ImageBackground = styled.ImageBackground`
   height: ${rsize(133)}px;

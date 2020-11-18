@@ -8,7 +8,7 @@ import { rsize } from '../../utils/size'
 export const Container = styled.View`
   flex: 1;
   align-items: center;
-  margin-top: ${StatusBar.currentHeight}px;
+  margin-top: ${props => props.theme.StatusBarHeight}px;
   padding-Bottom: ${rsize(51)}px;
   background-color: ${props => props.theme.colors.backgroundLight};
 `;
@@ -66,7 +66,6 @@ export const TextButton = styled(CustomTextBase)`
   text-decoration-line: underline;
 `;
 export const ButtonTextStart = styled(TextBold)`
-  text-align-vertical: center;
-  color: #fff;
+  color: ${props => props.theme.colors.textLight};
   font-size: ${props => props.theme.fontSizes.md}px;
 `;

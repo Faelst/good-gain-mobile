@@ -10,7 +10,7 @@ import { rsize } from '../../utils/size'
 
 export const Container = styled.View`
   flex: 1;
-  margin-top: ${StatusBar.currentHeight}px;
+  margin-top: ${props => props.theme.StatusBarHeight}px;
   background-color: ${props => props.theme.colors.backgroundLight};
 `;
 export const GradientHeader = styled(LinearGradient).attrs(props => ({
@@ -150,7 +150,6 @@ export const MediaStrong = styled.Text`
   font-size: ${props => props.theme.fontSizes.sm}px;
   line-height: ${props => props.theme.fontSizes.lg - 1}px;
   color: ${props => props.theme.colors.backgroundSecondary};
-  text-align-vertical: center;
 
   margin: ${rsize(18)}px 0 0 ${rsize(10)}px;
 `
@@ -168,16 +167,18 @@ export const BackgroundImage = styled.ImageBackground`
   justify-content: flex-end;
   padding-bottom: ${rsize(12)}px;
 `
-export const BackgroundTitle = styled(TextBold)`
+export const BackgroundTitleContainer = styled.View`
   width: ${rsize(302)}px;
   height: ${rsize(38)}px;
+  align-items: center;
+  justify-content: center;
   background: ${props => props.theme.colors.backgroundLighter};
   border-radius: ${rsize(10)}px;
-
+`
+export const BackgroundTitle = styled(TextBold)`
   font-size: ${props => props.theme.fontSizes.sm}px;
   color: ${props => props.theme.colors.textColor};
   text-align: center;
-  text-align-vertical: center;
 `
 export const ActionButton = styled(RectButton)`
 `

@@ -67,17 +67,19 @@ interface ImageTextProps extends TextProps {
   selected?: boolean
   isFocused?: number
 }
-export const ImageText = styled(TextBold).attrs({
-  disabled: true
-})<ImageTextProps>`
+export const TextContainer = styled.View`
   height: ${rsize(38)}px;
   width: ${rsize(126)}px;
   position: absolute;
+  align-items: center;
+  justify-content: center;
   border-radius: ${rsize(10)}px;
   background-color: ${props => props.theme.colors.backgroundLighter};
-
-  text-align: center;
-  text-align-vertical: center;
+`
+export const Text = styled(TextBold).attrs({
+  disabled: true
+})<ImageTextProps>`
+  font-size: ${props => props.theme.fontSizes.sm}px;
   color: ${props => 
     props.isFocused === undefined && props.theme.colors.textColor ||
     props.selected === true && props.theme.colors.primary ||

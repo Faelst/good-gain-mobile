@@ -6,7 +6,8 @@ import {
   Main,
   Border,
   ImageBG,
-  ImageText,
+  TextContainer,
+  Text,
   Button,
   ButtonContent
 } from './styles'
@@ -54,11 +55,13 @@ const ModalContent: React.FC<ModalItemProps> = () => {
               <Border key={item.id}>
                 <SimpleButton onPress={() => handleSelect(index)}>
                   <ImageBG source={item.image}>
-                    <ImageText
-                      selected={isSelectedItem(index)}
-                      isFocused={isFocused}
-                    >{item.title}
-                    </ImageText>
+                    <TextContainer>
+                      <Text
+                        selected={isSelectedItem(index)}
+                        isFocused={isFocused}
+                      >{item.title}
+                      </Text>
+                    </TextContainer>
                   </ImageBG>
                 </SimpleButton>
               </Border>
@@ -68,11 +71,13 @@ const ModalContent: React.FC<ModalItemProps> = () => {
               <SimpleButton key={item.id} onPress={() => handleSelect(index)}>
                 <ButtonContent>
                   <ImageBG source={item.image} isFocused={isFocused}/>
-                  <ImageText
-                    selected={isSelectedItem(index)}
-                    isFocused={isFocused}
-                  >{item.title}
-                  </ImageText>
+                  <TextContainer>
+                    <Text
+                      selected={isSelectedItem(index)}
+                      isFocused={isFocused}
+                    >{item.title}
+                    </Text>
+                  </TextContainer>
                 </ButtonContent>
               </SimpleButton>
             )

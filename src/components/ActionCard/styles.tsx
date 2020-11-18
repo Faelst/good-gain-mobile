@@ -31,7 +31,6 @@ export const Title = styled(TextBold)`
   font-size: ${props => props.theme.fontSizes.sm}px;
   line-height: ${props => props.theme.fontSizes.sm}px;
   color: ${props => props.theme.colors.textLight};
-  text-align-vertical: center;
 `
 interface ImageContainerProps {
   background?: "primary" | "secondary"

@@ -29,5 +29,6 @@ declare module 'styled-components/native' {
       titleRegular: string;
       titleBold: string;
     };
+    StatusBarHeight: number;
   }
 }

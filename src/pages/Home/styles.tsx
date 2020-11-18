@@ -12,7 +12,7 @@ import { rsize } from "../../utils/size";
 export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
 })`
-  margin-top: ${StatusBar.currentHeight}px;
+  margin-top: ${props => props.theme.StatusBarHeight}px;
   background-color: ${props => props.theme.colors.backgroundLighter};
 `;
 export const Header = styled(LinearGradient).attrs((props) => ({
@@ -167,10 +167,8 @@ export const IconCash = styled(Feather).attrs({
   name: "dollar-sign",
   size: rsize(24, "w"),
 })`
-  height: ${rsize(45, "w")}px;
   width: ${rsize(45, "w")}px;
   text-align: center;
-  text-align-vertical: center;
   color: ${(props) => props.theme.colors.textLight};
 `;
 export const IconPlus = styled(Feather).attrs({

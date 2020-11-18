@@ -28,6 +28,7 @@ import {
   MediaStrong,
   MediaActionContent,
   BackgroundImage,
+  BackgroundTitleContainer,
   BackgroundTitle,
   ButtonGradient,
   ActionButtonText,
@@ -130,9 +131,11 @@ const GGPanel: React.FC = () => {
             </MediaCard>
 
             <BackgroundImage source={bnPanelGG}>
-              <BackgroundTitle>
-                Campeonatos que está participando
-              </BackgroundTitle>
+              <BackgroundTitleContainer>
+                <BackgroundTitle>
+                  Campeonatos que está participando
+                </BackgroundTitle>
+              </BackgroundTitleContainer>
             </BackgroundImage>
 
             <ButtonGradient>

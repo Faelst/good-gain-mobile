@@ -16,7 +16,6 @@ const light: DefaultTheme = {
     textColor: '#383838',
     textSecondary: 'rgba(169, 169, 169, 0.8)',
     subtitle: 'rgba(56, 56, 56, 0.8)'
-
   }, 
   fontSizes: getFontSizes(),
   fontFamily: {
@@ -26,7 +25,8 @@ const light: DefaultTheme = {
     textBold: 'Gilroy-Bold',
     titleRegular: 'Gilroy-Regular',
     titleBold: 'Circular-Std-Bold'
-  }
+  },
+  StatusBarHeight: 29.81
 };
 
 export { light };
