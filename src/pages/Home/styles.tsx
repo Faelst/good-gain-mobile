@@ -120,6 +120,7 @@ export const CardMediaContainer = styled(CardMedia)`
 export const BackgroundMedia = styled.ImageBackground`
   height: ${rsize(156, "w")}px;
   width: ${rsize(156, "w")}px;
+  overflow: hidden;
   align-items: center;
   justify-content: flex-end;
   border-radius: ${rsize(20, "w")}px;

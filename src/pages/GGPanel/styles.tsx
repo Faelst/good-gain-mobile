@@ -161,6 +161,7 @@ export const MediaActionContent = styled.View`
 export const BackgroundImage = styled.ImageBackground`
   height: ${rsize(156)}px;
   width: ${rsize(327)}px;
+  overflow: hidden;
   border-radius: ${rsize(20)}px;
   margin-top: ${rsize(24)}px;
   align-items: center;

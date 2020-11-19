@@ -23,6 +23,7 @@ export const ImageBackground = styled.ImageBackground`
   height: ${rsize(221)}px;
   width: 100%;
   align-items: flex-end;
+  overflow: hidden;
   padding: ${rsize(24)}px ${rsize(24)}px 0 0;
   border-bottom-left-radius: ${rsize(30)}px;
   border-bottom-right-radius: ${rsize(30)}px;
@@ -49,7 +50,7 @@ export const DescriptionBold = styled(TextBold)`
   line-height: ${props => props.theme.fontSizes.xl}px;
   color: ${props => props.theme.colors.textColor};
 `;
-export const Image = styled.ImageBackground`
+export const Image = styled.Image`
   height: ${rsize(185)}px;
   width: ${rsize(333)}px;
   border-radius: ${rsize(20)}px;

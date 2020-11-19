@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { FlatList, View } from "react-native";
 import {
   Container,
-  ImageBackground,
+  ImageGradient,
   HeaderTitle,
   Button,
   Tab,
@@ -66,9 +66,9 @@ const GamesAvailable: React.FC = () => {
 
   return (
     <Container>
-      <ImageBackground source={bgGames}>
+      <ImageGradient source={bgGames}>
         <HeaderTitle>Jogos disponíveis</HeaderTitle>
-      </ImageBackground>
+      </ImageGradient>
 
       <Tab>
         <FlatList

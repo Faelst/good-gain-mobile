@@ -1,12 +1,10 @@
 import styled, { css } from 'styled-components/native';
-import { StatusBar } from "react-native";
 import TextBold from "../../components/TextBold";
 import CustomTextBase from "../../components/CustomTextBase";
 import { CardMedia as CardCustom } from "../../components/CustomCard";
-import GradientButton from "../../components/GradientButton"
 import { RectButton } from 'react-native-gesture-handler'
 import ModalCustom from 'react-native-modal'
-import { LinearGradient } from 'expo-linear-gradient'
+import IMGGradient from '../../components/ImageGradient'
 import { rsize } from "../../utils/size";
 
 interface ListItemProps {
@@ -17,16 +15,17 @@ export const Container = styled.View`
   flex: 1;
   margin-top: ${props => props.theme.StatusBarHeight}px;
 `;
-export const ImageBackground = styled.ImageBackground`
+export const ImageGradient = styled(IMGGradient)`
   height: ${rsize(133)}px;
   width: ${rsize(375)}px;
-  overflow: hidden;
   align-items: center;
   justify-content: center;
   border-bottom-left-radius: ${rsize(20)}px;
   border-bottom-right-radius: ${rsize(20)}px;
 `
 export const HeaderTitle = styled(TextBold)`
+  position: absolute;
+  
   font-size: ${props => props.theme.fontSizes.xxl - 2}px;
   line-height: ${props => props.theme.fontSizes.xxl - 2}px;
   text-align: center;

@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import GradientButton from "../../../../components/GradientButton"
+import ButtonGradient from "../../../../components/ButtonGradient"
 import { LinearGradient } from 'expo-linear-gradient'
 import { TextProps } from 'react-native'
 import TextBold from "../../../../components/TextBold";
@@ -38,7 +38,7 @@ export const Main = styled.View`
   justify-content: space-between;
   margin: ${rsize(49)}px 0 ${rsize(37)}px;
 `
-export const Button = styled(GradientButton)`
+export const Button = styled(ButtonGradient)`
   height: ${rsize(57)}px;
   width: ${rsize(325)}px;
 `
