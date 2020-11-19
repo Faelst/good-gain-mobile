@@ -1,21 +1,24 @@
 import React from 'react'
-import { TouchableWithoutFeedbackProps } from 'react-native'
+import { View, ViewProps } from 'react-native'
 
 import { LinearGradient, ButtonText } from './styles'
-import SimpleButton from '../SimpleButton';
+import { Button } from '../index'
 
-interface ButtonProps extends TouchableWithoutFeedbackProps {
-  disabled?: boolean
+interface ButtonProps extends ViewProps {
+  disabled?: boolean,
+  onPress?: () => void
 }
 const ButtonGradient: React.FC<ButtonProps> = ({
-  disabled, children, ...rest
+  disabled, onPress, children, ...rest
 }) => {
   return (
-    <SimpleButton disabled={disabled} {...rest}>
+    <View {...rest}>
       <LinearGradient disabled={disabled}>
-        <ButtonText>{children}</ButtonText>
+        <Button onPress={onPress} enabled={!disabled}>
+          <ButtonText>{children}</ButtonText>
+        </Button>
       </LinearGradient>
-    </SimpleButton>
+    </View>
   );
 };
 

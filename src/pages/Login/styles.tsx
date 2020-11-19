@@ -1,11 +1,7 @@
-import React from "react";
 import styled, { css } from "styled-components/native";
 import { Feather } from "@expo/vector-icons";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
 
+import ButtonGradient from '../../components/ButtonGradient'
 import { Button as ButtonComponent } from "../../components";
 import CustomTextBase from "../../components/CustomTextBase";
 import TextBold from "../../components/TextBold";
@@ -15,60 +11,64 @@ import logo from "../../images/logo_horizontal.png";
 import logoSmall from "../../images/logo_small.png";
 import { rsize } from "../../utils/size";
 
-export const Background = styled.Image.attrs({
+export const Background = styled.ImageBackground.attrs({
   source: background,
   resizeMode: "cover",
 })`
-  position: absolute;
-  top: 0;
-  width: ${wp("100%")}px;
-  height: ${hp("50%")}px;
+  flex: 1;
+  width: ${rsize(375, "w")}px;
 `;
 
 export const Logo = styled.Image.attrs({
   source: logo,
   resizeMode: "contain",
 })`
+  width: ${rsize(335, "w")}px;
   flex: 1;
   align-self: stretch;
-  width: ${wp("100%") - rsize(40, "w")}px;
   margin: 0 ${rsize(20, "w")}px;
 `;
 
 export const LogoContainer = styled.View`
   flex: 1;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: ${rsize(51, "h")}px;
 `;
 
 export const LogoSmall = styled.Image.attrs({
   source: logoSmall,
   resizeMode: "contain",
 })`
-  height: ${rsize(46)}px;
-  width: ${rsize(46)}px;
-  margin-right: ${rsize(18)}px;
+  height: ${rsize(46, "w")}px;
+  width: ${rsize(46, "w")}px;
 `;
 
 export const Container = styled.View`
-  flex: 1;
-  justify-content: space-between;
-  padding-top: ${rsize(25)}px;
+  margin-top: ${rsize(-51, "h")}px;
+  border-top-left-radius: ${rsize(40)}px;
+  border-top-right-radius: ${rsize(40)}px;
 `;
 
 export const Form = styled.View`
-  justify-content: flex-end;
-  background-color: #fff;
-  border-top-left-radius: ${rsize(25)}px;
-  border-top-right-radius: ${rsize(25)}px;
-  padding-top: ${rsize(30)}px;
+  flex: 1;
+  border-top-left-radius: ${rsize(40)}px;
+  border-top-right-radius: ${rsize(40)}px;
+  background-color: ${props => props.theme.colors.backgroundLight};
 `;
 
 export const TitleContainer = styled.View`
+  height: ${rsize(46, "h")}px;
+  width:${rsize(233, "w")}px;
   flex-direction: row;
   align-items: center;
-  padding: 0 25px;
-  margin-bottom: ${rsize(30)}px;
+  justify-content: space-between;
+  margin:
+  ${rsize(30, "w")}px
+  ${rsize(25, "w")}px
+  ${rsize(30 - 14, "w")}px
+  ${rsize(25, "w")}px;
 `;
 
 interface ITitleProps {
@@ -77,6 +77,7 @@ interface ITitleProps {
 export const Title = styled(TextBold)<ITitleProps>`
   color: ${(props) => props.theme.colors.primary};
   font-size: ${(props) => props.theme.fontSizes.xl}px;
+  line-height: ${rsize(33, "h")}px;
   text-align: center;
 
   ${(props) =>
@@ -86,23 +87,10 @@ export const Title = styled(TextBold)<ITitleProps>`
     `}
 `;
 
-const ButtonText = styled(TextBold)<any>`
-  color: #fff;
-  font-size: ${(props) => props.theme.fontSizes.lg}px;
-`;
-
-const CustomButton: React.FC<any> = ({ children, ...props }) => {
-  return (
-    <ButtonComponent {...props}>
-      <ButtonText>{children}</ButtonText>
-    </ButtonComponent>
-  );
-};
-
-export const Button = styled(CustomButton)`
-  margin-top: ${rsize(21)}px;
-  margin-bottom: ${rsize(21)}px;
-  background-color: ${(props) => props.theme.colors.primary};
+export const Button = styled(ButtonGradient)`
+  align-self: center;
+  margin-top: ${rsize(22, "h")}px;
+  margin-bottom: ${rsize(30, "h")}px;
 `;
 
 export const ButtonSignUpText = styled(CustomTextBase)<any>`
@@ -110,32 +98,31 @@ export const ButtonSignUpText = styled(CustomTextBase)<any>`
   text-align: center;
 `;
 
-export const ButtonSignUp = styled(ButtonComponent)`
-  margin-bottom: ${rsize(33)}px;
+export const ButtonSignUp = styled(ButtonComponent).attrs({
+  rippleColor: 'transparent'
+})`
   height: auto;
-  font-weight: 400;
-  background-color: transparent;
+  align-self: center;
+  margin-bottom: ${rsize(27, "h")}px;
 `;
 
-export const ButtonForgotPass = styled(ButtonComponent)`
-  height: auto;
-  font-weight: 400;
-  background-color: transparent;
-  font-size: ${(props) => props.theme.fontSizes.md}px;
+export const ButtonForgotPass = styled(ButtonComponent).attrs({
+  rippleColor: 'transparent'
+})`
+  height:  ${rsize(25, "h")}px;
+  width:  ${rsize(143, "w")}px;
+  margin-top: ${rsize(14, "h")}px;
+  margin-right: ${rsize(25, "w")}px;
   align-self: flex-end;
-  padding: 5px 5px 2px;
 `;
 
 export const ButtonForgotPassText = styled(CustomTextBase)<any>`
   font-size: ${(props) => props.theme.fontSizes.sm}px;
   width: 100%;
   text-align: right;
-  text-decoration: underline;
 `;
 
-export const TitleStrong = styled(TextBold)`
-  color: #303030;
-`;
+export const TitleStrong = styled(TextBold)``;
 
 export const Strong = styled(TextBold)``;
 
@@ -143,5 +130,5 @@ export const EyeIcon = styled(Feather).attrs((props: any) => ({
   size: rsize(24),
   name: props.open ? "eye" : "eye-off",
 }))`
-  color: #8d97b5;
+  color: ${props => props.theme.colors.textSecondary};
 `;

@@ -12,13 +12,13 @@ import {
   Strong,
   ButtonSignUp,
   ButtonSignUpText,
-  TitleStrong,
   TitleContainer,
   ButtonForgotPass,
   ButtonForgotPassText,
   EyeIcon,
   LogoSmall,
 } from "./styles";
+
 import CustomInput from "../../components/CustomInput";
 import { ScrollView } from "react-native";
 
@@ -49,17 +49,20 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <Background />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <Container>
+        <Background>
           <LogoContainer>
             <Logo />
           </LogoContainer>
+        </Background>
+
+        <Container>
           <Form>
             <TitleContainer>
               <LogoSmall />
               <Title>Bem-vindo a GG</Title>
             </TitleContainer>
+
             <CustomInput
               label="E-mail"
               placeholder="Informe seu e-mail cadastrado"
@@ -71,15 +74,17 @@ const Login: React.FC = () => {
               rightComponent={
                 <EyeIcon
                   open={password_hidden}
-                  onPress={() => setPasswordHidden((prev) => !prev)}
+                  onPress={() => setPasswordHidden(!password_hidden)}
                 />
               }
             />
+
             <ButtonForgotPass onPress={forgotPassword}>
               <ButtonForgotPassText>Esqueceu sua senha?</ButtonForgotPassText>
             </ButtonForgotPass>
 
             <Button onPress={signIn}>Entrar</Button>
+            
             <ButtonSignUp onPress={signUp}>
               <ButtonSignUpText>
                 Ainda não possui uma conta? <Strong>Crie agora mesmo.</Strong>

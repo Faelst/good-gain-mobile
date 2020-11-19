@@ -10,11 +10,11 @@ interface ButtonProps {
 export const LinearGradient = styled(GradientComponent).attrs(props => ({
   colors: props.theme.colors.gradient
 }))<ButtonProps>`
-  height: ${rsize(57)}px;
-  width: ${rsize(325)}px;
+  height: ${rsize(57, "w")}px;
+  width: ${rsize(325, "w")}px;
   align-items: center;
   justify-content: center;
-  border-radius: ${rsize(28.5)}px;
+  border-radius: ${rsize(28.5, "w")}px;
   overflow: hidden;
   opacity: ${props => props.disabled ? 0.5 : 1};
 `

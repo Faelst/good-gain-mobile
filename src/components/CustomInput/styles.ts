@@ -3,34 +3,34 @@ import { rsize } from "../../utils/size";
 import CustomTextBase from "../CustomTextBase";
 
 export const Container = styled.View`
-  background-color: #fff;
-  border: ${rsize(1)}px solid #ebf3f9;
-  padding: 0 ${rsize(17)}px;
-  border-radius: ${rsize(27.5)}px;
+  background-color: ${(props) => props.theme.colors.backgroundLighter};
+  padding: 0 ${rsize(20, "w")}px;
+  border-radius: ${rsize(27.5, "w")}px;
   flex-direction: row;
   align-items: center;
-  box-shadow: 0px 0px ${rsize(5)}px #eee;
-  elevation: 1;
 `;
 
-export const Input = styled.TextInput.attrs({
-  placeholderTextColor: "#8d97b5",
-})`
-  height: ${rsize(55)}px;
+export const Input = styled.TextInput.attrs(props => ({
+  placeholderTextColor: props.theme.colors.textSecondary,
+}))`
+  height: ${rsize(55, "w")}px;
   flex: 1;
-  color: #8d97b5;
-  font-family: ${(props) => props.theme.fontFamily.textRegular}; 
+
+  font-family: ${props => props.theme.fontFamily.textRegular};
+  color: ${(props) => props.theme.colors.textSecondary};
   font-size: ${(props) => props.theme.fontSizes.md}px;
 `;
 
 export const View = styled.View`
-  padding: 0 ${rsize(24, "w")}px;
-  margin-top: ${rsize(14)}px;
+  padding: 0 ${rsize(25, "w")}px;
+  margin-top: ${rsize(14, "h")}px;
 `;
 
 export const Label = styled(CustomTextBase)`
-  color: #000;
-  font-family: ${(props) => props.theme.fontFamily.textRegular};
+  height: ${rsize(27, "h")}px;
+  color: ${(props) => props.theme.colors.textColor};
+  font-family: ${(props) => props.theme.fontFamily.textMedium};
   font-size: ${(props) => props.theme.fontSizes.md}px;
-  margin-bottom: ${rsize(5)}px;
+  line-height: ${rsize(27, "h")}px;
+  margin-bottom: ${rsize(5, "h")}px;
 `;

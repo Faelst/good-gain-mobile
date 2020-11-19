@@ -4,9 +4,8 @@ import { rsize } from '../utils/size';
 
 export const Button = styled(RectButton)`
   background-color: transparent;
-  /* height: ${rsize(55)}px; */
-  padding: ${rsize(14, 'w')}px 0;
-  margin: 0 ${rsize(24, 'w')}px;
+  height: 100%;
+  width: 100%;
   border-radius: ${(props) => rsize(6 + props.theme.fontSizes.lg, 'w')}px;
   justify-content: center;
   align-items: center;

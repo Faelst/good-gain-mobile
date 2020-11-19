@@ -18,7 +18,8 @@ const CustomInput: React.FC<ICustomInput> = ({
       <Label>{label}</Label>
 
       <Container>
-        <Input {...props} />
+        <Input
+        {...props} />
         {rightComponent}
       </Container>
     </View>

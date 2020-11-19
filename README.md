@@ -6,7 +6,10 @@ App em construção
 
 #### 01 Splash Screen
  * Splashscreen
- 
+
+#### 03 Login, Recuperar senha e Criar conta
+* Login
+
 #### 04 Início
 * Inicio
 * Detalhe Banner
@@ -27,7 +30,6 @@ App em construção
 * Onboarding.3
  
 #### 03 Login, Recuperar senha e Criar conta
-* Login
 * Recuperar senha
 * Recuperar senha - Enviado
 * Criar conta
