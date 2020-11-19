@@ -66,7 +66,7 @@ App em construção
 * Campeonato - Atualização da premiação
 * Campeonato - Chaveamento
 
-#### Wallet
+#### 09 Wallet
 * Wallet
 * Colocar crédito
 * Colocar crédito - Transferência
@@ -75,7 +75,7 @@ App em construção
 * Colocar crédito - Banco 2
 * Colocar crédito - Banco - Recebida
 
-#### Perfil
+#### 10 Perfil
 * Perfil
 * Editar perfil
 * Configurações
