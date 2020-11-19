@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Container,
-  Indicator,
   Title,
   Main,
   Border,
@@ -45,7 +44,6 @@ const ModalContent: React.FC<ModalItemProps> = () => {
 
   return (
     <Container>
-      <Indicator />
       <Title>Escolha o modo de jogo online desejado:</Title>
 
       <Main>

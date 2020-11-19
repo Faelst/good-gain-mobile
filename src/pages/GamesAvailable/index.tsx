@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 import {
   Container,
   ImageGradient,
@@ -16,9 +16,9 @@ import {
   Subtitle,
   ButtonView,
   ButtonText,
-  Modal,
 } from "./styles";
 
+import CustomModal from '../../components/CustomModal'
 import ModalContent from './components/ModalContent'
 import { separatorVertical, separatorHorizontal } from '../../utils/separator'
 
@@ -114,16 +114,12 @@ const GamesAvailable: React.FC = () => {
           )}
         />
 
-        <View>
-          <Modal
-            onBackButtonPress={toggleModal}
-            onBackdropPress={toggleModal}
-            onSwipeComplete={toggleModal}
-            isVisible={isModalVisible}
-          >
-            <ModalContent />
-          </Modal>
-        </View>
+        <CustomModal
+          onClose={toggleModal}
+          isVisible={isModalVisible}
+        >
+          <ModalContent />
+        </CustomModal>
       </Main>
     </Container>
   )

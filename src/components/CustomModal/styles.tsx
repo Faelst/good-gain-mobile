@@ -1,0 +1,20 @@
+import styled from 'styled-components/native'
+import { Dimensions } from 'react-native'
+import { rsize } from '../../utils/size'
+
+const WIDTH = Dimensions.get("window").width
+
+export const Content = styled.View`
+  width: 100%;
+  align-items: center;
+  border-top-left-radius: ${rsize(25)}px;
+  border-top-right-radius: ${rsize(25)}px;
+  background-color: ${props => props.theme.colors.backgroundLighter};
+`
+export const Indicator = styled.View`
+  height: ${rsize(5)}px;
+  width: ${rsize(114)}px;
+  margin-top: ${rsize(15)}px;
+  border-radius: ${rsize(3)}px;
+  background-color: rgba(169,169,169,0.2);
+`

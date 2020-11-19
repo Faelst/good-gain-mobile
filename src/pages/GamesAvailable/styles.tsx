@@ -3,7 +3,6 @@ import TextBold from "../../components/TextBold";
 import CustomTextBase from "../../components/CustomTextBase";
 import { CardMedia as CardCustom } from "../../components/CustomCard";
 import { RectButton } from 'react-native-gesture-handler'
-import ModalCustom from 'react-native-modal'
 import IMGGradient from '../../components/ImageGradient'
 import { rsize } from "../../utils/size";
 
@@ -110,13 +109,4 @@ export const ButtonText = styled(TextBold)<ListItemProps>`
     css`color: ${props => props.theme.colors.secondary};`:
     css`color: ${props => props.theme.colors.textSecondary};`
   };
-`
-export const Modal = styled(ModalCustom).attrs(props => ({
-  swipeDirection: "down",
-  backdropTransitionOutTiming: 0,
-  backdropColor: props.theme.colors.textColor,
-  backdropOpacity: 0.40,
-}))`
-  margin: 0;
-  justify-content: flex-end;
 `

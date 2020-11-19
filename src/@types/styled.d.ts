@@ -6,7 +6,8 @@ import { IFontSizes } from '../styles/interfaces/IFontSizes';
 declare module 'styled-components/native' {
   export interface DefaultTheme {
     colors: {
-      gradient: [string, string],
+      backdrop: string;
+      gradient: [string, string];
       backgroundPrimary: string;
       backgroundSecondary: string;
       backgroundLight: string;
