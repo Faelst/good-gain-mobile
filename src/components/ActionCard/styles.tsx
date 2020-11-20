@@ -56,6 +56,6 @@ export const Image = styled.Image.attrs({
   resizeMode: "contain",
   fadeDuration: 0
 })`
-  max-height: ${rsize(32)}px;
+  height: ${rsize(32)}px;
   width: ${rsize(29.25)}px;
 `

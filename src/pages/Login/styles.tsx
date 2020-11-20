@@ -15,8 +15,8 @@ export const Background = styled.ImageBackground.attrs({
   source: background,
   resizeMode: "cover",
 })`
+  width: 100%;
   flex: 1;
-  width: ${rsize(375, "w")}px;
 `;
 
 export const Logo = styled.Image.attrs({
@@ -25,8 +25,7 @@ export const Logo = styled.Image.attrs({
 })`
   width: ${rsize(335, "w")}px;
   flex: 1;
-  align-self: stretch;
-  margin: 0 ${rsize(20, "w")}px;
+  align-self: center;
 `;
 
 export const LogoContainer = styled.View`
@@ -65,10 +64,10 @@ export const TitleContainer = styled.View`
   align-items: center;
   justify-content: space-between;
   margin:
-  ${rsize(30, "w")}px
-  ${rsize(25, "w")}px
-  ${rsize(30 - 14, "w")}px
-  ${rsize(25, "w")}px;
+  ${rsize(30)}px
+  ${rsize(25)}px
+  ${rsize(30 - 14)}px
+  ${rsize(25)}px;
 `;
 
 interface ITitleProps {

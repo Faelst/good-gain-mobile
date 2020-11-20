@@ -21,6 +21,7 @@ import {
 import CustomModal from '../../components/CustomModal'
 import ModalContent from './components/ModalContent'
 import { separatorVertical, separatorHorizontal } from '../../utils/separator'
+import { useNavigation } from '@react-navigation/native'
 
 import bgGames from '../../images/bg_games.png'
 import imCod from '../../images/im_games2.png'
@@ -54,6 +55,14 @@ const dataGames = [
 const GamesAvailable: React.FC = () => {
   const [isTabSelected, setTabSelected] = React.useState(0)
   const [isModalVisible, setModalVisible] = React.useState(false);
+
+  const navigation = useNavigation()
+
+  const handleNextGames = () => {
+    navigation.navigate("GamesAvailable2")
+    toggleModal()
+    console.log("nextGame")
+  }
 
   const handleTab = (index: number) => {
     setTabSelected(index)
@@ -118,7 +127,7 @@ const GamesAvailable: React.FC = () => {
           onClose={toggleModal}
           isVisible={isModalVisible}
         >
-          <ModalContent />
+          <ModalContent onPress={handleNextGames}/>
         </CustomModal>
       </Main>
     </Container>

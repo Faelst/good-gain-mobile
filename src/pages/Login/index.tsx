@@ -21,6 +21,7 @@ import {
 
 import CustomInput from "../../components/CustomInput";
 import { ScrollView } from "react-native";
+import { TextInput } from "react-native-gesture-handler";
 
 const Login: React.FC = () => {
   const [password_hidden, setPasswordHidden] = useState(true);
@@ -66,6 +67,9 @@ const Login: React.FC = () => {
             <CustomInput
               label="E-mail"
               placeholder="Informe seu e-mail cadastrado"
+              autoCapitalize="none"
+              keyboardType="email-address"
+              returnKeyType="next"
             />
             <CustomInput
               label="Senha"

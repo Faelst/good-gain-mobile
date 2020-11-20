@@ -21,6 +21,7 @@ App em construção
 * Jogos disponíveis
 * Jogos disponíveis 2
 * Jogos disponíveis 3
+* Jogos disponíveis 4
 
 ## Telas em construção
 
@@ -41,7 +42,6 @@ App em construção
 * Criar conta - 4.1
 
 #### 06 Jogos disponíveis
-* Jogos disponíveis 4
 * Sala de Jogos - Partida rápida
 * Sala de Jogos - Partida rápida - Jogar
 * Sala de Jogos - Partida rápida - Jogar 2

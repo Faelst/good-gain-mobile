@@ -29,8 +29,10 @@ const dataGameMode = [
   }
 ]
 
-interface ModalItemProps {}
-const ModalContent: React.FC<ModalItemProps> = () => {
+interface ModalItemProps {
+  onPress: () => void
+}
+const ModalContent: React.FC<ModalItemProps> = ({onPress}) => {
   const [isFocused, setFocused] = React.useState(undefined)
 
   const handleSelect = (index: any) => {
@@ -83,11 +85,9 @@ const ModalContent: React.FC<ModalItemProps> = () => {
         })}
       </Main>
 
-      <Button
-        disabled={isSelectedItem(undefined)}
-        onPress={() => console.log("next")}
-      >Próximo
-      </Button>
+      <SimpleButton disabled={isSelectedItem(undefined)} onPress={onPress}>
+        <Button disabled={isSelectedItem(undefined)} >Próximo</Button>
+      </SimpleButton>
     </Container>
   )
 }

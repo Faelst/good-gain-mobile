@@ -12,6 +12,7 @@ export const Container = styled.View`
 
 export const Input = styled.TextInput.attrs(props => ({
   placeholderTextColor: props.theme.colors.textSecondary,
+  selectionColor: props.theme.colors.primary,
 }))`
   height: ${rsize(55, "w")}px;
   flex: 1;

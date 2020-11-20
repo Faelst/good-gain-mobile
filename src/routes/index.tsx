@@ -6,6 +6,7 @@ import SignUp from "../pages/SignUp";
 import ForgotPassword from "../pages/ForgotPassword";
 import BannerDetail from "../pages/BannerDetail";
 import BottomTabs from "./BottomNavigator";
+import GamesAvailable2 from '../pages/GamesAvailable2'
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -21,6 +22,7 @@ function App() {
         <Screen name="ForgotPassword" component={ForgotPassword} />
         <Screen name="Principal" component={BottomTabs} />
         <Screen name="BannerDetail" component={BannerDetail} />
+        <Screen name="GamesAvailable2" component={GamesAvailable2} />
       </Navigator>
     </NavigationContainer>
   );
