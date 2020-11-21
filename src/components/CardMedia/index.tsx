@@ -1,50 +1,47 @@
 import React from 'react'
-import { ImageSourcePropType } from 'react-native'
-
+import { ViewProps } from 'react-native'
 import {
   Container,
   Image,
-  Content,
-  DescriptionContainer,
-  Title,
-  SubTitle,
-  SubTitle2,
-  Tag,
-  IconContainer,
-  IconChevronRight,
-  IconMapPin,
-  IconPhone
+  DescriptionContent,
+  TextContainer,
+  Strong,
+  StrongBig,
+  StrongM,
+  Span,
+  Actions,
+  Button,
+  ButtonText
 } from './styles'
 
-interface CardMediaProps {
-  image: ImageSourcePropType
-  title: string
-  tag?: string
-  address?: string
-  phone?: string
-  marginTop?: boolean
+import image from '../../images/bn_panelgg.png'
+import ButtonOutlined from '../ButtonOutlined'
+
+interface CardMediaProps extends ViewProps {
+  value1: string,
+  value2: string,
 }
-
-const CardMedia: React.FC<CardMediaProps> = ({
-  image, title, tag, address, phone, marginTop
-}) => {
+const CardMedia: React.FC<CardMediaProps> = ({value1, value2, ...props}) => {
   return (
-    <Container marginTop={marginTop}>
-      <Image source={image} />
+    <Container {...props}>
+      <DescriptionContent>
+        <Image source={image}/>
+        <TextContainer>
+          <Strong>Sua vitória vale</Strong>
+          <StrongBig>R${value1}</StrongBig>
+          <Span>Inscrição</Span>
+          <StrongM>R${value2}</StrongM>
+        </TextContainer>
+      </DescriptionContent>
 
-      <Content>
-        <DescriptionContainer>
-          <Title>{title}</Title>
-          {tag && <Tag>{tag}</Tag>}
-          {address && <SubTitle><IconMapPin />{` ${address}`}</SubTitle>}
-          {phone && <SubTitle2><IconPhone />{` ${phone}`}</SubTitle2>}
-        </DescriptionContainer>
-
-        <IconContainer>
-          <IconChevronRight/>
-        </IconContainer>
-      </Content>
+      <Actions>
+        <ButtonOutlined>Saiba mais</ButtonOutlined>
+        <Button>
+          <ButtonText>Jogar</ButtonText>
+        </Button>
+      </Actions>
     </Container>
   )
 }
+
 export default CardMedia

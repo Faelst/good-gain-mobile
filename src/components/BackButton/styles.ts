@@ -1,19 +1,23 @@
-import { RectButton } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
-import { Feather } from '@expo/vector-icons';
-import { rsize } from '../../utils/size';
+import { RectButton } from 'react-native-gesture-handler'
+import { Feather } from '@expo/vector-icons'
+import { rsize } from '../../utils/size'
 
 export const Button = styled(RectButton)`
-  height: ${rsize(28, 'w')}px;
-  width: ${rsize(28, 'w')}px;
-  justify-content: center;
+  height: ${rsize(48)}px;
+  width: ${rsize(48)}px;
+  
   align-items: center;
-  margin: 0 ${rsize(12)}px;
-  /* background-color: red; */
-`;
-export const BackIcon = styled(Feather).attrs({ name: 'chevron-left' })<{
-  light: boolean;
-}>`
-  font-size: ${(props) => props.theme.fontSizes.xxl}px;
-  color: ${(props) => (props.light ? '#fff' : '#333')};
+  justify-content: center;
+  background-color: ${props => props.theme.colors.backgroundLighter};
+  border-radius: ${rsize(20)}px;
+`
+interface IconProps {
+  name: string
+}
+export const Icon = styled(Feather).attrs(props => ({
+  name: props.name,
+  size: rsize(24),
+}))<IconProps>`
+  color: ${(props) => props.theme.colors.textColor};
 `;

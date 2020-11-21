@@ -1,16 +1,16 @@
 import React from 'react';
 import { RectButtonProperties } from 'react-native-gesture-handler';
 
-import { BackIcon, Button } from './styles';
+import { Button, Icon } from './styles';
 
 interface IBackButton extends RectButtonProperties {
-  light?: boolean;
+  name: "x" | "arrow-left"
 }
 
-const BackButton: React.FC<IBackButton> = ({ ...props }) => {
+const BackButton: React.FC<IBackButton> = ({ name, ...props }) => {
   return (
     <Button {...props}>
-      <BackIcon light={props.light} />
+      <Icon name={name} />
     </Button>
   );
 };

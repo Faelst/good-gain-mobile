@@ -24,7 +24,10 @@ const GamesAvailable2: React.FC = () => {
 
         <Title>Escolha uma das opções:</Title>
 
-        <Button>Partida Rápida</Button>
+        <Button
+          onPress={() => navigation.navigate('QuickStart')}
+        >Partida Rápida
+        </Button>
         <Strong>Aqui sua vitória vale dinheiro!{'\n'}
           <Span>Desafie alguém para um amistoso online no modo FUT.</Span>
         </Strong>

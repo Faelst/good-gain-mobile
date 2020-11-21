@@ -4,7 +4,6 @@ import {
   Container,
   Title,
   ImageBackground,
-  IconX,
   Description,
   DescriptionBold,
   Image,
@@ -16,7 +15,7 @@ import bnDetail from "../../images/bn_detail.png";
 import bnPs5 from "../../images/bn_ps5.png";
 import icFlash from "../../images/icons/ic_flash.png";
 
-import CloseButton from "../../components/IconButton";
+import ButtonClose from "../../components/BackButton";
 import ActionCard from "../../components/ActionCard";
 import { useNavigation } from "@react-navigation/native";
 
@@ -27,9 +26,7 @@ const BannerDetail: React.FC = () => {
     <ScrollView>
       <Container>
         <ImageBackground source={bnDetail}>
-          <CloseButton onPress={() => navigation.goBack()}>
-            <IconX />
-          </CloseButton>
+          <ButtonClose name="x" onPress={() => navigation.goBack()}/>
         </ImageBackground>
 
         <Title>Prêmio Mensal</Title>

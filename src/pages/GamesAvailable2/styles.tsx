@@ -1,10 +1,8 @@
-import React from 'react'
 import styled from 'styled-components/native';
 import TextBold from '../../components/TextBold'
 import CustomTextBase from '../../components/CustomTextBase'
-import { BorderlessButton } from 'react-native-gesture-handler'
 import ButtonGradient from '../../components/ButtonGradient'
-import { Feather } from '@expo/vector-icons'
+import IconButton from '../../components/IconButton'
 import { rsize } from '../../utils/size'
 
 import bnChampionship from '../../images/bn_home1.png'
@@ -15,19 +13,11 @@ export const Container = styled.View`
   padding-bottom: ${rsize(44)}px;
   background-color: ${props => props.theme.colors.backgroundLight};
 `;
-export const CustomBorderlessButton: React.FC<any> = ({...props}) => {
-  return (
-    <BorderlessButton {...props}>
-      <IconCancel />
-    </BorderlessButton>
-  )
-};
-export const ButtonCancel = styled(CustomBorderlessButton)`
-  height: ${rsize(24)}px;
-  width: ${rsize(24)}px;
+export const ButtonCancel = styled(IconButton).attrs(props => ({
+  name: "x",
+  color: props.theme.colors.primary,
+}))`
   align-self: flex-end;
-  align-items: center;
-  justify-content: center;
   margin-top: ${rsize(24)}px;
   margin-right: ${rsize(24)}px;
 `
@@ -74,10 +64,4 @@ export const Divider = styled.View`
   margin-top: ${rsize(43)}px;
   margin-bottom: ${rsize(44)}px;
   background-color: ${props => props.theme.colors.textSecondary};
-`
-export const IconCancel = styled(Feather).attrs({
-  name: "x",
-  size: rsize(24),
-})`
-  color: ${props => props.theme.colors.primary};
 `
