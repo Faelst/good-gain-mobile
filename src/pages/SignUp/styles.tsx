@@ -5,7 +5,6 @@ import { Feather } from '@expo/vector-icons';
 import { Button as ButtonComponent } from '../../components';
 import CustomTextBase from '../../components/CustomTextBase';
 import TextBold from '../../components/TextBold';
-import CheckBoxBase from '../../components/CheckBox';
 
 import logo from '../../images/ic_logo.png';
 import { rsize } from '../../utils/size';
@@ -119,7 +118,7 @@ export const EyeIcon = styled(Feather).attrs((props: any) => ({
   color: #8d97b5;
 `;
 
-export const CheckBox = styled(CheckBoxBase)`
+export const CheckBox = styled.View`
   margin-top: ${rsize(17)}px;
   margin-bottom: ${rsize(20)}px;
 `;

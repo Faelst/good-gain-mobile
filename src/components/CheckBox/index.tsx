@@ -1,21 +1,19 @@
-import React from 'react';
+import React from 'react'
+import { BorderlessButtonProperties } from 'react-native-gesture-handler'
 
-import { Container, Text, Check, CheckIcon } from './styles';
+import { Button, View, Icon } from './styles'
 
-interface ICheckBoxProps {
-  label?: string;
-  checked?: boolean;
+interface CheckboxProps extends BorderlessButtonProperties {
+ checked?: boolean
 }
-
-const CheckBox: React.FC<ICheckBoxProps> = ({ label, checked, ...props }) => {
+const Checkbox: React.FC<CheckboxProps> = ({checked, ...props}) => {
   return (
-    <Container {...props}>
-      <Check checked={checked}>
-        <CheckIcon />
-      </Check>
-      <Text>{label}</Text>
-    </Container>
-  );
+    <Button {...props}>
+      <View checked={checked}>
+        <Icon checked={checked}/>
+      </View>
+    </Button>
+  )
 };
 
-export default CheckBox;
+export default Checkbox;

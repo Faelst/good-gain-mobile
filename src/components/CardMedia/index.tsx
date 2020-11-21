@@ -20,8 +20,11 @@ import ButtonOutlined from '../ButtonOutlined'
 interface CardMediaProps extends ViewProps {
   value1: string,
   value2: string,
+  onPress?: () => void
 }
-const CardMedia: React.FC<CardMediaProps> = ({value1, value2, ...props}) => {
+const CardMedia: React.FC<CardMediaProps> = ({
+  value1, value2, onPress, ...props
+}) => {
   return (
     <Container {...props}>
       <DescriptionContent>
@@ -36,7 +39,7 @@ const CardMedia: React.FC<CardMediaProps> = ({value1, value2, ...props}) => {
 
       <Actions>
         <ButtonOutlined>Saiba mais</ButtonOutlined>
-        <Button>
+        <Button onPress={onPress}>
           <ButtonText>Jogar</ButtonText>
         </Button>
       </Actions>

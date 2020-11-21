@@ -3,13 +3,14 @@ import CustomBackButton from '../../components/BackButton';
 import CustomContainer from '../../components/Container'
 import CustomTextBase from '../../components/CustomTextBase';
 import ImageGradient from '../../components/ImageGradient';
+import { LinearGradient } from 'expo-linear-gradient'
 import TextBold from '../../components/TextBold';
+import CheckboxBase from '../../components/Checkbox'
 import { rsize } from '../../utils/size';
 
 export const Container = styled(CustomContainer)`
   align-items: center;
   justify-content: center;
-  padding-bottom: ${rsize(48)}px;
 `;
 export const BackButton = styled(CustomBackButton).attrs({
   name: 'arrow-left'
@@ -57,7 +58,60 @@ export const Description = styled(CustomTextBase)`
   width: ${rsize(325)}px;
   align-self: center;
   flex-direction: column;
-  padding-right: ${rsize(40)}px;
   margin-top: ${rsize(15)}px;
-  margin-bottom: ${rsize(18)}px;
+  margin-bottom: ${rsize(34)}px;
+`;
+export const Details1 = styled(LinearGradient).attrs(props => ({
+  colors: props.theme.colors.gradient,
+}))`
+  height: ${rsize(36)}px;
+  width: ${rsize(327)}px;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: ${rsize(10)}px;
+  padding-right: ${rsize(10)}px;
+  margin-bottom: ${rsize(9)}px;
+  border-radius: ${rsize(10)}px;
+`;
+export const Details2 = styled.View`
+  height: ${rsize(36)}px;
+  width: ${rsize(327)}px;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: ${rsize(10)}px;
+  padding-right: ${rsize(10)}px;
+  border-radius: ${rsize(10)}px;
+  background-color: ${props => props.theme.colors.secondary};
+`;
+export const Strong = styled.Text`
+  font-family: ${props => props.theme.fontFamily.titleBold};
+  font-size: ${props => props.theme.fontSizes.sm}px;
+  color: ${props => props.theme.colors.textLight};
+`;
+export const Footer = styled.View`
+  height: ${rsize(148)}px;
+  width: ${rsize(375)}px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: ${rsize(17)}px;
+  padding-bottom: ${rsize(32)}px;
+  margin-top: ${rsize(145)}px;
+  background-color: ${props => props.theme.colors.backgroundLighter};
+`;
+export const CheckboxView = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+export const Checkbox = styled(CheckboxBase)`
+  margin-right: ${rsize(3)}px;
+`;
+export const Span = styled(CustomTextBase)`
+  font-size: ${props => props.theme.fontSizes.md}px;
+`;
+export const SpanUnderline = styled(Span)`
+  text-decoration: underline;
 `;

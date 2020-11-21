@@ -6,8 +6,8 @@ import {
   BackButton,
   Header,
   TextView,
-  HeaderSpan,
-  HeaderTitle,
+  HeaderTitleMD,
+  HeaderTitleXL,
   Title,
   Description,
 } from './styles'
@@ -32,15 +32,20 @@ const dataWin = [
 const QuickStart: React.FC = () => {
   const navigation = useNavigation()
 
+  const handlePlay = () => {
+    navigation.navigate("Play")
+    console.log("Play")
+  }
+
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <Container>
         <Header source={banner}>
           <BackButton onPress={() => navigation.goBack()} />
           <TextView>
-            <HeaderSpan>Ultimate Team</HeaderSpan>
-            <HeaderTitle>FIFA 20</HeaderTitle>
-            <HeaderSpan>PS5</HeaderSpan>
+            <HeaderTitleMD>Ultimate Team</HeaderTitleMD>
+            <HeaderTitleXL>FIFA 20</HeaderTitleXL>
+            <HeaderTitleMD>PS5</HeaderTitleMD>
           </TextView>
         </Header>
 
@@ -54,6 +59,7 @@ const QuickStart: React.FC = () => {
             key={item.id}
             value1={item.cashback.toString() + ",00"}
             value2={item.subscription.toString() + ",00"}
+            onPress={handlePlay}
           />
         ))}
       </Container>

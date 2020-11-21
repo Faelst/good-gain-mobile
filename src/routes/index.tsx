@@ -8,6 +8,7 @@ import BannerDetail from "../pages/BannerDetail";
 import BottomTabs from "./BottomNavigator";
 import GamesAvailable2 from '../pages/GamesAvailable2'
 import QuickStart from '../pages/QuickStart'
+import Play from '../pages/Play'
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -25,6 +26,7 @@ function App() {
         <Screen name="BannerDetail" component={BannerDetail} />
         <Screen name="GamesAvailable2" component={GamesAvailable2} />
         <Screen name="QuickStart" component={QuickStart} />
+        <Screen name="Play" component={Play} />
       </Navigator>
     </NavigationContainer>
   );
