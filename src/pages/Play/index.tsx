@@ -23,14 +23,21 @@ import {
 import banner from '../../images/bn_games_a2.png'
 import Button from '../../components/ButtonGradient'
 import { useNavigation } from '@react-navigation/native'
+import CustomModal from '../../components/CustomModal'
+import ModalContent from './components/ModalContent'
 
 const Play: React.FC = () => {
   const [isChecked, setChecked] = React.useState(false);
+  const [isModalVisible, setModalVisible] = React.useState(false);
 
   const navigation = useNavigation()
 
   const toggleChecked = () => {
     setChecked(!isChecked)
+  }
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible)
   }
 
   return (
@@ -57,7 +64,7 @@ a partida e ganhe dinheiro.
           <Strong>R$5,00</Strong>
         </Details1>
         <Details2>
-          <Strong>Taxa de inscrição</Strong>
+          <Strong>Sua vitória vale</Strong>
           <Strong>R$8,00</Strong>
         </Details2>
 
@@ -72,12 +79,18 @@ a partida e ganhe dinheiro.
             </Span>
           </CheckboxView>
           <Button
-            onPress={() => alert("Termos aceitos.")}
+            onPress={toggleModal}
             disabled={!isChecked}
           >Encontre seu adversário
           </Button>
         </Footer>
-       
+
+        <CustomModal
+          onClose={toggleModal}
+          isVisible={isModalVisible}
+        >
+          <ModalContent/>
+        </CustomModal>
       </Container>
     </ScrollView>
   )

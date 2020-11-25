@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { StatusBar } from 'react-native'
+import TextGradientBase from '../../components/TextGradient'
 import { LinearGradient } from 'expo-linear-gradient'
 import { CardMedia } from '../../components/CustomCard'
 import TextBold from '../../components/TextBold'
@@ -31,11 +31,10 @@ export const ProfileImage = styled.Image`
   width: ${rsize(86)}px;
   border-radius: ${rsize(43)}px;
 `
-export const ProfileName = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.xl + 2}px;
-  line-height: ${props => props.theme.fontSizes.xl + 2}px;
-  color: ${props => props.theme.colors.textColor};
-
+export const ProfileName = styled(TextGradientBase).attrs(props => ({
+  fontSize: props.theme.fontSizes.xl + 2,
+  textAlign: "center",
+}))`
   margin-top: ${rsize(15)}px;
 `
 export const ProfileDetailsContainer = styled.View`
@@ -120,17 +119,17 @@ export const MediaImage = styled.Image`
   border-radius: ${rsize(10)}px;
 `
 export const MediaDescription = styled.View`
-  height: ${rsize(69)}px;
+  height: ${rsize(68)}px;
   margin-left: ${rsize(13)}px;
   justify-content: space-between;
 `
-export const MediaTitle = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.sm}px;
-  line-height: ${props => props.theme.fontSizes.sm}px;
-  color: ${props => props.theme.colors.textColor};
-
-  margin-bottom: ${rsize(7)}px;
+export const MediaTitle = styled(TextGradientBase).attrs(props => ({
+  fontSize: props.theme.fontSizes.sm,
+}))`
+  flex: none;
+  margin-bottom: ${rsize(6)}px;
 `
+
 export const MediaTextContent = styled.View`
   width: ${rsize(220)}px;
   flex-direction: row;
@@ -176,11 +175,10 @@ export const BackgroundTitleContainer = styled.View`
   background: ${props => props.theme.colors.backgroundLighter};
   border-radius: ${rsize(10)}px;
 `
-export const BackgroundTitle = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.sm}px;
-  color: ${props => props.theme.colors.textColor};
-  text-align: center;
-`
+export const BackgroundTitle = styled(TextGradientBase).attrs(props => ({
+  fontSize: props.theme.fontSizes.sm,
+  textAlign: "center",
+}))``
 export const ActionButton = styled(RectButton)`
 `
 export const ButtonGradient = styled(LinearGradient).attrs(props => ({

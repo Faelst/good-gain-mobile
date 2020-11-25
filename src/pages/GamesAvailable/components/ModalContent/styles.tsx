@@ -3,12 +3,13 @@ import ButtonGradient from "../../../../components/ButtonGradient"
 import { LinearGradient } from 'expo-linear-gradient'
 import { TextProps } from 'react-native'
 import TextBold from "../../../../components/TextBold";
+import TextGradientBase from '../../../../components/TextGradient'
 import { rsize } from "../../../../utils/size";
 
 export const Container = styled.View`
   width: 100%;
   align-items: center;
-  padding-bottom: ${rsize(64 - 43)}px;
+  padding-bottom: ${rsize(64)}px;
 `
 export const Title = styled(TextBold)`
   height: ${rsize(55)}px;
@@ -66,14 +67,15 @@ export const TextContainer = styled.View`
   border-radius: ${rsize(10)}px;
   background-color: ${props => props.theme.colors.backgroundLighter};
 `
-export const Text = styled(TextBold).attrs({
-  disabled: true
-})<ImageTextProps>`
-  font-size: ${props => props.theme.fontSizes.sm}px;
-  color: ${props => 
-    props.isFocused === undefined && props.theme.colors.textColor ||
-    props.selected === true && props.theme.colors.primary ||
-    props.selected === false && "rgba(56, 56, 56, 0.5)"
+export const Text = styled(TextGradientBase).attrs(props => ({
+  fontSize: props.theme.fontSizes.sm,
+  textAlign: "center",
+  gradient: props.isFocused === undefined && false || props.selected && true
+}))<ImageTextProps>`
+  opacity: ${
+  props => props.isFocused === undefined && 1
+  || !props.selected && 0.5
+  || props.selected && 1
   };
 `
 export const ButtonContent = styled.View<ImageProps>`

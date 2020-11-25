@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-import { StatusBar } from "react-native";
 import { CardMedia } from "../../components/CustomCard";
 import { RectButton, TouchableHighlight } from "react-native-gesture-handler";
 import { LinearGradient } from "expo-linear-gradient";
@@ -7,13 +6,14 @@ import CustomTextBase from "../../components/CustomTextBase";
 import TextBold from "../../components/TextBold";
 import logo from "../../images/logo_horizontal_2.png";
 import { Feather } from "@expo/vector-icons";
+import TextGradientBase from '../../components/TextGradient'
 import { rsize } from "../../utils/size";
 
 export const Container = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
 })`
   margin-top: ${props => props.theme.StatusBarHeight}px;
-  background-color: ${props => props.theme.colors.backgroundLighter};
+  background-color: ${props => props.theme.colors.backgroundLight};
 `;
 export const Header = styled(LinearGradient).attrs((props) => ({
   colors: props.theme.colors.gradient,
@@ -59,8 +59,11 @@ export const BannerCard = styled(CardMedia)`
 export const BannerContent = styled.View`
   flex: 1;
   justify-content: space-between;
-  margin: ${rsize(17, "w")}px ${rsize(19, "w")}px ${rsize(19, "w")}px
-    ${rsize(19, "w")}px;
+  margin:
+  ${rsize(17, "w")}px
+  ${rsize(19, "w")}px
+  ${rsize(19, "w")}px
+  ${rsize(19, "w")}px;
 `;
 export const BalanceCard = styled(CardMedia)`
   height: ${rsize(100, "w")}px;
@@ -151,12 +154,11 @@ export const BannerImage = styled.Image`
   border-top-left-radius: ${rsize(30, "w")}px;
   border-top-right-radius: ${rsize(30, "w")}px;
 `;
-export const BannerTitle = styled(TextBold)`
-  font-size: ${(props) => props.theme.fontSizes.xl + 2}px;
-  line-height: ${(props) => props.theme.fontSizes.xl + 2}px;
-  text-align: center;
-  color: ${(props) => props.theme.colors.textColor};
-`;
+export const BannerTitle = styled(TextGradientBase).attrs(props => ({
+  fontSize: props.theme.fontSizes.xl + 2,
+  textAlign: "center",
+}))``;
+
 export const BannerDescription = styled(CustomTextBase)`
   font-size: ${(props) => props.theme.fontSizes.sm}px;
   line-height: ${(props) => props.theme.fontSizes.lg}px;

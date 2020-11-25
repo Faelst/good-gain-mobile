@@ -1,23 +1,21 @@
 import styled from 'styled-components/native';
-import { StatusBar } from 'react-native'
+import TextGradientBase from '../../components/TextGradient'
 import TextBold from '../../components/TextBold/'
 import CustomTextBase from '../../components/CustomTextBase/'
-import { Feather } from '@expo/vector-icons'
 import { rsize } from '../../utils/size'
 
 export const Container = styled.View`
-  flex: 1;
   align-items: center;
+  flex: 1;
   margin-top: ${props => props.theme.StatusBarHeight}px;
   padding-Bottom: ${rsize(51)}px;
   background-color: ${props => props.theme.colors.backgroundLight};
 `;
-export const Title = styled(TextBold)`
+export const Title = styled(TextGradientBase).attrs(props => ({
+  fontSize: props.theme.fontSizes.xxl - 2,
+  textAlign: "center",
+}))`
   margin-top: ${rsize(22.38)}px;
-
-  font-size: ${props => props.theme.fontSizes.xxl - 2}px;
-  line-height: ${props => props.theme.fontSizes.xxl - 2}px;
-  color: ${props => props.theme.colors.textColor};
 `;
 export const ImageBackground = styled.ImageBackground`
   height: ${rsize(221)}px;

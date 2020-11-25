@@ -7,6 +7,7 @@ import {
   Button,
   Tab,
   TabView,
+  TabStrong,
   TabTitle,
   Main,
   Card,
@@ -91,7 +92,9 @@ const GamesAvailable: React.FC = () => {
               style={separatorHorizontal(index, dataTab, 24, 12, 12 )}
             >
               <Button onPress={() => handleTab(index)}>
-                <TabTitle>{item}</TabTitle>
+                {isTabSelected === index
+                ? <TabStrong>{item}</TabStrong>
+                : <TabTitle>{item}</TabTitle>}
               </Button>
             </TabView>
           )}
@@ -107,9 +110,8 @@ const GamesAvailable: React.FC = () => {
             <Card style={separatorVertical(index, dataGames, 58, 14, 50 )}>
               <Image source={item.image} />
               <DescriptionContainer>
-                <Title>{item.name} {"\n"}
-                  <Subtitle>{item.type}</Subtitle>
-                </Title>
+                <Title>{item.name}</Title>
+                <Subtitle>{item.type}</Subtitle>
 
                 <ButtonView availabled={item.available}>
                   <Button enabled={item.available} onPress={toggleModal}>

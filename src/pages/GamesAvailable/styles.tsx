@@ -5,6 +5,7 @@ import { CardMedia as CardCustom } from "../../components/CustomCard";
 import { RectButton } from 'react-native-gesture-handler'
 import IMGGradient from '../../components/ImageGradient'
 import { rsize } from "../../utils/size";
+import TextGradientBase from '../../components/TextGradient';
 
 interface ListItemProps {
   selected?: boolean
@@ -55,9 +56,14 @@ export const Button = styled(RectButton)`
   justify-content: center;
 `
 export const TabTitle = styled(CustomTextBase)`
-  font-size: ${props => props.theme.fontSizes.lg + 2}px;
+  font-size: ${props => props.theme.fontSizes.lg + 1}px;
   text-align: center;
 `
+export const TabStrong = styled(TextGradientBase).attrs(props => ({
+  fontSize: props.theme.fontSizes.lg + 2,
+  textAlign: "center",
+}))``
+
 export const Main = styled.View`
   flex: 1;
   align-items: center;
@@ -78,20 +84,24 @@ export const Image = styled.Image`
 `
 export const DescriptionContainer = styled.View`
   height: ${rsize(98)}px;
-  justify-content: space-between;
+  width: 66%;
   margin: ${rsize(15)}px 0 0 ${rsize(13)}px;
 `
-export const Title = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.lg + 2}px;
-  line-height: ${props => props.theme.fontSizes.lg + 2}px;
-`
+export const Title = styled(TextGradientBase).attrs(props => ({
+  fontSize: props.theme.fontSizes.lg + 2,
+}))``
 export const Subtitle = styled(TextBold)`
   font-size: ${props => props.theme.fontSizes.lg}px;
   line-height: ${props => props.theme.fontSizes.lg}px;
+
+  margin-top: ${rsize(3)}px;
 `
 export const ButtonView = styled.View<ListItemProps>`
   height: ${rsize(42)}px;
   width: ${rsize(111)}px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   overflow: hidden;
   align-items: center;
   justify-content: center;

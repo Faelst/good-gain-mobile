@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import {
   Container,
   GradientHeader,
@@ -152,8 +152,10 @@ const GGPanel: React.FC = () => {
                 <MediaImage source={imPanelGG2} />
 
                 <MediaDescription>
-                  <MediaTitle>FIFA 20 GLOBAL SERIES</MediaTitle>
-                  <MediaDate>Domingo • 04 de Outubro de 2020</MediaDate>
+                    <MediaTitle>FIFA 20 GLOBAL SERIES</MediaTitle>
+                  <View>
+                    <MediaDate>Domingo • 04 de Outubro de 2020</MediaDate>
+                  </View>
                   <MediaTextContent>
                     <MediaValue>R$50,00</MediaValue>
                     <MediaSubtitle>Taxa de inscrição</MediaSubtitle>
