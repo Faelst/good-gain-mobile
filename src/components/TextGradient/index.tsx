@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleProp, TextProps } from 'react-native'
 import { MaskedView, View, Text, LinearGradient } from './styles'
 import { rsize } from '../../utils/size'
 
@@ -6,9 +7,11 @@ interface TextGradientProps {
   fontSize: number,
   textAlign?: string,
   gradient?: boolean,
+  width?: number,
+  textStyle?: any,
 }
 const TextGradient: React.FC<TextGradientProps> = ({
-  fontSize, textAlign, gradient, children, ...props
+  fontSize, textAlign, gradient, width, textStyle, children, ...props
 }) => {
   const size = fontSize ? fontSize : rsize(14);
   const isGradient = gradient === undefined ? true : gradient;
@@ -24,7 +27,7 @@ const TextGradient: React.FC<TextGradientProps> = ({
       }
     >
       {/* Shows behind the mask, you can put anything here, such as an image */}
-      <LinearGradient gradient={isGradient} fontSize={size}/>
+      <LinearGradient width={width} gradient={isGradient} fontSize={size}/>
     </MaskedView>
   );
 }

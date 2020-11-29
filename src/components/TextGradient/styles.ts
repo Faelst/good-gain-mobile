@@ -7,6 +7,7 @@ interface TextProps {
   fontSize: number,
   textAlign?: string,
   gradient?: boolean,
+  width?: number,
 }
 export const MaskedView = styled(MaskedViewBase)`
   flex: none;
@@ -27,5 +28,5 @@ export const LinearGradient = styled(LinearGradientBase).attrs((props) => ({
     props.theme.colors.textColor],
 }))<TextProps>`
   height: ${props => props.fontSize - 2}px;
-  flex: 1;
+  width: ${props => props.width ? props.width : '100%'};
 `;

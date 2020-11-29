@@ -5,15 +5,17 @@ import { ButtonView, ButtonText } from './styles'
 import { Button } from '../index'
 
 interface ButtonOutlineProps extends ViewProps {
-  onPress?: () => void
+  onPress?: () => void,
+  bold?: boolean,
+  fontSize?: number,
 }
 const ButtonOutline: React.FC<ButtonOutlineProps> = ({
-  onPress, children, ...rest
+  onPress, bold, fontSize, children, ...rest
 }) => {
   return (
     <ButtonView {...rest}>
       <Button onPress={onPress}>
-        <ButtonText>{children}</ButtonText>
+        <ButtonText fontSize={fontSize} bold={bold}>{children}</ButtonText>
       </Button>
     </ButtonView>
   );
