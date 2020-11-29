@@ -11,9 +11,22 @@ export const ButtonView = styled.View`
   border-width: ${rsize(1)}px;
   border-color: ${props => props.theme.colors.subtitle};
 `
-export const ButtonText = styled.Text`
-  font-family: ${props => props.theme.fontFamily.textMedium};
-  font-size: ${props => props.theme.fontSizes.md}px;
-  line-height: ${props => props.theme.fontSizes.md}px;
+interface ButtonTextProps {
+  bold?: boolean,
+  fontSize?: number,
+}
+export const ButtonText = styled.Text<ButtonTextProps>`
+  font-family: ${props => props.bold
+  ? props.theme.fontFamily.textBold
+  : props.theme.fontFamily.textMedium
+  };
+  font-size: ${props => props.fontSize
+  ? props.fontSize
+  : props.theme.fontSizes.md
+  }px;
+  line-height: ${props => props.fontSize
+  ? props.fontSize
+  : props.theme.fontSizes.md
+  }px;
   color: ${props => props.theme.colors.textColor};
 `

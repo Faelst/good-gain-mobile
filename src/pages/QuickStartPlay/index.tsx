@@ -26,7 +26,7 @@ import { useNavigation } from '@react-navigation/native'
 import CustomModal from '../../components/CustomModal'
 import ModalContent from './components/ModalContent'
 
-const Play: React.FC = () => {
+const QuickStartPlay: React.FC = () => {
   const [isChecked, setChecked] = React.useState(false);
   const [isModalVisible, setModalVisible] = React.useState(false);
 
@@ -79,7 +79,8 @@ a partida e ganhe dinheiro.
             </Span>
           </CheckboxView>
           <Button
-            onPress={toggleModal}
+            /* onPress={toggleModal} */
+            onPress={() => navigation.navigate("Match1")}
             disabled={!isChecked}
           >Encontre seu adversário
           </Button>
@@ -96,4 +97,4 @@ a partida e ganhe dinheiro.
   )
 }
 
-export default Play
+export default QuickStartPlay

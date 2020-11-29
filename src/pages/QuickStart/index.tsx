@@ -33,8 +33,8 @@ const QuickStart: React.FC = () => {
   const navigation = useNavigation()
 
   const handlePlay = () => {
-    navigation.navigate("Play")
-    console.log("Play")
+    navigation.navigate("QuickStartPlay")
+    console.log("QuickStartPlay")
   }
 
   return (
