@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Container,
   ImageBackground,
@@ -6,9 +6,13 @@ import {
   Title,
   Span,
   Button,
-} from './styles'
+} from "./styles";
 
-const ModalContent: React.FC = () => {
+interface IOpponentFound {
+  sendChallange?(): void;
+}
+
+const OpponentFound: React.FC<IOpponentFound> = ({ sendChallange }) => {
   return (
     <Container>
       <ImageBackground>
@@ -17,9 +21,9 @@ const ModalContent: React.FC = () => {
 
       <Title>Adversário encontrado.</Title>
       <Span>Clique no botão abaixo para desafia-lo e iniciar a partida.</Span>
-      <Button>Enviar desafio</Button>
+      <Button onPress={() => sendChallange?.()}>Enviar desafio</Button>
     </Container>
-  )
-}
+  );
+};
 
-export default ModalContent
+export default OpponentFound;

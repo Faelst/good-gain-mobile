@@ -63,22 +63,22 @@ const dataMedia = [
   {
     image: mdHome1,
     title: "Jogos disponiveis",
-    navigation: "GamesAvailable"
+    navigation: "GamesAvailable",
   },
   {
     image: mdHome2,
     title: "Convidar amigos",
-    navigation: "Home"
+    navigation: "Home",
   },
   {
     image: mdHome3,
     title: "Ranking",
-    navigation: "Home"
+    navigation: "Home",
   },
   {
     image: mdHome4,
     title: "Suporte",
-    navigation: "Home"
+    navigation: "Home",
   },
 ];
 
@@ -167,9 +167,10 @@ const Home: React.FC = () => {
               size="md"
               image={icFlashWT}
               title="Partidas rápidas"
+              onPress={() => navigation.navigate("QuickStart")}
             />
             <ActionCard
-              size="md" 
+              size="md"
               image={icTrophyWT}
               title="Campeonatos"
               backgroundColor="secondary"

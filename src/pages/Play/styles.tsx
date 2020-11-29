@@ -5,7 +5,7 @@ import CustomTextBase from '../../components/CustomTextBase';
 import ImageGradient from '../../components/ImageGradient';
 import { LinearGradient } from 'expo-linear-gradient'
 import TextBold from '../../components/TextBold';
-import CheckboxBase from '../../components/Checkbox'
+import CheckboxBase from '../../components/CheckBox'
 import { rsize } from '../../utils/size';
 
 export const Container = styled(CustomContainer)`
