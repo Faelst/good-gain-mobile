@@ -1,4 +1,3 @@
-import { RectButton } from "react-native-gesture-handler";
 import styled, { css } from "styled-components/native";
 import { CardMedia } from "../../components/CustomCard";
 import TextBold from "../../components/TextBold";
@@ -8,25 +7,9 @@ interface ContainerProps {
   size?: "sm" | "md" | "xl";
   backgroundColor?: "primary" | "secondary";
 }
-
-export const Container = styled(RectButton)`
+export const Container = styled(CardMedia)<ContainerProps>`
   margin-top: ${rsize(15, "w")}px;
-  height: ${rsize(71)}px;
   border-radius: ${rsize(20, "w")}px;
-  overflow: hidden;
-`;
-
-export const Content = styled(CardMedia)<ContainerProps>`
-  height: ${rsize(71)}px;
-  width: ${(props) =>
-    (props.size === "sm" && rsize(144)) ||
-    (props.size === "md" && rsize(156)) ||
-    (props.size === "xl" && rsize(287)) ||
-    (props.size === undefined && rsize(287))}px;
-  flex-direction: row;
-  align-items: center;
-  border-radius: 0px;
-  justify-content: flex-start;
   ${(props) =>
     props.backgroundColor === "secondary"
       ? css`
@@ -36,7 +19,26 @@ export const Content = styled(CardMedia)<ContainerProps>`
       : css`
           background-color: ${(props) => props.theme.colors.backgroundPrimary};
         `};
+
+  width: ${(props) =>
+    (props.size === "sm" && rsize(144)) ||
+    (props.size === "md" && rsize(156)) ||
+    (props.size === "xl" && rsize(287)) ||
+    (props.size === undefined && rsize(287))}px;
 `;
+
+export const Content = styled.TouchableOpacity<any>`
+  height: ${rsize(71)}px;
+  width: ${(props) =>
+    (props.size === "sm" && rsize(144)) ||
+    (props.size === "md" && rsize(156)) ||
+    (props.size === "xl" && rsize(287)) ||
+    (props.size === undefined && rsize(287))}px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
 export const Title = styled(TextBold)`
   flex: 1;
 

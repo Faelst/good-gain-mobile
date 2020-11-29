@@ -5,11 +5,13 @@ import LookingOpponent from "../LookingOpponent";
 import OpponentFound from "../OpponentFound";
 import WaitingOpponent from "../WaitingOpponent";
 import ChallengeAccepted from "../ChallengeAccepted";
+import { useNavigation } from "@react-navigation/native";
 
 interface ModalItemProps {
-  onPress?: () => void;
+  onFinish?: () => void;
 }
-const ModalContent: React.FC<ModalItemProps> = ({ onPress }) => {
+const ModalContent: React.FC<ModalItemProps> = ({ onFinish }) => {
+  const navigation = useNavigation();
   const [step, setStep] = useState(1);
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const ModalContent: React.FC<ModalItemProps> = ({ onPress }) => {
         <OpponentFound sendChallange={() => setStep((prev) => prev + 1)} />
       )}
       {step === 3 && <WaitingOpponent />}
-      {step === 4 && <ChallengeAccepted />}
+      {step === 4 && <ChallengeAccepted onPlay={() => onFinish?.()} />}
     </Container>
   );
 };

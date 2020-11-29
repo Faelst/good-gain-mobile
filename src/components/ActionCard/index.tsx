@@ -1,6 +1,6 @@
 import React from "react";
 import { ImageURISource, ViewProps } from "react-native";
-import { RectButton, RectButtonProperties } from "react-native-gesture-handler";
+
 import {
   Container,
   Content,
@@ -11,11 +11,12 @@ import {
   Image,
 } from "./styles";
 
-interface ActionCardProps extends RectButtonProperties {
+interface ActionCardProps extends ViewProps {
   title?: string;
   image: ImageURISource;
   size?: "sm" | "md" | "xl";
   backgroundColor?: "primary" | "secondary";
+  onPress?(): void;
 }
 const ActionCard: React.FC<ActionCardProps> = ({
   title,
@@ -26,8 +27,13 @@ const ActionCard: React.FC<ActionCardProps> = ({
   ...rest
 }) => {
   return (
-    <Container {...rest}>
-      <Content size={size} backgroundColor={backgroundColor}>
+    <Container size={size} backgroundColor={backgroundColor} {...rest}>
+      <Content
+        size={size}
+        onPress={() => {
+          requestAnimationFrame(() => rest.onPress?.());
+        }}
+      >
         {(size === "sm" && (
           <ImageContainerSM background={backgroundColor}>
             <Image source={image} />
