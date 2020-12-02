@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={light}>
-      <StatusBar style="dark" />
+      <StatusBar style="auto" />
       <Routes />
     </ThemeProvider>
   );

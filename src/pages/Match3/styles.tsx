@@ -39,8 +39,10 @@ export const Description = styled(CustomTextBase)`
   margin-top: ${rsize(32)}px;
 `;
 export const Span = styled(TextGradient).attrs(props => ({
+  fontFamily: props.theme.fontFamily.textRegular,
   fontSize: props.theme.fontSizes.sm,
   textAlign: 'center',
+  textDecoration: 'underline',
 }))`
   margin-top: ${rsize(17)}px;
   margin-bottom: ${rsize(37)}px;

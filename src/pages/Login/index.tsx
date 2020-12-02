@@ -21,7 +21,6 @@ import {
 
 import CustomInput from "../../components/CustomInput";
 import { ScrollView } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
 
 const Login: React.FC = () => {
   const [password_hidden, setPasswordHidden] = useState(true);
@@ -50,7 +49,7 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <ScrollView>
         <Background>
           <LogoContainer>
             <Logo />

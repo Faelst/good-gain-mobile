@@ -20,7 +20,10 @@ const Match: React.FC = () => {
   const navigation = useNavigation()
 
   return (
-    <MatchContainer title="O desafio começa aqui!" image={imageProgress}>
+    <MatchContainer
+      title="O desafio começa aqui!"
+      image={imageProgress}
+    >
       <SubtitleView>
         <Subtitle>
           Siga as instruções abaixo para avançar para a próxima etapa.

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { LinearGradient, Text, Strong } from './styles';
 
 interface MatchTimeProps {

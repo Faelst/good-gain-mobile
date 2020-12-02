@@ -15,12 +15,13 @@ import MatchTime from '../../components/MatchTime'
 import MatchAction from '../../components/MatchAction'
 import imageProgress from '../../images/im_p2.png'
 import { useNavigation } from '@react-navigation/native'
+import { rsize } from '../../utils/size'
 
 const Match: React.FC = () => {
   const navigation = useNavigation();
   
   return (
-    <MatchContainer title="Mutio bem!" image={imageProgress}>
+    <MatchContainer title="Muito bem!" image={imageProgress}>
       <SubtitleView>
         <Subtitle>
         Agora que vocês já criaram uma conexão
@@ -30,13 +31,13 @@ online no jogo.
       </SubtitleView>
 
       <MatchTime
-        style={{ paddingBottom: 38}}
+        style={{ paddingBottom: rsize(38)}}
         time={"00:05:00"}
         description={`para criarem a partida online.`}
       />
       <MatchAction
         onPress={() => navigation.navigate("Match3")}
-        style={{ marginTop: 32 }}
+        style={{ marginTop: rsize(32) }}
         time={"00:04:46"}
         player1="BRUNO_PS4"
         player2="LUCAS_PS4"

@@ -1,12 +1,18 @@
 import styled from 'styled-components/native'
 import { rsize } from '../../utils/size'
 
-export const Content = styled.View`
+interface ContentProps {
+  background?: string,
+}
+export const Content = styled.View<ContentProps>`
   width: 100%;
   align-items: center;
   border-top-left-radius: ${rsize(25)}px;
   border-top-right-radius: ${rsize(25)}px;
-  background-color: ${props => props.theme.colors.backgroundLighter};
+  background-color: ${props => props.background
+  ? props.background
+  : props.theme.colors.backgroundLighter
+  };
 `
 export const Indicator = styled.View`
   height: ${rsize(5)}px;

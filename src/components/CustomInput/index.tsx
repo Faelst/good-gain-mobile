@@ -5,21 +5,25 @@ import { Container, View, Input, Label } from "./styles";
 
 interface ICustomInput extends TextInputProps {
   label: string;
+  height?: number,
   rightComponent?: React.ReactNode;
 }
 
 const CustomInput: React.FC<ICustomInput> = ({
   label,
+  height,
   rightComponent,
+  children,
   ...props
 }) => {
   return (
     <View>
       <Label>{label}</Label>
-
-      <Container>
-        <Input
-        {...props} />
+      <Container height={height}>
+        {children
+        ? children
+        : <Input {...props} />
+        }
         {rightComponent}
       </Container>
     </View>

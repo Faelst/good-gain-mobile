@@ -15,16 +15,16 @@ export const Background = styled.ImageBackground.attrs({
   source: background,
   resizeMode: "cover",
 })`
+  height: ${rsize(369)}px;
   width: 100%;
-  flex: 1;
 `;
 
 export const Logo = styled.Image.attrs({
   source: logo,
   resizeMode: "contain",
 })`
-  width: ${rsize(335, "w")}px;
   flex: 1;
+  width: ${rsize(335)}px;
   align-self: center;
 `;
 
@@ -33,19 +33,20 @@ export const LogoContainer = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: ${rsize(51, "h")}px;
+  margin-bottom: ${rsize(51)}px;
 `;
 
 export const LogoSmall = styled.Image.attrs({
   source: logoSmall,
   resizeMode: "contain",
 })`
-  height: ${rsize(46, "w")}px;
-  width: ${rsize(46, "w")}px;
+  height: ${rsize(46)}px;
+  width: ${rsize(46)}px;
 `;
 
 export const Container = styled.View`
-  margin-top: ${rsize(-51, "h")}px;
+  flex: 1;
+  margin-top: ${rsize(-51)}px;
   border-top-left-radius: ${rsize(40)}px;
   border-top-right-radius: ${rsize(40)}px;
 `;
@@ -58,8 +59,8 @@ export const Form = styled.View`
 `;
 
 export const TitleContainer = styled.View`
-  height: ${rsize(46, "h")}px;
-  width:${rsize(233, "w")}px;
+  height: ${rsize(46)}px;
+  width:${rsize(233)}px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -76,7 +77,7 @@ interface ITitleProps {
 export const Title = styled(TextBold)<ITitleProps>`
   color: ${(props) => props.theme.colors.primary};
   font-size: ${(props) => props.theme.fontSizes.xl}px;
-  line-height: ${rsize(33, "h")}px;
+  line-height: ${rsize(33)}px;
   text-align: center;
 
   ${(props) =>
@@ -88,8 +89,8 @@ export const Title = styled(TextBold)<ITitleProps>`
 
 export const Button = styled(ButtonGradient)`
   align-self: center;
-  margin-top: ${rsize(22, "h")}px;
-  margin-bottom: ${rsize(30, "h")}px;
+  margin-top: ${rsize(22)}px;
+  margin-bottom: ${rsize(30)}px;
 `;
 
 export const ButtonSignUpText = styled(CustomTextBase)<any>`
@@ -102,16 +103,16 @@ export const ButtonSignUp = styled(ButtonComponent).attrs({
 })`
   height: auto;
   align-self: center;
-  margin-bottom: ${rsize(27, "h")}px;
+  margin-bottom: ${rsize(27)}px;
 `;
 
 export const ButtonForgotPass = styled(ButtonComponent).attrs({
   rippleColor: 'transparent'
 })`
-  height:  ${rsize(25, "h")}px;
-  width:  ${rsize(143, "w")}px;
-  margin-top: ${rsize(14, "h")}px;
-  margin-right: ${rsize(25, "w")}px;
+  height:  ${rsize(25)}px;
+  width:  ${rsize(143)}px;
+  margin-top: ${rsize(14)}px;
+  margin-right: ${rsize(25)}px;
   align-self: flex-end;
 `;
 

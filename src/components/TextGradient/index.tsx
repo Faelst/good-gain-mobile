@@ -8,10 +8,18 @@ interface TextGradientProps {
   textAlign?: string,
   gradient?: boolean,
   width?: number,
-  textStyle?: any,
+  fontFamily?: string,
+  textDecoration?: string,
 }
 const TextGradient: React.FC<TextGradientProps> = ({
-  fontSize, textAlign, gradient, width, textStyle, children, ...props
+  fontSize,
+  textAlign,
+  gradient,
+  width,
+  fontFamily,
+  textDecoration,
+  children,
+  ...props
 }) => {
   const size = fontSize ? fontSize : rsize(14);
   const isGradient = gradient === undefined ? true : gradient;
@@ -22,7 +30,14 @@ const TextGradient: React.FC<TextGradientProps> = ({
       maskElement={
         <View>
           {/* Transparent background because mask is based off alpha channel. */}
-          <Text fontSize={size} textAlign={textAlign}>{children}</Text>
+          <Text
+            fontSize={size}
+            textAlign={textAlign}
+            fontFamily={fontFamily}
+            textDecoration={textDecoration}
+          >
+            {children}
+          </Text>
         </View>
       }
     >

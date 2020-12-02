@@ -5,7 +5,6 @@ import TextBold from '../TextBold';
 import CustomTextBase from '../CustomTextBase';
 
 export const ScrollView = styled.ScrollView`
-  margin-top: 0;
   background-color: ${props => props.theme.colors.backgroundLighter};
 `;
 
