@@ -32,6 +32,7 @@ App em construção
 
 #### 07 Partida
 * Partida - 1
+* Partida - 1 - Suporte
 * Partida - 2
 * Partida - 3
 
@@ -54,7 +55,6 @@ App em construção
 * Criar conta - 4.1
 
 #### 07 Partida
-* Partida - 1 - Suporte
 * Partida - 4
 * Partida - 5
 * Partida - 6
