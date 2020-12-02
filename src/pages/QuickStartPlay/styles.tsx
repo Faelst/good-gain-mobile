@@ -5,7 +5,7 @@ import CustomTextBase from '../../components/CustomTextBase';
 import ImageGradient from '../../components/ImageGradient';
 import { LinearGradient } from 'expo-linear-gradient'
 import TextBold from '../../components/TextBold';
-import CheckboxBase from '../../components/CheckBox'
+/* import CheckboxBase from '../../components/CheckBox'; */
 import { rsize } from '../../utils/size';
 
 export const Container = styled(CustomContainer)`
@@ -106,7 +106,7 @@ export const CheckboxView = styled.View`
   flex-direction: row;
   align-items: center;
 `;
-export const Checkbox = styled(CheckboxBase)`
+export const Checkbox = styled.View`
   margin-right: ${rsize(3)}px;
 `;
 export const Span = styled(CustomTextBase)`

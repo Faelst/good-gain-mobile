@@ -19,6 +19,7 @@ import {
   ButtonText,
 } from "./styles";
 
+import SimpleButton from "../../components/SimpleButton";
 import CustomModal from '../../components/CustomModal'
 import ModalContent from './components/ModalContent'
 import { separatorVertical, separatorHorizontal } from '../../utils/separator'
@@ -91,11 +92,11 @@ const GamesAvailable: React.FC = () => {
               selected={isTabSelected === index ? true :  false}
               style={separatorHorizontal(index, dataTab, 24, 12, 12 )}
             >
-              <Button onPress={() => handleTab(index)}>
+              <SimpleButton onPress={() => handleTab(index)}>
                 {isTabSelected === index
                 ? <TabStrong>{item}</TabStrong>
                 : <TabTitle>{item}</TabTitle>}
-              </Button>
+              </SimpleButton>
             </TabView>
           )}
         />
@@ -114,7 +115,7 @@ const GamesAvailable: React.FC = () => {
                 <Subtitle>{item.type}</Subtitle>
 
                 <ButtonView availabled={item.available}>
-                  <Button enabled={item.available} onPress={toggleModal}>
+                  <Button disabled={!item.available} onPress={toggleModal}>
                     <ButtonText availabled={item.available}>
                       {item.available ? "Selecionar" : "Em breve"}
                     </ButtonText>

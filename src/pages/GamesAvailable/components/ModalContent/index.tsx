@@ -85,9 +85,12 @@ const ModalContent: React.FC<ModalItemProps> = ({onPress}) => {
         })}
       </Main>
 
-      <SimpleButton disabled={isSelectedItem(undefined)} onPress={onPress}>
-        <Button disabled={isSelectedItem(undefined)} >Próximo</Button>
-      </SimpleButton>
+      <Button
+        onPress={onPress}
+        disabled={isSelectedItem(undefined)}
+      >
+        Próximo
+      </Button>
     </Container>
   )
 }

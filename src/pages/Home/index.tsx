@@ -25,10 +25,9 @@ import {
   BalanceCash,
   BalanceButton,
   ActionContainer,
-  CardMediaContainer,
   BackgroundMedia,
-  MediaButton,
-  MediaButtonText,
+  MediaTextView,
+  MediaTitle,
 } from "./styles";
 
 import bnHome1 from "../../images/bn_home1.png";
@@ -177,15 +176,16 @@ const Home: React.FC = () => {
             />
 
             {dataMedia.map((item, index) => (
-              <CardMediaContainer key={index}>
+              <SimpleButton
+                key={index}
+                onPress={() => handleItemSelected(item.navigation)}
+              >
                 <BackgroundMedia source={item.image}>
-                  <MediaButton
-                    onPress={() => handleItemSelected(item.navigation)}
-                  >
-                    <MediaButtonText>{item.title}</MediaButtonText>
-                  </MediaButton>
+                  <MediaTextView>
+                    <MediaTitle>{item.title}</MediaTitle>
+                  </MediaTextView>
                 </BackgroundMedia>
-              </CardMediaContainer>
+              </SimpleButton>
             ))}
           </ActionContainer>
         </Padding>

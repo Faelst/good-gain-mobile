@@ -14,7 +14,7 @@ const ButtonGradient: React.FC<ButtonProps> = ({
   return (
     <Container {...rest}>
       <LinearGradient disabled={disabled}>
-        <Button onPress={onPress} enabled={!disabled}>
+        <Button onPress={onPress} disabled={disabled}>
           <ButtonText>{children}</ButtonText>
         </Button>
       </LinearGradient>

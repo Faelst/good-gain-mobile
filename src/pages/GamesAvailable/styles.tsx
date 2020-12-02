@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/native';
 import TextBold from "../../components/TextBold";
 import CustomTextBase from "../../components/CustomTextBase";
 import { CardMedia as CardCustom } from "../../components/CustomCard";
-import { RectButton } from 'react-native-gesture-handler'
+import { Button as ButtonBase } from '../../components/index'
 import IMGGradient from '../../components/ImageGradient'
 import { rsize } from "../../utils/size";
 import TextGradientBase from '../../components/TextGradient';
@@ -49,7 +49,7 @@ export const TabView = styled.View<ListItemProps>`
   background-color: ${props => props.theme.colors.backgroundLighter};
   border-radius:${rsize(20)}px;
 `
-export const Button = styled(RectButton)`
+export const Button = styled(ButtonBase)`
   height: 100%;
   width: 100%;
   align-items: center;

@@ -4,9 +4,10 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { CardMedia } from '../../components/CustomCard'
 import TextBold from '../../components/TextBold'
 import CustomTextBase from '../../components/CustomTextBase'
-import { RectButton } from 'react-native-gesture-handler'
+import { Button } from '../../components/index'
 import { Feather } from '@expo/vector-icons'
 import { rsize } from '../../utils/size'
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -179,8 +180,7 @@ export const BackgroundTitle = styled(TextGradientBase).attrs(props => ({
   fontSize: props.theme.fontSizes.sm,
   textAlign: "center",
 }))``
-export const ActionButton = styled(RectButton)`
-`
+
 export const ButtonGradient = styled(LinearGradient).attrs(props => ({
   colors: props.theme.colors.gradient
 }))`
@@ -212,7 +212,7 @@ export const MediaDate = styled(MediaSubtitle)`
 
   margin-top: ${rsize(-10)}px;
 `
-export const MediaActionButton = styled(RectButton)`
+export const MediaActionButton = styled(Button)`
   height: ${rsize(71)}px;
   width: ${rsize(299)}px;
   align-items: center;

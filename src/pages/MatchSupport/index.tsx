@@ -67,9 +67,7 @@ encontra em nosso FAQ.
         <InputMultiline label="Mensagem" placeholder="Escreva aqui" />
         <IMGPicker onPress={pickImage} value={value} image={image} />
 
-        <SimpleButton onPress={onSubmit}>
-          <ButtonSubmit>Enviar</ButtonSubmit>
-        </SimpleButton>
+        <ButtonSubmit onPress={onSubmit}>Enviar</ButtonSubmit>
       </Form>
     </Container>
   )
