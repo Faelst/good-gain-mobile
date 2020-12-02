@@ -41,8 +41,9 @@ import mdHome4 from "../../images/md_home4.png";
 
 import ActionCard from "../../components/ActionCard";
 import SimpleButton from "../../components/SimpleButton";
-import { rsize } from "../../utils/size";
 import { useNavigation } from "@react-navigation/native";
+import { rsize } from "../../utils/size";
+import { separatorHorizontal } from "../../utils/separator";
 
 const dataChallenge = [
   {
@@ -94,23 +95,6 @@ const Home: React.FC = () => {
     navigation.navigate(item);
   }
 
-  const listMargin = (index: number) => {
-    if (index === dataChallenge.length - 1) {
-      return {
-        marginLeft: rsize(10, "w"),
-        marginRight: rsize(30, "w"),
-      };
-    } else if (index >= 1) {
-      return {
-        marginLeft: rsize(10, "w"),
-      };
-    } else if (index === 0) {
-      return {
-        marginLeft: rsize(30, "w"),
-      };
-    }
-  };
-
   return (
     <Container>
       <Header>
@@ -136,7 +120,9 @@ const Home: React.FC = () => {
           keyExtractor={(item) => item.title}
           renderItem={({ item, index }) => (
             <SimpleButton onPress={() => handleBannerSelected(item)}>
-              <BannerCard style={listMargin(index)}>
+              <BannerCard
+                style={separatorHorizontal(index, dataChallenge, 30, 10, 30)}
+              >
                 <BannerImage source={item.image} />
                 <BannerContent>
                   <BannerTitle>{item.title}</BannerTitle>

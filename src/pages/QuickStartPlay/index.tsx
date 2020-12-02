@@ -83,7 +83,7 @@ const QuickStartPlay: React.FC = () => {
               </SpanUnderline>
             </Span>
           </CheckboxView>
-          <Button onPress={toggleModal} disabled={isChecked}>
+          <Button onPress={toggleModal} disabled={!isChecked}>
             Encontre seu adversário
           </Button>
         </Footer>

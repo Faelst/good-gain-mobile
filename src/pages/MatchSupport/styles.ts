@@ -45,6 +45,7 @@ export const InputMultiline = styled(CustomInput).attrs({
   multiline: true,
 })`
   flex: none;
+  width: 100%;
   margin-top: ${rsize(15)}px;
 `;
 
