@@ -1,5 +1,5 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React, { useEffect } from "react";
+import { ScrollView } from "react-native";
 
 import {
   Container,
@@ -18,27 +18,33 @@ import {
   Checkbox,
   Span,
   SpanUnderline,
-} from './styles'
+} from "./styles";
 
-import banner from '../../images/bn_games_a2.png'
-import Button from '../../components/ButtonGradient'
-import { useNavigation } from '@react-navigation/native'
-import CustomModal from '../../components/CustomModal'
-import ModalContent from './components/ModalContent'
+import banner from "../../images/bn_games_a2.png";
+import Button from "../../components/ButtonGradient";
+import { useNavigation } from "@react-navigation/native";
+import CustomModal from "../../components/CustomModal";
+import ModalContent from "./components/ModalContent";
 
 const QuickStartPlay: React.FC = () => {
   const [isChecked, setChecked] = React.useState(false);
   const [isModalVisible, setModalVisible] = React.useState(false);
 
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
   const toggleChecked = () => {
-    setChecked(!isChecked)
-  }
+    setChecked(!isChecked);
+  };
 
   const toggleModal = () => {
-    setModalVisible(!isModalVisible)
-  }
+    setModalVisible(!isModalVisible);
+  };
+
+  useEffect(() => {
+    return () => {
+      toggleModal();
+    };
+  }, []);
 
   return (
     <ScrollView>
@@ -54,9 +60,8 @@ const QuickStartPlay: React.FC = () => {
 
         <Title>Confie na sua habilidade e siga em frente.</Title>
         <Description>
-        A melhor forma de jogar, se divertir e lucrar.
-Coloque seu time em campo, vença
-a partida e ganhe dinheiro.
+          A melhor forma de jogar, se divertir e lucrar. Coloque seu time em
+          campo, vença a partida e ganhe dinheiro.
         </Description>
 
         <Details1>
@@ -70,31 +75,30 @@ a partida e ganhe dinheiro.
 
         <Footer>
           <CheckboxView>
-            <Checkbox onPress={toggleChecked} checked={isChecked}/>
+            <Checkbox onPress={toggleChecked} checked={isChecked} />
             <Span>
               {`Li e concordo com o `}
-              <SpanUnderline onPress={() => alert("Regulamento")}
-              >Regulamento.
+              <SpanUnderline onPress={() => alert("Regulamento")}>
+                Regulamento.
               </SpanUnderline>
             </Span>
           </CheckboxView>
-          <Button
-            /* onPress={toggleModal} */
-            onPress={() => navigation.navigate("Match1")}
-            disabled={!isChecked}
-          >Encontre seu adversário
+          <Button onPress={toggleModal} disabled={!isChecked}>
+            Encontre seu adversário
           </Button>
         </Footer>
 
-        <CustomModal
-          onClose={toggleModal}
-          isVisible={isModalVisible}
-        >
-          <ModalContent/>
+        <CustomModal onClose={toggleModal} isVisible={isModalVisible}>
+          <ModalContent
+            onFinish={() => {
+              toggleModal();
+              navigation.navigate("Match1");
+            }}
+          />
         </CustomModal>
       </Container>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default QuickStartPlay
+export default QuickStartPlay;

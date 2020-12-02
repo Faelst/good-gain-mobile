@@ -1,10 +1,5 @@
-import React from 'react'
-import {
-  Container,
-  Title,
-  Image,
-  Span,
-} from './styles'
+import React from "react";
+import { Container, Title, Image, Span } from "./styles";
 
 const WaitingOpponent: React.FC = () => {
   return (
@@ -13,7 +8,7 @@ const WaitingOpponent: React.FC = () => {
       <Image />
       <Span>Aguarde um instante.</Span>
     </Container>
-  )
-}
+  );
+};
 
-export default WaitingOpponent
+export default WaitingOpponent;

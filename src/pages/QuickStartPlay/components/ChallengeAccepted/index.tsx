@@ -1,4 +1,5 @@
-import React from 'react'
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
 import {
   Container,
   ImageBackground,
@@ -6,9 +7,15 @@ import {
   Title,
   Span,
   Button,
-} from './styles'
+} from "./styles";
 
-const ModalContent: React.FC = () => {
+interface IChallengeAccepted {
+  onPlay?(): void;
+}
+
+const ChallengeAccepted: React.FC<IChallengeAccepted> = ({ onPlay }) => {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <ImageBackground>
@@ -17,9 +24,9 @@ const ModalContent: React.FC = () => {
 
       <Title>O desafio foi aceito.</Title>
       <Span>O valor de R$5,00 foi debitado de sua conta.</Span>
-      <Button>Bora jogar!</Button>
+      <Button onPress={() => onPlay?.()}>Bora jogar!</Button>
     </Container>
-  )
-}
+  );
+};
 
-export default ModalContent
+export default ChallengeAccepted;
