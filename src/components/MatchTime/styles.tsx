@@ -10,10 +10,15 @@ export const LinearGradient = styled(LinearGradientBase).attrs(props => ({
   width: ${rsize(320)}px;
   align-self: center;
   align-items: center;
-  justify-content: space-between;
   padding-top: ${rsize(23)}px;
   padding-bottom: ${rsize(20)}px;
   border-radius: ${rsize(40)}px;
+`;
+export const View = styled.View`
+  min-height: ${rsize(90)}px;
+  max-height: ${rsize(108)}px;
+  align-items: center;
+  justify-content: space-between;
 `;
 export const Text = styled(TextBold)`
   text-align: center;

@@ -11,7 +11,7 @@ export const Content = styled.View<ContentProps>`
   border-top-right-radius: ${rsize(25)}px;
   background-color: ${props => props.background
   ? props.background
-  : props.theme.colors.backgroundLighter
+  : props.theme.colors.backgroundLight
   };
 `
 export const Indicator = styled.View`

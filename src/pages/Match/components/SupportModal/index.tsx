@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollViewProps } from 'react-native';
 import {
   Container,
   Strong,
@@ -8,35 +9,19 @@ import {
   Form,
   Picker,
   InputMultiline,
-  IMGPicker,
   ButtonSubmit,
 } from './styles';
 
-import * as ImagePicker from 'expo-image-picker'
-import SimpleButton from '../../components/SimpleButton';
+import CameraRoll from '../../../../components/CameraRoll'
 
-interface MatchSupportProps {
+interface SupportModalProps extends ScrollViewProps {
   onSubmit?: () => void
 }
-const MatchSupport: React.FC<MatchSupportProps> = ({onSubmit}) => {
+const SupportModal: React.FC<SupportModalProps> = ({onSubmit, ...props}) => {
   const [image, setImage] = React.useState(null);
   const [value, setValue] = React.useState('');
 
-  const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      aspect: [4, 3],
-      quality: 1,
-    });
-
-    console.log(result);
-
-    if (!result.cancelled) {
-      splitUri(result.uri, result.type)
-    }
-  };
-
-  const splitUri = (uri: string, type: any) => {
+  const splitURI = (uri: any, type: any) => {
     let arr = uri.split('.');
     let last = arr[arr.length - 1]
     setValue(`${type}.${last}`)
@@ -49,7 +34,7 @@ const MatchSupport: React.FC<MatchSupportProps> = ({onSubmit}) => {
   ]
 
   return (
-    <Container contentContainerStyle={{ flexGrow: 1 }}>
+    <Container {...props} contentContainerStyle={{ flexGrow: 1 }}>
       <Strong>Reportar um problema</Strong>
       <DescriptionContainer>
         <Description>Antes de reportar um problema para nosso suporte, verifique se essa resposta não se
@@ -65,7 +50,13 @@ encontra em nosso FAQ.
           items={list}
         />
         <InputMultiline label="Mensagem" placeholder="Escreva aqui" />
-        <IMGPicker onPress={pickImage} value={value} image={image} />
+        <CameraRoll
+          onChangeValue={(event) => splitURI(event.uri, event.type)}
+          defaultValue="Anexe imagem"
+          label="Anexar imagem"
+          value={value}
+          image={image}
+        />
 
         <ButtonSubmit onPress={onSubmit}>Enviar</ButtonSubmit>
       </Form>
@@ -73,4 +64,4 @@ encontra em nosso FAQ.
   )
 }
 
-export default MatchSupport;
+export default SupportModal;

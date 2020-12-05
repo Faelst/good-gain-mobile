@@ -1,28 +1,13 @@
 import styled from 'styled-components/native';
-import ButtonGradient from '../../components/ButtonGradient';
-import ButtonOutlinedBase from '../../components/ButtonOutlined';
-import { CardMedia } from '../../components/CustomCard';
-import CustomTextBase from '../../components/CustomTextBase';
-import TextBold from '../../components/TextBold';
-import TextGradient from '../../components/TextGradient';
-import { rsize } from '../../utils/size';
+import ButtonGradientBase from '../../../../components/ButtonGradient';
+import ButtonOutlinedBase from '../../../../components/ButtonOutlined';
+import { CardMedia } from '../../../../components/CustomCard';
+import CustomTextBase from '../../../../components/CustomTextBase';
+import TextBold from '../../../../components/TextBold';
+import TextGradient from '../../../../components/TextGradient';
+import CameraBase from '../../../../components/Camera'
+import { rsize } from '../../../../utils/size';
 
-export const SubtitleView = styled.View`
-  height: ${rsize(90)}px;
-  width: ${rsize(325)}px;
-  align-self: center;
-  justify-content: space-between;
-  margin-top: ${rsize(36)}px;
-  margin-bottom: ${rsize(22)}px;
-`;
-export const Subtitle = styled(CustomTextBase)`
-  font-size: ${props => props.theme.fontSizes.md}px;
-  line-height: ${props => props.theme.fontSizes.xl}px;
-`;
-export const SubtitleStrong = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.md}px;
-  line-height: ${props => props.theme.fontSizes.md + 1}px;
-`;
 export const Card = styled(CardMedia)`
   height: ${rsize(306)}px;
   width: ${rsize(327)}px;
@@ -30,6 +15,7 @@ export const Card = styled(CardMedia)`
   align-items: center;
   margin-top: ${rsize(45)}px;
   border-radius: ${rsize(20)}px;
+  border-color: ${props => props.theme.colors.primary};
 `;
 export const Description = styled(CustomTextBase)`
   text-align: center;
@@ -79,8 +65,16 @@ export const ButtonOutlined = styled(ButtonOutlinedBase).attrs(props => ({
   width: ${rsize(126)}px;
   border-radius: ${rsize(28.5)}px;
 `;
-export const Button = styled(ButtonGradient)`
+interface ButtonProps {
+  marginTop?: boolean,
+}
+export const Button = styled(ButtonGradientBase)<ButtonProps>`
   align-self: center;
-  margin-top: ${rsize(28)}px;
+  margin-top: ${props => props.marginTop ? rsize(10) : rsize(28)}px;
   margin-bottom: ${rsize(75)}px;
 `;
+export const Camera = styled(CameraBase)`
+  width: ${rsize(182)}px;
+  align-self: center;
+  margin-top: ${rsize(11)}px
+`

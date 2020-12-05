@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
-import ButtonGradient from '../../components/ButtonGradient';
-import CustomTextBase from '../../components/CustomTextBase';
-import TextBold from '../../components/TextBold';
-import { rsize } from '../../utils/size';
-import CustomPicker from'../../components/CustomPicker';
-import CustomImagePicker from '../../components/CustomImagePicker';
-import CustomInput from '../../components/CustomInput';
+import ButtonGradient from '../../../../components/ButtonGradient';
+import CustomTextBase from '../../../../components/CustomTextBase';
+import TextBold from '../../../../components/TextBold';
+import { rsize } from '../../../../utils/size';
+import CustomPicker from'../../../../components/CustomPicker';
+import CameraRoll from '../../../../components/CameraRoll';
+import CustomInput from '../../../../components/CustomInput';
 
 export const Container = styled.ScrollView`
   width: 100%;
@@ -48,8 +48,6 @@ export const InputMultiline = styled(CustomInput).attrs({
   width: 100%;
   margin-top: ${rsize(15)}px;
 `;
-
-export const IMGPicker = styled(CustomImagePicker)``;
 
 export const ButtonSubmit = styled(ButtonGradient)`
   align-self: center;
