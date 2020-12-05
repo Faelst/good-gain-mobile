@@ -17,7 +17,7 @@ function App() {
   return (
     <NavigationContainer>
       <Navigator
-        initialRouteName="Match"
+        initialRouteName="SignIn"
         screenOptions={{ headerShown: false }}
       >
         <Screen name="SignIn" component={Login} />
