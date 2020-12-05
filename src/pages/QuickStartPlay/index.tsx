@@ -92,7 +92,7 @@ const QuickStartPlay: React.FC = () => {
           <ModalContent
             onFinish={() => {
               toggleModal();
-              navigation.navigate("Match1");
+              navigation.navigate("Match");
             }}
           />
         </CustomModal>
