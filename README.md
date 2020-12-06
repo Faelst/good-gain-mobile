@@ -35,6 +35,13 @@ App em construção
 * Partida - 1 - Suporte
 * Partida - 2
 * Partida - 3
+* Partida - 4
+* Partida - 5
+* Partida - 6
+
+#### 10 Perfil
+* Perfil
+* Configurações
 
 ## Telas em construção
 
@@ -53,11 +60,6 @@ App em construção
 * Criar conta - 3
 * Criar conta - 4
 * Criar conta - 4.1
-
-#### 07 Partida
-* Partida - 4
-* Partida - 5
-* Partida - 6
 
 #### 08 Campeonatos
 * Campeonatos
@@ -78,9 +80,7 @@ App em construção
 * Colocar crédito - Banco - Recebida
 
 #### 10 Perfil
-* Perfil
 * Editar perfil
-* Configurações
 * Central de notificações
 * Termos e privacidade
 * Suporte

@@ -9,9 +9,8 @@ import BottomTabs from "./BottomNavigator";
 import GamesAvailable2 from '../pages/GamesAvailable2'
 import QuickStart from '../pages/QuickStart'
 import QuickStartPlay from '../pages/QuickStartPlay'
-import Match1 from '../pages/Match1'
-import Match2 from '../pages/Match2'
-import Match3 from '../pages/Match3'
+import Match from '../pages/Match'
+import ProfileSettings from '../pages/ProfileSettings'
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -30,9 +29,8 @@ function App() {
         <Screen name="GamesAvailable2" component={GamesAvailable2} />
         <Screen name="QuickStart" component={QuickStart} />
         <Screen name="QuickStartPlay" component={QuickStartPlay} />
-        <Screen name="Match1" component={Match1} />
-        <Screen name="Match2" component={Match2} />
-        <Screen name="Match3" component={Match3} />
+        <Screen name="Match" component={Match} />
+        <Screen name="ProfileSettings" component={ProfileSettings} />
       </Navigator>
     </NavigationContainer>
   );

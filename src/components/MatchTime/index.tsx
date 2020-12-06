@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinearGradient, Text, Strong } from './styles';
+import { LinearGradient, View, Text, Strong } from './styles';
 
 interface MatchTimeProps {
   time: any,
@@ -10,9 +10,11 @@ const MatchTime: React.FC<MatchTimeProps> = ({
 }) => {
   return (
     <LinearGradient {...props}>
-      <Text>Vocês tem</Text>
-      <Strong>{time}</Strong>
-      <Text>{description}</Text>
+      <View>
+        <Text>Vocês tem</Text>
+        <Strong>{time}</Strong>
+        <Text>{description}</Text>
+      </View>
     </LinearGradient>
   )
 }
