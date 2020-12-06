@@ -39,6 +39,10 @@ App em construção
 * Partida - 5
 * Partida - 6
 
+#### 10 Perfil
+* Perfil
+* Configurações
+
 ## Telas em construção
 
 #### 02 Onboarding
@@ -76,9 +80,7 @@ App em construção
 * Colocar crédito - Banco - Recebida
 
 #### 10 Perfil
-* Perfil
 * Editar perfil
-* Configurações
 * Central de notificações
 * Termos e privacidade
 * Suporte

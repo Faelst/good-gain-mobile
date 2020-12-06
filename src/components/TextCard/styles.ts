@@ -11,9 +11,13 @@ export const Container = styled.View`
   padding-right: ${rsize(18)}px;
   background-color: ${props => props.theme.colors.backgroundLighter};
   border-radius: ${rsize(20)}px;
+`;
+export const View = styled.View`
   margin-top: ${rsize(10)}px;
 `;
-export const Image = styled.Image`
+export const Image = styled.Image.attrs({
+  resizeMode: "contain",
+})`
   height: ${rsize(24)}px;
   width: ${rsize(24)}px;
   margin-right: ${rsize(20)}px;

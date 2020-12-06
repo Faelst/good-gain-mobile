@@ -1,21 +1,26 @@
 import React from 'react';
-import { ImageURISource, TouchableWithoutFeedbackProps } from 'react-native';
+import { ImageURISource, ViewProps } from 'react-native';
 import SimpleButton from '../SimpleButton';
 
-import { Container, Image, Text } from './styles';
+import { Container, View, Image, Text } from './styles';
 
-interface TextCardProps extends TouchableWithoutFeedbackProps {
+interface TextCardProps extends ViewProps {
   icon?: ImageURISource,
-  title: string,
+  title?: string,
+  onPress?: () => void,
 }
-const TextCard: React.FC<TextCardProps> = ({icon, title, ...props}) => {
+const TextCard: React.FC<TextCardProps> = ({
+  icon, title, onPress, ...props
+}) => {
   return (
-    <SimpleButton {...props}>
-      <Container>
-        {icon && <Image source={icon} />}
-        <Text>{title}</Text>
-      </Container>
-    </SimpleButton>
+    <View {...props}>
+      <SimpleButton onPress={onPress}>
+        <Container>
+          {icon && <Image source={icon} />}
+          <Text>{title}</Text>
+        </Container>
+      </SimpleButton>
+    </View>
   )
 }
 

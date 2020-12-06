@@ -10,6 +10,7 @@ import GamesAvailable2 from '../pages/GamesAvailable2'
 import QuickStart from '../pages/QuickStart'
 import QuickStartPlay from '../pages/QuickStartPlay'
 import Match from '../pages/Match'
+import ProfileSettings from '../pages/ProfileSettings'
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -29,6 +30,7 @@ function App() {
         <Screen name="QuickStart" component={QuickStart} />
         <Screen name="QuickStartPlay" component={QuickStartPlay} />
         <Screen name="Match" component={Match} />
+        <Screen name="ProfileSettings" component={ProfileSettings} />
       </Navigator>
     </NavigationContainer>
   );

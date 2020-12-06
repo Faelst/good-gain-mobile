@@ -18,8 +18,11 @@ import icSupport from '../../images/icons/ic_support.png'
 import icDocText from '../../images/icons/ic_document_text.png'
 import icLogout from '../../images/icons/ic_logout.png'
 
+import { useNavigation } from '@react-navigation/native';
 
 const Profile: React.FC = () => {
+  const navigation = useNavigation()
+
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <Container>
@@ -32,10 +35,18 @@ const Profile: React.FC = () => {
           <Strong>Lucas Monteiro</Strong>
 
           <TextCard title="Editar Perfil" icon={icEdit} />
-          <TextCard title="Configurações" icon={icSettings} />
+          <TextCard
+            title="Configurações"
+            icon={icSettings}
+            onPress={() => navigation.navigate("ProfileSettings")}
+          />
           <TextCard title="Suporte" icon={icSupport} />
           <TextCard title="Termos de Uso" icon={icDocText} />
-          <TextCard title="Sair" icon={icLogout} />
+          <TextCard
+            title="Sair"
+            icon={icLogout}
+            onPress={() => navigation.navigate("SignIn")}
+          />
         </Main>
       </Container>
     </ScrollView>
