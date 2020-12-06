@@ -5,7 +5,6 @@ import TextGradient from '../../components/TextGradient';
 import { rsize } from '../../utils/size';
 
 export const Container = styled(ContainerBase)`
-  margin-bottom: ${rsize(79)}px;
 `;
 export const Header = styled.View``;
 export const ImageBackground = styled(ImageGradient)`
@@ -16,6 +15,7 @@ export const ImageBackground = styled(ImageGradient)`
 `;
 export const Main = styled.View`
   margin-top: ${rsize(-43)}px;
+  padding-bottom: ${rsize(43)}px;
 `;
 export const Image = styled.Image`
   height: ${rsize(86)}px;
