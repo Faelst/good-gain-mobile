@@ -10,7 +10,7 @@ import { rsize } from '../../utils/size'
 import image from '../../images/bg_games.png'
 
 export const ScrollView = styled.ScrollView`
-  background-color: ${props => props.theme.colors.backgroundLighter};
+  background-color: ${props => props.theme.colors.backgroundLight};
 `;
 export const Header = styled(LinearGradient).attrs(props => ({
   colors: props.theme.colors.gradient
@@ -39,7 +39,7 @@ export const Main = styled.View`
   margin-top: ${rsize(-49)}px;
   border-top-left-radius: ${rsize(40)}px;
   border-top-right-radius: ${rsize(40)}px;
-  background-color: #fcf8f8;
+  background-color: ${props => props.theme.colors.backgroundLight};
 `;
 export const Button = styled(CustomTextBase)`
   text-decoration: underline;
