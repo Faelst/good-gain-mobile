@@ -11,6 +11,10 @@ import QuickStart from '../pages/QuickStart'
 import QuickStartPlay from '../pages/QuickStartPlay'
 import Match from '../pages/Match'
 import ProfileSettings from '../pages/ProfileSettings'
+import ProfileSupport from '../pages/ProfileSupport'
+import Terms from '../pages/Terms'
+import Abount from '../pages/Abount'
+import HowUse from '../pages/HowUse'
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -31,6 +35,10 @@ function App() {
         <Screen name="QuickStartPlay" component={QuickStartPlay} />
         <Screen name="Match" component={Match} />
         <Screen name="ProfileSettings" component={ProfileSettings} />
+        <Screen name="ProfileSupport" component={ProfileSupport} />
+        <Screen name="Terms" component={Terms} />
+        <Screen name="Abount" component={Abount} />
+        <Screen name="HowUse" component={HowUse} />
       </Navigator>
     </NavigationContainer>
   );

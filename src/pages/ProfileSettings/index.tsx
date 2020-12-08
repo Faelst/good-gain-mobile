@@ -19,7 +19,11 @@ const ProfileSettings: React.FC = () => {
       <Container>
         <TextCard title="Convidar amigos" icon={icInvite} />
         <TextCard title="Central de notificações" icon={icBell} />
-        <TextCard title="Sobre nós" icon={icInfoGG} />
+        <TextCard
+          title="Sobre nós" 
+          icon={icInfoGG}
+          onPress={() => navigation.navigate("Abount")}
+        />
       </Container>
     </ContainerProfile>
   )

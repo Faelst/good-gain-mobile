@@ -42,6 +42,10 @@ App em construção
 #### 10 Perfil
 * Perfil
 * Configurações
+* Termos e privacidade
+* Suporte
+* Como usar o GoodGain
+* Sobre nós
 
 ## Telas em construção
 
@@ -82,7 +86,3 @@ App em construção
 #### 10 Perfil
 * Editar perfil
 * Central de notificações
-* Termos e privacidade
-* Suporte
-* Como usar o GoodGain
-* Sobre nós

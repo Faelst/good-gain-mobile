@@ -40,8 +40,16 @@ const Profile: React.FC = () => {
             icon={icSettings}
             onPress={() => navigation.navigate("ProfileSettings")}
           />
-          <TextCard title="Suporte" icon={icSupport} />
-          <TextCard title="Termos de Uso" icon={icDocText} />
+          <TextCard
+            title="Suporte"
+            icon={icSupport}
+            onPress={() => navigation.navigate("ProfileSupport")}
+          />
+          <TextCard
+            title="Termos de Uso"
+            icon={icDocText}
+            onPress={() => navigation.navigate("Terms")}
+          />
           <TextCard
             title="Sair"
             icon={icLogout}

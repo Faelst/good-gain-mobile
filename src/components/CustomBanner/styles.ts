@@ -14,8 +14,7 @@ export const ImageBackground = styled.ImageBackground`
 export const LinearGradient = styled(LinearGradientBase).attrs(props => ({
   colors: props.theme.colors.gradient,
 }))`
-  height: ${rsize(151)}px;
-  width: ${rsize(320)}px;
-  border-radius: ${rsize(40)}px;
+  flex: 1;
+  width: 100%;
   opacity: 0.2;
 `
