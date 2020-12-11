@@ -15,6 +15,7 @@ import ProfileSupport from '../pages/ProfileSupport'
 import Terms from '../pages/Terms'
 import Abount from '../pages/Abount'
 import HowUse from '../pages/HowUse'
+import NotificationCenter from '../pages/NotificationCenter'
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -39,6 +40,7 @@ function App() {
         <Screen name="Terms" component={Terms} />
         <Screen name="Abount" component={Abount} />
         <Screen name="HowUse" component={HowUse} />
+        <Screen name="NotificationCenter" component={NotificationCenter} />
       </Navigator>
     </NavigationContainer>
   );

@@ -6,8 +6,6 @@ export const ImageBackground = styled.ImageBackground`
   height: ${rsize(151)}px;
   width: ${rsize(320)}px;
   overflow: hidden;
-  align-items: center;
-  justify-content: center;
   margin-top: ${rsize(20)}px;
   border-radius: ${rsize(40)}px;
 `
