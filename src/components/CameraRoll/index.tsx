@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Platform } from 'react-native';
+import { ImageURISource, Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import SimpleButton from '../SimpleButton';
 import { Container, View, Icon, Image, Label, Text } from './styles'
@@ -7,9 +7,8 @@ import { ImageInfo } from 'expo-image-picker/build/ImagePicker.types';
 
 interface CameraRollProps {
   label?: string,
-  value?: string,
+  error?: boolean,
   defaultValue?: string,
-  image?: string | null,
   /**
   * Retorna um objeto com os seguintes valores:
   * cancelled: boolean,
@@ -21,8 +20,11 @@ interface CameraRollProps {
  onChangeValue?: (event: ImageInfo) => void
 }
 const CameraRoll:React.FC<CameraRollProps> = ({
-  label, value, defaultValue, image, onChangeValue, ...props
+  label, error, defaultValue, onChangeValue, ...props
 }) => {
+  const [image, setImage] = React.useState() as any
+  const [value, setValue] = React.useState("")
+
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -44,17 +46,22 @@ const CameraRoll:React.FC<CameraRollProps> = ({
     /* console.log(result); */
     if (!result.cancelled) {
       onChangeValue !== undefined && onChangeValue(result)
+      setImage(result.uri)
+
+      let arr = result.uri.split('.');
+      let last = arr[arr.length - 1]
+      setValue(`${result.type}.${last}`)
     }
   };
 
   return (
     <Container {...props}>
-      {label && <Label>{label}</Label>}
+      {label && <Label error={error}>{error && "*"}{label}</Label>}
       <SimpleButton onPress={pickImage}>
-        <View>
-          <Icon />
+        <View error={error}>
+          <Icon error={error} />
           {image && <Image source={{uri: image}}/>}
-          <Text>{value ? value : defaultValue}</Text>
+          <Text error={error}>{value ? value : defaultValue}</Text>
         </View>
       </SimpleButton>
     </Container>

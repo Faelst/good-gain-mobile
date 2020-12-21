@@ -25,6 +25,7 @@ import Button from "../../components/ButtonGradient";
 import { useNavigation } from "@react-navigation/native";
 import CustomModal from "../../components/CustomModal";
 import ModalContent from "./components/ModalContent";
+import SimpleButton from "../../components/SimpleButton";
 
 const QuickStartPlay: React.FC = () => {
   const [isChecked, setChecked] = React.useState(false);
@@ -47,57 +48,59 @@ const QuickStartPlay: React.FC = () => {
   }, []);
 
   return (
-    <ScrollView>
+    <>
       <Container>
-        <Header source={banner}>
-          <BackButton onPress={() => navigation.goBack()} />
-          <TextView>
-            <HeaderTitleMD>Ultimate Team</HeaderTitleMD>
-            <HeaderTitleXL>FIFA 20</HeaderTitleXL>
-            <HeaderTitleMD>PS5</HeaderTitleMD>
-          </TextView>
-        </Header>
+        <ScrollView>
+          <Header source={banner}>
+            <BackButton onPress={() => navigation.goBack()} />
+            <TextView>
+              <HeaderTitleMD>Ultimate Team</HeaderTitleMD>
+              <HeaderTitleXL>FIFA 20</HeaderTitleXL>
+              <HeaderTitleMD>PS5</HeaderTitleMD>
+            </TextView>
+          </Header>
 
-        <Title>Confie na sua habilidade e siga em frente.</Title>
-        <Description>
-          A melhor forma de jogar, se divertir e lucrar. Coloque seu time em
-          campo, vença a partida e ganhe dinheiro.
-        </Description>
+          <Title>Confie na sua habilidade e siga em frente.</Title>
+          <Description>
+            A melhor forma de jogar, se divertir e lucrar. Coloque seu time em
+            campo, vença a partida e ganhe dinheiro.
+          </Description>
 
-        <Details1>
-          <Strong>Taxa de inscrição</Strong>
-          <Strong>R$5,00</Strong>
-        </Details1>
-        <Details2>
-          <Strong>Sua vitória vale</Strong>
-          <Strong>R$8,00</Strong>
-        </Details2>
+          <Details1>
+            <Strong>Taxa de inscrição</Strong>
+            <Strong>R$5,00</Strong>
+          </Details1>
+          <Details2>
+            <Strong>Sua vitória vale</Strong>
+            <Strong>R$8,00</Strong>
+          </Details2>
 
-        <Footer>
-          <CheckboxView>
-            <Checkbox onPress={toggleChecked} checked={isChecked} />
-            <Span>
-              {`Li e concordo com o `}
-              <SpanUnderline onPress={() => alert("Regulamento")}>
-                Regulamento.
-              </SpanUnderline>
-            </Span>
-          </CheckboxView>
-          <Button onPress={toggleModal} disabled={!isChecked}>
-            Encontre seu adversário
-          </Button>
-        </Footer>
-
-        <CustomModal onClose={toggleModal} isVisible={isModalVisible}>
-          <ModalContent
-            onFinish={() => {
-              toggleModal();
-              navigation.navigate("Match");
-            }}
-          />
-        </CustomModal>
+          <CustomModal onClose={toggleModal} isVisible={isModalVisible}>
+            <ModalContent
+              onFinish={() => {
+                toggleModal();
+                navigation.navigate("Match");
+              }}
+            />
+          </CustomModal>
+        </ScrollView>
       </Container>
-    </ScrollView>
+
+      <Footer>
+        <CheckboxView>
+          <Checkbox onPress={toggleChecked} checked={isChecked} />
+          <Span>
+            {`Li e concordo com o `}
+            <SimpleButton onPress={() => alert("Regulamento")}>
+              <SpanUnderline>Regulamento.</SpanUnderline>
+            </SimpleButton>
+          </Span>
+        </CheckboxView>
+        <Button onPress={toggleModal} disabled={!isChecked}>
+          Encontre seu adversário
+        </Button>
+      </Footer>
+    </>
   );
 };
 

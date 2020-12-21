@@ -38,10 +38,7 @@ const NotificationCenter: React.FC = () => {
   };
 
   return (
-    <ContainerProfile
-      title="Central de notificações"
-      goBack={() => navigation.goBack()}
-    >
+    <ContainerProfile title="Central de notificações">
       <Container>
         {data.map((item, index) => (
           <TextCard

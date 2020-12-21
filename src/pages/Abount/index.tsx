@@ -21,10 +21,7 @@ const Abount: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <ContainerProfile
-        title="Sobre nós"
-        goBack={() => navigation.goBack()}
-      >
+      <ContainerProfile title="Sobre nós">
         <CustomBanner source={image} />
         <Container>
           <Text>

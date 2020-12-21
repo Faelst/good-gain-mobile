@@ -4,17 +4,21 @@ import { MaskedView, View, Text, LinearGradient } from './styles'
 import { rsize } from '../../utils/size'
 
 interface TextGradientProps {
-  fontSize: number,
+  fontSize?: number,
+  lineHeight?: number,
   textAlign?: string,
   gradient?: boolean,
+  height?: number,
   width?: number,
   fontFamily?: string,
   textDecoration?: string,
 }
 const TextGradient: React.FC<TextGradientProps> = ({
   fontSize,
+  lineHeight,
   textAlign,
   gradient,
+  height,
   width,
   fontFamily,
   textDecoration,
@@ -32,6 +36,7 @@ const TextGradient: React.FC<TextGradientProps> = ({
           {/* Transparent background because mask is based off alpha channel. */}
           <Text
             fontSize={size}
+            lineHeight={lineHeight}
             textAlign={textAlign}
             fontFamily={fontFamily}
             textDecoration={textDecoration}
@@ -42,7 +47,12 @@ const TextGradient: React.FC<TextGradientProps> = ({
       }
     >
       {/* Shows behind the mask, you can put anything here, such as an image */}
-      <LinearGradient width={width} gradient={isGradient} fontSize={size}/>
+      <LinearGradient
+        height={height}
+        width={width}
+        gradient={isGradient}
+        fontSize={size}
+      />
     </MaskedView>
   );
 }

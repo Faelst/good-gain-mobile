@@ -11,10 +11,7 @@ const HowUse: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <ContainerProfile
-        title="Como usar o GoodGain"
-        goBack={() => navigation.goBack()}
-      >
+      <ContainerProfile title="Como usar o GoodGain">
         {[1,2].map((item, index) => (
           <Container key={index}>
             <CustomBanner source={image} />

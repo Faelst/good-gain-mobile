@@ -18,16 +18,6 @@ interface SupportModalProps extends ScrollViewProps {
   onSubmit?: () => void
 }
 const SupportModal: React.FC<SupportModalProps> = ({onSubmit, ...props}) => {
-  const [image, setImage] = React.useState(null);
-  const [value, setValue] = React.useState('');
-
-  const splitURI = (uri: any, type: any) => {
-    let arr = uri.split('.');
-    let last = arr[arr.length - 1]
-    setValue(`${type}.${last}`)
-    setImage(uri)
-  }
-
   const list = [
     {label: "Problema ao receber prêmio.", value: "1"},
     {label: "Falha no pagamento com cartão.", value: "2"},
@@ -51,11 +41,9 @@ encontra em nosso FAQ.
         />
         <InputMultiline label="Mensagem" placeholder="Escreva aqui" />
         <CameraRoll
-          onChangeValue={(event) => splitURI(event.uri, event.type)}
+          onChangeValue={(event) => console.log(event)}
           defaultValue="Anexe imagem"
           label="Anexar imagem"
-          value={value}
-          image={image}
         />
 
         <ButtonSubmit onPress={onSubmit}>Enviar</ButtonSubmit>

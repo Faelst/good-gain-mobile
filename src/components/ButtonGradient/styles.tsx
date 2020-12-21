@@ -12,10 +12,14 @@ export const Container = styled.View`
   border-radius: ${rsize(28.5, "w")}px;
 `
 interface LinearGradientProps {
-  disabled?: boolean
+  disabled?: boolean,
+  gradient?: boolean,
 }
 export const LinearGradient = styled(GradientComponent).attrs(props => ({
-  colors: props.theme.colors.gradient
+  colors: props.gradient
+  ? props.theme.colors.gradient
+  : ["transparent", "transparent"]
+
 }))<LinearGradientProps>`
   height: 100%;
   width: 100%;

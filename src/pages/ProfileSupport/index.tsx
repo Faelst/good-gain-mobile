@@ -12,10 +12,7 @@ const ProfileSupport: React.FC = () => {
   const navigation = useNavigation()
 
   return (
-    <ContainerProfile
-      title="Suporte"
-      goBack={() => navigation.goBack()}
-    >
+    <ContainerProfile title="Suporte">
       <Container>
         <TextCard title="Relatar um problema" icon={icBig} />
         <TextCard
