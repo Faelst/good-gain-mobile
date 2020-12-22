@@ -39,6 +39,9 @@ App em construção
 * Partida - 5
 * Partida - 6
 
+#### 08 Campeonatos
+* Campeonato - Chaveamento
+
 #### 09 Wallet
 * Wallet
 * Colocar crédito

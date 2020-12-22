@@ -20,6 +20,7 @@ import PutCredit from '../pages/PutCredit'
 import Transfer from '../pages/Transfer'
 import TransferBank from '../pages/TransferBank'
 import TransferReceived from '../pages/TransferReceived'
+import Switching from '../pages/Switching'
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -48,6 +49,7 @@ function App() {
         <Screen name="PutCredit" component={PutCredit} />
         <Screen name="Transfer" component={Transfer} />
         <Screen name="TransferBank" component={TransferBank} />
+        <Screen name="Switching" component={Switching} />
         <Screen name="TransferReceived" component={TransferReceived} />
       </Navigator>
     </NavigationContainer>
