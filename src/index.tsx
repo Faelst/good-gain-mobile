@@ -6,6 +6,7 @@ import { FontDisplay, useFonts } from "expo-font";
 import { ThemeProvider } from "styled-components/native";
 import { light } from "./styles/themes/light";
 import { io, Socket } from "socket.io-client";
+import AppProvider from "./contexts";
 
 const App: React.FC = () => {
   const [socket, setSocket] = useState<Socket>();
@@ -28,15 +29,15 @@ const App: React.FC = () => {
     },
   });
 
-  useEffect(() => {
-    const _socket = socket || io("http://127.0.0.1:3000");
-    _socket.on("chat message", (msg: any) => {
-      _socket.emit("chat message", { mensagem: "ok recebi sua mensagem" });
-      console.log("mensagem recebida da api no app", msg);
-    });
+  // useEffect(() => {
+  //   const _socket = socket || io("http://127.0.0.1:3000");
+  //   _socket.on("chat message", (msg: any) => {
+  //     _socket.emit("chat message", { mensagem: "ok recebi sua mensagem" });
+  //     console.log("mensagem recebida da api no app", msg);
+  //   });
 
-    setSocket(_socket);
-  }, []);
+  //   setSocket(_socket);
+  // }, []);
 
   console.log("fonts", { loaded, error });
 
@@ -46,8 +47,10 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={light}>
-      <StatusBar style="auto" />
-      <Routes />
+      <AppProvider>
+        <StatusBar style="auto" />
+        <Routes />
+      </AppProvider>
     </ThemeProvider>
   );
 };

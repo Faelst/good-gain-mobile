@@ -44,6 +44,8 @@ import SimpleButton from "../../components/SimpleButton";
 import { useNavigation } from "@react-navigation/native";
 import { rsize } from "../../utils/size";
 import { separatorHorizontal } from "../../utils/separator";
+import { useAuth } from "../../contexts/auth";
+import { convertToCurrency } from "../../utils/number";
 
 const dataChallenge = [
   {
@@ -83,6 +85,7 @@ const dataMedia = [
 ];
 
 const Home: React.FC = () => {
+  const { user } = useAuth();
   const navigation = useNavigation();
 
   function handleBannerSelected(banner: any) {
@@ -140,7 +143,9 @@ const Home: React.FC = () => {
             <IconCash />
             <View>
               <BalanceTitle>Saldo atual</BalanceTitle>
-              <BalanceCash>R$150,00</BalanceCash>
+              <BalanceCash>
+                {convertToCurrency(user?.money.toString() || "0")}
+              </BalanceCash>
             </View>
             <BalanceButton>
               <IconPlus />
@@ -159,6 +164,7 @@ const Home: React.FC = () => {
               image={icTrophyWT}
               title="Campeonatos"
               backgroundColor="secondary"
+              onPress={() => navigation.navigate("Championship")}
             />
 
             {dataMedia.map((item, index) => (
