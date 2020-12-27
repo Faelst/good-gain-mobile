@@ -7,17 +7,21 @@ import { Container, View, Image, Text } from './styles';
 interface TextCardProps extends ViewProps {
   icon?: ImageURISource,
   title?: string,
+  color?: string,
   onPress?: () => void,
 }
 const TextCard: React.FC<TextCardProps> = ({
-  icon, title, onPress, ...props
+  icon, title, color, onPress, children, ...props
 }) => {
   return (
     <View {...props}>
       <SimpleButton onPress={onPress}>
-        <Container>
+        <Container 
+          style={{justifyContent: children ? "space-between" : "flex-start"}}
+        >
           {icon && <Image source={icon} />}
-          <Text>{title}</Text>
+          <Text color={color}>{title}</Text>
+          {children}
         </Container>
       </SimpleButton>
     </View>

@@ -7,6 +7,7 @@ declare module 'styled-components/native' {
   export interface DefaultTheme {
     colors: {
       backdrop: string;
+      error: string,
       gradient: [string, string];
       backgroundPrimary: string;
       backgroundSecondary: string;

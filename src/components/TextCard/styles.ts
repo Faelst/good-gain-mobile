@@ -22,8 +22,11 @@ export const Image = styled.Image.attrs({
   width: ${rsize(24)}px;
   margin-right: ${rsize(20)}px;
 `;
-export const Text = styled.Text`
+interface IText {
+  color?: string,
+}
+export const Text = styled.Text<IText>`
   font-family: ${props => props.theme.fontFamily.titleBold};
   font-size: ${props => props.theme.fontSizes.md}px;
-  color: ${props => props.theme.colors.primary}
+  color: ${props => props.color ? props.color : props.theme.colors.primary};
 `;

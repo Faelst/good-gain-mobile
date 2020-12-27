@@ -39,9 +39,26 @@ App em construção
 * Partida - 5
 * Partida - 6
 
+#### 08 Campeonatos
+* Campeonato - Chaveamento
+
+#### 09 Wallet
+* Wallet
+* Colocar crédito
+* Colocar crédito - Transferência
+* Colocar crédito - Transferência 2
+* Colocar crédito - Banco
+* Colocar crédito - Banco 2
+* Colocar crédito - Banco - Recebida
+
 #### 10 Perfil
 * Perfil
 * Configurações
+* Termos e privacidade
+* Suporte
+* Como usar o GoodGain
+* Sobre nós
+* Central de notificações
 
 ## Telas em construção
 
@@ -70,19 +87,5 @@ App em construção
 * Campeonato - Atualização da premiação
 * Campeonato - Chaveamento
 
-#### 09 Wallet
-* Wallet
-* Colocar crédito
-* Colocar crédito - Transferência
-* Colocar crédito - Transferência 2
-* Colocar crédito - Banco
-* Colocar crédito - Banco 2
-* Colocar crédito - Banco - Recebida
-
 #### 10 Perfil
 * Editar perfil
-* Central de notificações
-* Termos e privacidade
-* Suporte
-* Como usar o GoodGain
-* Sobre nós

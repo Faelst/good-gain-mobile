@@ -23,7 +23,7 @@ import {
   Rectangle2,
   BalanceTitle,
   BalanceCash,
-  BalanceButton,
+  ViewButton,
   ActionContainer,
   BackgroundMedia,
   MediaTextView,
@@ -41,8 +41,8 @@ import mdHome4 from "../../images/md_home4.png";
 
 import ActionCard from "../../components/ActionCard";
 import SimpleButton from "../../components/SimpleButton";
+import { Button } from '../../components/index'
 import { useNavigation } from "@react-navigation/native";
-import { rsize } from "../../utils/size";
 import { separatorHorizontal } from "../../utils/separator";
 import { useAuth } from "../../contexts/auth";
 import { convertToCurrency } from "../../utils/number";
@@ -147,9 +147,11 @@ const Home: React.FC = () => {
                 {convertToCurrency(user?.money.toString() || "0")}
               </BalanceCash>
             </View>
-            <BalanceButton>
-              <IconPlus />
-            </BalanceButton>
+            <ViewButton>
+              <Button>
+                <IconPlus />
+              </Button>
+            </ViewButton>
           </BalanceCard>
 
           <ActionContainer>

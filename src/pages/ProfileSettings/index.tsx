@@ -12,14 +12,19 @@ const ProfileSettings: React.FC = () => {
   const navigation = useNavigation()
 
   return (
-    <ContainerProfile
-      title="Configurações"
-      goBack={() => navigation.goBack()}
-    >
+    <ContainerProfile title="Configurações">
       <Container>
         <TextCard title="Convidar amigos" icon={icInvite} />
-        <TextCard title="Central de notificações" icon={icBell} />
-        <TextCard title="Sobre nós" icon={icInfoGG} />
+        <TextCard
+          title="Central de notificações"
+          icon={icBell}
+          onPress={() => navigation.navigate("NotificationCenter")}
+        />
+        <TextCard
+          title="Sobre nós" 
+          icon={icInfoGG}
+          onPress={() => navigation.navigate("Abount")}
+        />
       </Container>
     </ContainerProfile>
   )

@@ -3,12 +3,15 @@ import { Feather } from '@expo/vector-icons'
 import CustomTextBase from '../CustomTextBase';
 import { rsize } from '../../utils/size';
 
+interface ICameraRoll {
+  error?: boolean
+}
 export const Container = styled.View`
   width: ${rsize(325)}px;
   align-self: center;
   margin-top: ${rsize(15)}px;
 `;
-export const View = styled.View`
+export const View = styled.View<ICameraRoll>`
   height: ${rsize(55)}px;
   width: ${rsize(325)}px;
   flex-direction: row;
@@ -17,18 +20,25 @@ export const View = styled.View`
   padding-right: ${rsize(22)}px;
   align-items: center;
   border-radius: ${rsize(27.5)}px;
+  border-color: ${props => props.theme.colors.error};
+  border-width: ${props => props.error ? rsize(1) : 0}px;
   background-color: ${props => props.theme.colors.backgroundLighter};
 `;
-export const Label = styled(CustomTextBase)`
+export const Label = styled(CustomTextBase)<ICameraRoll>`
   height: ${rsize(27)}px;
-  color: ${(props) => props.theme.colors.textColor};
-  font-family: ${(props) => props.theme.fontFamily.textMedium};
-  font-size: ${(props) => props.theme.fontSizes.md}px;
+  color: ${props => props.error
+  ? props.theme.colors.error
+  : props.theme.colors.textColor};
+  font-family: ${props => props.theme.fontFamily.textMedium};
+  font-size: ${props => props.theme.fontSizes.md}px;
   line-height: ${rsize(27)}px;
   margin-bottom: ${rsize(5)}px;
 `;
-export const Text = styled(CustomTextBase)`
+export const Text = styled(CustomTextBase)<ICameraRoll>`
   font-size: ${props => props.theme.fontSizes.sm}px;
+  color: ${props => props.error
+  ? props.theme.colors.error
+  : props.theme.colors.textColor};
 
   margin-left: ${rsize(12)}px;
 `;
@@ -41,6 +51,8 @@ export const Image = styled.Image`
 export const Icon = styled(Feather).attrs({
   name: "camera",
   size: rsize(24)
-})`
-  color: ${props => props.theme.colors.textColor};
+})<ICameraRoll>`
+  color: ${props => props.error
+  ? props.theme.colors.error
+  : props.theme.colors.textColor};
 `;

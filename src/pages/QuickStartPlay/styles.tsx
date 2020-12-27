@@ -11,6 +11,7 @@ import { rsize } from '../../utils/size';
 export const Container = styled(CustomContainer)`
   align-items: center;
   justify-content: center;
+  flex: 1;
 `;
 export const BackButton = styled(CustomBackButton).attrs({
   name: 'arrow-left'
@@ -99,7 +100,6 @@ export const Footer = styled.View`
   justify-content: space-between;
   padding-top: ${rsize(17)}px;
   padding-bottom: ${rsize(32)}px;
-  margin-top: ${rsize(145)}px;
   background-color: ${props => props.theme.colors.backgroundLighter};
 `;
 export const CheckboxView = styled.View`

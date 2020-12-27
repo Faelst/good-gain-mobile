@@ -4,8 +4,10 @@ import { LinearGradient as LinearGradientBase } from 'expo-linear-gradient'
 
 interface TextProps {
   fontSize: number,
+  lineHeight?: number,
   textAlign?: string,
   gradient?: boolean,
+  height?: number,
   width?: number,
   fontFamily?: string,
   textDecoration?: string,
@@ -20,7 +22,9 @@ export const View = styled.View`
 export const Text = styled.Text<TextProps>`
   text-align: ${props => props.textAlign ? props.textAlign : "auto"};
   font-size: ${props => props.fontSize}px;
-  line-height: ${props => props.fontSize}px;
+  line-height: ${props => props.lineHeight
+  ? props.lineHeight
+  : props.fontSize}px;
   text-decoration: ${props => props.textDecoration};
   font-family: ${props => props.fontFamily
   ? props.fontFamily
@@ -33,6 +37,6 @@ export const LinearGradient = styled(LinearGradientBase).attrs((props) => ({
   : [props.theme.colors.textColor,
     props.theme.colors.textColor],
 }))<TextProps>`
-  height: ${props => props.fontSize}px;
+  height: ${props => props.height ? props.height : props.fontSize}px;
   width: ${props => props.width ? props.width : '100%'};
 `;

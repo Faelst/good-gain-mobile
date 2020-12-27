@@ -4,18 +4,23 @@ import { ViewProps } from 'react-native'
 import { Container, LinearGradient, ButtonText } from './styles'
 import { Button } from '../index'
 
-interface ButtonProps extends ViewProps {
+export interface ButtonProps extends ViewProps {
   disabled?: boolean,
-  onPress?: () => void
+  onPress?: () => void,
+  component?: React.ReactElement,
+  gradient?: boolean,
 }
 const ButtonGradient: React.FC<ButtonProps> = ({
-  disabled, onPress, children, ...rest
+  disabled, onPress, component, gradient, children, ...rest
 }) => {
+  const gradientDefault = gradient === undefined ? true : gradient;
+
   return (
     <Container {...rest}>
-      <LinearGradient disabled={disabled}>
+      <LinearGradient gradient={gradientDefault} disabled={disabled}>
         <Button onPress={onPress} disabled={disabled}>
-          <ButtonText>{children}</ButtonText>
+          {children && <ButtonText>{children}</ButtonText>}
+          {component}
         </Button>
       </LinearGradient>
     </Container>

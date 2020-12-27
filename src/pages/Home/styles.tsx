@@ -7,7 +7,7 @@ import logo from "../../images/logo_horizontal_2.png";
 import { Feather } from "@expo/vector-icons";
 import TextGradientBase from '../../components/TextGradient'
 import { rsize } from "../../utils/size";
-import SimpleButton from "../../components/SimpleButton";
+import { Button } from "../../components/index";
 import { BorderlessButton } from "react-native-gesture-handler";
 
 export const Container = styled.ScrollView.attrs({
@@ -90,7 +90,7 @@ export const Rectangle = styled.View`
 export const Rectangle2 = styled(Rectangle)`
   left: ${rsize(-11)}px;
 `;
-export const BalanceButton = styled(SimpleButton)`
+export const ViewButton = styled.View`
   height: ${rsize(45)}px;
   width: ${rsize(45)}px;
   align-items: center;
