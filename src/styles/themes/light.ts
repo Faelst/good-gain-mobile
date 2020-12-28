@@ -16,6 +16,7 @@ const light: DefaultTheme = {
   colors: {
     error: palette.laranja,
     backdrop: palette.preto,
+    dark: palette.preto,
     gradient: [palette.rosa, palette.laranja],
     backgroundPrimary: palette.rosa,
     backgroundSecondary: palette.laranja,

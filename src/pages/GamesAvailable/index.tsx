@@ -57,6 +57,7 @@ const dataGames = [
 const GamesAvailable: React.FC = () => {
   const [isTabSelected, setTabSelected] = React.useState(0)
   const [isModalVisible, setModalVisible] = React.useState(false);
+  const [items, setItems] = React.useState({});
 
   const navigation = useNavigation()
 
@@ -72,7 +73,12 @@ const GamesAvailable: React.FC = () => {
   }
 
   const toggleModal = () => {
-    setModalVisible(!isModalVisible);
+    setModalVisible(prev => !prev);
+  }
+
+  const handleSelected = (item: object | any) => {
+    toggleModal()
+    setItems(item)
   }
 
   return (
@@ -115,7 +121,10 @@ const GamesAvailable: React.FC = () => {
                 <Subtitle>{item.type}</Subtitle>
 
                 <ButtonView availabled={item.available}>
-                  <Button disabled={!item.available} onPress={toggleModal}>
+                  <Button
+                    disabled={!item.available}
+                    onPress={() => handleSelected(item)}
+                  >
                     <ButtonText availabled={item.available}>
                       {item.available ? "Selecionar" : "Em breve"}
                     </ButtonText>
@@ -130,7 +139,7 @@ const GamesAvailable: React.FC = () => {
           onClose={toggleModal}
           isVisible={isModalVisible}
         >
-          <ModalContent onPress={handleNextGames}/>
+          <ModalContent onPlay={(e) => console.log("GA" + e)} onPress={handleNextGames}/>
         </CustomModal>
       </Main>
     </Container>

@@ -10,9 +10,6 @@ import {
   HeaderTitleXL,
   Title,
   Description,
-  Details1,
-  Details2,
-  Strong,
   Footer,
   CheckboxView,
   Checkbox,
@@ -26,6 +23,8 @@ import { useNavigation } from "@react-navigation/native";
 import CustomModal from "../../components/CustomModal";
 import ModalContent from "./components/ModalContent";
 import SimpleButton from "../../components/SimpleButton";
+import CardThin from "../../components/CardThin";
+import { rsize } from "../../utils/size";
 
 const QuickStartPlay: React.FC = () => {
   const [isChecked, setChecked] = React.useState(false);
@@ -50,9 +49,9 @@ const QuickStartPlay: React.FC = () => {
   return (
     <>
       <Container>
+        <BackButton onPress={() => navigation.goBack()} />
         <ScrollView>
           <Header source={banner}>
-            <BackButton onPress={() => navigation.goBack()} />
             <TextView>
               <HeaderTitleMD>Ultimate Team</HeaderTitleMD>
               <HeaderTitleXL>FIFA 20</HeaderTitleXL>
@@ -66,14 +65,16 @@ const QuickStartPlay: React.FC = () => {
             campo, vença a partida e ganhe dinheiro.
           </Description>
 
-          <Details1>
-            <Strong>Taxa de inscrição</Strong>
-            <Strong>R$5,00</Strong>
-          </Details1>
-          <Details2>
-            <Strong>Sua vitória vale</Strong>
-            <Strong>R$8,00</Strong>
-          </Details2>
+          <CardThin
+            title="Taxa de inscrição"
+            value="R$5,00"
+          />
+          <CardThin
+            style={{marginTop: rsize(9)}}
+            title="Sua vitória vale"
+            value="R$8,00"
+            color="green"
+          />
 
           <CustomModal onClose={toggleModal} isVisible={isModalVisible}>
             <ModalContent

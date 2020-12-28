@@ -39,7 +39,11 @@ const BannerDetail: React.FC = () => {
         <Image source={bnPs5} />
         <TextButton>Ver regulamento</TextButton>
         <ActionCard size="xl" image={icFlash}>
-          <ButtonTextStart>Iniciar uma partida rápida</ButtonTextStart>
+          <ButtonTextStart
+            onPress={() => navigation.navigate("QuickStart")}
+          >
+            Iniciar uma partida rápida
+          </ButtonTextStart>
         </ActionCard>
       </Container>
     </ScrollView>

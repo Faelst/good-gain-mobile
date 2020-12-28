@@ -8,6 +8,7 @@ declare module 'styled-components/native' {
     colors: {
       backdrop: string;
       error: string,
+      dark: string,
       gradient: [string, string];
       backgroundPrimary: string;
       backgroundSecondary: string;

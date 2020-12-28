@@ -78,7 +78,7 @@ const dataMedia = [
   {
     image: mdHome4,
     title: "Suporte",
-    navigation: "Home",
+    navigation: "ProfileSupport",
   },
 ];
 
@@ -143,7 +143,7 @@ const Home: React.FC = () => {
               <BalanceCash>R$150,00</BalanceCash>
             </View>
             <ViewButton>
-              <Button>
+              <Button onPress={() => navigation.navigate("PutCredit")}>
                 <IconPlus />
               </Button>
             </ViewButton>
@@ -161,6 +161,7 @@ const Home: React.FC = () => {
               image={icTrophyWT}
               title="Campeonatos"
               backgroundColor="secondary"
+              onPress={() => navigation.navigate("Switching")}
             />
 
             {dataMedia.map((item, index) => (

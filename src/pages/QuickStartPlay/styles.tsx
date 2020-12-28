@@ -19,6 +19,7 @@ export const BackButton = styled(CustomBackButton).attrs({
   position: absolute;
   top: ${rsize(24)}px;
   left: ${rsize(24)}px;
+  z-index: 1;
 `;
 export const Header = styled(ImageGradient).attrs({
   opacity: 0.7,
@@ -61,37 +62,6 @@ export const Description = styled(CustomTextBase)`
   flex-direction: column;
   margin-top: ${rsize(15)}px;
   margin-bottom: ${rsize(34)}px;
-`;
-export const Details1 = styled(LinearGradient).attrs(props => ({
-  colors: props.theme.colors.gradient,
-}))`
-  height: ${rsize(36)}px;
-  width: ${rsize(327)}px;
-  flex-direction: row;
-  align-self: center;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: ${rsize(10)}px;
-  padding-right: ${rsize(10)}px;
-  margin-bottom: ${rsize(9)}px;
-  border-radius: ${rsize(10)}px;
-`;
-export const Details2 = styled.View`
-  height: ${rsize(36)}px;
-  width: ${rsize(327)}px;
-  flex-direction: row;
-  align-self: center;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: ${rsize(10)}px;
-  padding-right: ${rsize(10)}px;
-  border-radius: ${rsize(10)}px;
-  background-color: ${props => props.theme.colors.secondary};
-`;
-export const Strong = styled.Text`
-  font-family: ${props => props.theme.fontFamily.titleBold};
-  font-size: ${props => props.theme.fontSizes.sm}px;
-  color: ${props => props.theme.colors.textLight};
 `;
 export const Footer = styled.View`
   height: ${rsize(148)}px;

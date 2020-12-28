@@ -38,10 +38,10 @@ const QuickStart: React.FC = () => {
   }
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <Container>
+    <Container>
+      <BackButton onPress={() => navigation.goBack()} />
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <Header source={banner}>
-          <BackButton onPress={() => navigation.goBack()} />
           <TextView>
             <HeaderTitleMD>Ultimate Team</HeaderTitleMD>
             <HeaderTitleXL>FIFA 20</HeaderTitleXL>
@@ -62,8 +62,8 @@ const QuickStart: React.FC = () => {
             onPress={handlePlay}
           />
         ))}
-      </Container>
-    </ScrollView>
+      </ScrollView>
+    </Container>
   )
 }
 

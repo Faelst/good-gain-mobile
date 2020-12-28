@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import {
   Container,
   Title,
@@ -31,13 +31,14 @@ const dataGameMode = [
 
 interface ModalItemProps {
   onPress: () => void
+  onPlay?(event: number): void
 }
-const ModalContent: React.FC<ModalItemProps> = ({onPress}) => {
+const ModalContent: React.FC<ModalItemProps> = ({onPress, onPlay}) => {
   const [isFocused, setFocused] = React.useState(undefined)
 
   const handleSelect = (index: any) => {
     setFocused(index)
-    console.log(`game mode ${index}`)
+    onPlay?.(index)
   }
 
   const isSelectedItem = (index: any) => {
@@ -95,4 +96,4 @@ const ModalContent: React.FC<ModalItemProps> = ({onPress}) => {
   )
 }
 
-export default ModalContent
+export default memo(ModalContent)

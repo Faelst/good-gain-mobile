@@ -17,6 +17,7 @@ export const BackButton = styled(CustomBackButton).attrs({
   position: absolute;
   top: ${rsize(24)}px;
   left: ${rsize(24)}px;
+  z-index: 1;
 `;
 export const Header = styled(ImageGradient).attrs({
   opacity: 0.7,

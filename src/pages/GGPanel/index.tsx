@@ -49,6 +49,7 @@ import icTrophyWT from "../../images/icons/ic_trophy_wt.png";
 import icFlashWT from "../../images/icons/ic_flash.png";
 
 import ActionCard from "../../components/ActionCard";
+import { useNavigation } from "@react-navigation/native";
 import { rsize } from "../../utils/size";
 
 const GGPanel: React.FC = () => {
@@ -57,6 +58,8 @@ const GGPanel: React.FC = () => {
   const handleExpandablePanel = () => {
     setOpenPanel(!openPanel);
   };
+
+  const navigation = useNavigation()
   return (
     <Container>
       <ScrollView>
@@ -120,12 +123,14 @@ const GGPanel: React.FC = () => {
                   image={icFlashWT}
                   title="Partidas rápidas"
                   size="sm"
+                  onPress={() => navigation.navigate("QuickStart")}
                 />
                 <ActionCard
                   image={icTrophyWT}
                   title="Campeonatos"
                   size="sm"
                   backgroundColor="secondary"
+                  onPress={() => navigation.navigate("Switching")}
                 />
               </MediaActionContent>
             </MediaCard>
