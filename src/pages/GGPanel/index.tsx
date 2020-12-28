@@ -51,8 +51,12 @@ import icFlashWT from "../../images/icons/ic_flash.png";
 import ActionCard from "../../components/ActionCard";
 import { useNavigation } from "@react-navigation/native";
 import { rsize } from "../../utils/size";
+import { useNavigation } from "@react-navigation/native";
+import { useAuth } from "../../contexts/auth";
 
 const GGPanel: React.FC = () => {
+  const { user } = useAuth();
+  const navigation = useNavigation();
   const [openPanel, setOpenPanel] = React.useState(true);
 
   const handleExpandablePanel = () => {
@@ -66,8 +70,8 @@ const GGPanel: React.FC = () => {
         <GradientHeader />
 
         <MainContent>
-          <ProfileImage source={profilePics} />
-          <ProfileName>Lucas Monteiro</ProfileName>
+          <ProfileImage source={{ uri: user?.image || "" }} />
+          <ProfileName>{user?.name}</ProfileName> 
 
           <ProfileDetailsContainer>
             <DetailCard>
@@ -130,7 +134,7 @@ const GGPanel: React.FC = () => {
                   title="Campeonatos"
                   size="sm"
                   backgroundColor="secondary"
-                  onPress={() => navigation.navigate("Switching")}
+                  onPress={() => navigation.navigate("Championship")}
                 />
               </MediaActionContent>
             </MediaCard>
@@ -157,7 +161,7 @@ const GGPanel: React.FC = () => {
                 <MediaImage source={imPanelGG2} />
 
                 <MediaDescription>
-                    <MediaTitle>FIFA 20 GLOBAL SERIES</MediaTitle>
+                  <MediaTitle>FIFA 20 GLOBAL SERIES</MediaTitle>
                   <View>
                     <MediaDate>Domingo • 04 de Outubro de 2020</MediaDate>
                   </View>

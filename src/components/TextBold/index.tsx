@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextProps } from 'react-native';
 
-import { Text } from './styles';
+import { Text } from "./styles";
 
 interface ITextBold extends TextProps {
   variant?: "body1"
