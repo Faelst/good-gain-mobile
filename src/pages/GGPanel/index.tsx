@@ -51,7 +51,6 @@ import icFlashWT from "../../images/icons/ic_flash.png";
 import ActionCard from "../../components/ActionCard";
 import { useNavigation } from "@react-navigation/native";
 import { rsize } from "../../utils/size";
-import { useNavigation } from "@react-navigation/native";
 import { useAuth } from "../../contexts/auth";
 
 const GGPanel: React.FC = () => {
@@ -63,7 +62,6 @@ const GGPanel: React.FC = () => {
     setOpenPanel(!openPanel);
   };
 
-  const navigation = useNavigation()
   return (
     <Container>
       <ScrollView>
