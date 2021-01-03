@@ -19,11 +19,11 @@ export const Title = styled(TextBold)`
   text-align: center;
   color: ${props => props.theme.colors.primary};
 `
-export const Image = styled.Image.attrs({
-  source: imLoading,
-})`
+export const AnimationView = styled.View`
   height: ${rsize(105)}px;
-  width: ${rsize(101.25)}px;
+  width: ${rsize(105)}px;
+  align-items: center;
+  justify-content: center;
   margin-top: ${rsize(32)}px;
 `
 export const Span = styled(CustomTextBase)`

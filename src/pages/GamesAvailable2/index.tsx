@@ -33,7 +33,7 @@ const GamesAvailable2: React.FC = () => {
         </Strong>
         
         <Divider />
-        <Button>Campeonatos</Button>
+        <Button onPress={() => navigation.navigate("Championship")}>Campeonatos</Button>
         <Strong>Lucre alto com sua habilidade.{'\n'}
           <Span>
             Nesta opção você pode participar de campeonatos diários  no modo FUT que podem encher o seu bolso!

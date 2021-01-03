@@ -144,7 +144,7 @@ const Home: React.FC = () => {
             <View>
               <BalanceTitle>Saldo atual</BalanceTitle>
               <BalanceCash>
-                {convertToCurrency(user?.money.toString() || "0")}
+                {/* {convertToCurrency(user?.money.toString() || "0")} */}
               </BalanceCash>
             </View>
             <ViewButton>
