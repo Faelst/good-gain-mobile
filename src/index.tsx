@@ -5,11 +5,9 @@ import Routes from "./routes";
 import { FontDisplay, useFonts } from "expo-font";
 import { ThemeProvider } from "styled-components/native";
 import { light } from "./styles/themes/light";
-import { io, Socket } from "socket.io-client";
 import AppProvider from "./contexts";
 
 const App: React.FC = () => {
-  const [socket, setSocket] = useState<Socket>();
   const [loaded, error] = useFonts({
     "Gilroy-Regular": {
       uri: require("../assets/fonts/Gilroy/Gilroy-Regular.ttf"),

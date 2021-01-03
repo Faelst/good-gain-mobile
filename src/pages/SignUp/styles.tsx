@@ -1,22 +1,23 @@
-import React from 'react';
-import styled, { css } from 'styled-components/native';
-import { Feather } from '@expo/vector-icons';
+import React from "react";
+import styled, { css } from "styled-components/native";
+import { Feather } from "@expo/vector-icons";
 
-import { Button as ButtonComponent } from '../../components';
-import CustomTextBase from '../../components/CustomTextBase';
-import TextBold from '../../components/TextBold';
+import { Button as ButtonComponent } from "../../components";
+import CustomTextBase from "../../components/CustomTextBase";
+import TextBold from "../../components/TextBold";
 
-import logo from '../../images/ic_logo.png';
-import { rsize } from '../../utils/size';
+import logo from "../../images/ic_logo.png";
+import { rsize } from "../../utils/size";
+import ButtonGradient from "../../components/ButtonGradient";
 
 export const Background = styled.View`
   flex: 1;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.colors.primary};
 `;
 
 export const Logo = styled.Image.attrs({
   source: logo,
-  resizeMode: 'contain'
+  resizeMode: "contain",
 })`
   height: ${rsize(93)}px;
   align-self: center;
@@ -28,7 +29,11 @@ export const Container = styled.View`
 
 export const Form = styled.View`
   flex: 1;
-  padding-top: ${rsize(25)}px;
+  padding-top: ${rsize(15)}px;
+  margin-top: ${rsize(20)}px;
+  background-color: #fff;
+  border-top-left-radius: ${rsize(40)}px;
+  border-top-right-radius: ${rsize(40)}px;
 `;
 
 export const TitleContainer = styled.View`
@@ -40,9 +45,9 @@ export const TitleContainer = styled.View`
 interface ITitleProps {
   bold?: boolean | number;
 }
-export const Title = styled(CustomTextBase)<ITitleProps>`
-  color: #303030;
-  font-size: ${(props) => props.theme.fontSizes.xxl}px;
+export const Title = styled(TextBold)<ITitleProps>`
+  color: #fff;
+  font-size: ${(props) => props.theme.fontSizes.xl}px;
 
   ${(props) =>
     props.bold &&
@@ -70,9 +75,8 @@ const CustomButton: React.FC<any> = ({ children, ...props }) => {
   );
 };
 
-export const Button = styled(CustomButton)`
-  margin-top: ${rsize(21)}px;
-  margin-bottom: ${rsize(21)}px;
+export const Button = styled(ButtonGradient)`
+  margin-top: ${rsize(68)}px;
 `;
 
 export const ButtonSignUpText = styled(CustomTextBase)<any>`
@@ -81,7 +85,8 @@ export const ButtonSignUpText = styled(CustomTextBase)<any>`
 `;
 
 export const ButtonSignUp = styled(ButtonComponent)`
-  margin-bottom: ${rsize(33)}px;
+  margin-bottom: ${rsize(27)}px;
+  margin-top: ${rsize(30)}px;
   height: auto;
   font-weight: 400;
   background-color: transparent;
@@ -113,7 +118,7 @@ export const Strong = styled(TextBold)``;
 
 export const EyeIcon = styled(Feather).attrs((props: any) => ({
   size: rsize(24),
-  name: props.open ? 'eye' : 'eye-off'
+  name: props.open ? "eye" : "eye-off",
 }))`
   color: #8d97b5;
 `;

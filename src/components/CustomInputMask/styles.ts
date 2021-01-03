@@ -1,3 +1,4 @@
+import { TextInputMask } from "react-native-masked-text";
 import styled from "styled-components/native";
 import { rsize } from "../../utils/size";
 import CustomTextBase from "../CustomTextBase";
@@ -16,9 +17,9 @@ export const Container = styled.View<ContainerProps>`
   elevation: 5;
 `;
 
-export const Input = styled.TextInput.attrs((props) => ({
-  placeholderTextColor: props.theme.colors.textSecondary as any,
-  selectionColor: props.theme.colors.primary as any,
+export const Input = styled(TextInputMask).attrs((props) => ({
+  placeholderTextColor: props.theme.colors.textSecondary,
+  selectionColor: props.theme.colors.primary,
 }))`
   flex: 1;
   height: ${(props) => (props.height ? props.height : rsize(55))}px;

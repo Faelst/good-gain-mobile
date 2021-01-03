@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react';
+import { useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
 
 import {
   Background,
@@ -8,93 +8,60 @@ import {
   Title,
   Strong,
   Text,
-  ButtonSignUp,
-  ButtonSignUpText,
+  ButtonSignUp as ButtonBack,
+  ButtonSignUpText as ButtonBackText,
   TitleStrong,
   TitleContainer,
   EyeIcon,
-  CheckBox
-} from './styles';
-import CustomInput from '../../components/CustomInput';
-import { SafeAreaView, ScrollView } from 'react-native';
-import BackButton from '../../components/BackButton';
-import { StatusBar } from 'expo-status-bar';
+  CheckBox,
+} from "./styles";
+import CustomInput from "../../components/CustomInput";
+import { SafeAreaView, ScrollView } from "react-native";
+import BackButton from "../../components/BackButton";
+import { StatusBar } from "expo-status-bar";
+import ButtonGradient from "../../components/ButtonGradient";
+import { api } from "../../services/api";
+import Step1 from "./components/Step1";
 
-const Login: React.FC = () => {
+const SignUp: React.FC = () => {
   const [password_hidden, setPasswordHidden] = useState(true);
   const navigation = useNavigation();
+  const [step, setStep] = useState(1);
 
-  function signIn() {
+  async function signUp() {
     try {
-      console.log('signin');
-      navigation.navigate('SignIn');
+      const _result = await api.post("/register");
     } catch (error) {
-      console.log('error', error);
+      console.log("error", error);
     }
   }
 
-  function signUp() {
-    try {
-      navigation.navigate('SignIn');
-    } catch (error) {
-      console.log('error', error);
-    }
+  function nextStep() {
+    if (step < 3) setStep((prev) => prev + 1);
+    else signUp();
   }
+
+  const titles = ["Informações pessoais", "Informações do console"];
 
   return (
     <Background>
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <SafeAreaView style={{ flex: 1 }}>
         <ScrollView
           contentContainerStyle={{
-            flexGrow: 1
+            flexGrow: 1,
           }}
         >
-          <Form>
-            <BackButton onPress={() => navigation.goBack()} />
-            <TitleContainer>
-              <Title>Pronto para começar?</Title>
-              <Title>
-                <TitleStrong>Vamos criar sua conta.</TitleStrong>
-              </Title>
-            </TitleContainer>
-            <Text>
-              Precisamos apenas de algumas informações para você aproveitar o
-              melhor do aFit.
-            </Text>
-            <CustomInput placeholder="Nome" />
-            <CustomInput placeholder="Sobrenome" />
-            <CustomInput placeholder="Usuário" />
-            <CustomInput placeholder="Telefone" />
-            <CustomInput placeholder="E-mail" />
-            <CustomInput
-              placeholder="Senha"
-              secureTextEntry={password_hidden}
-              rightComponent={
-                <EyeIcon
-                  open={password_hidden}
-                  onPress={() => setPasswordHidden((prev) => !prev)}
-                />
-              }
-            />
-
-            <CheckBox
-              checked={true}
-              label="Li e concordo com os Termos de Uso."
-            />
-
-            <Button onPress={signUp}>Criar conta</Button>
-            <ButtonSignUp onPress={signIn}>
-              <ButtonSignUpText>Já possui uma conta?</ButtonSignUpText>
-              <ButtonSignUpText>
-                <Strong>Clique aqui.</Strong>
-              </ButtonSignUpText>
-            </ButtonSignUp>
-          </Form>
+          <TitleContainer>
+            <Title>{titles[step - 1]}</Title>
+          </TitleContainer>
+          {step === 1 && <Step1 next={nextStep} />}
+          {step === 2 && <Step1 next={nextStep} />}
+          {step === 3 && <Step1 />}
         </ScrollView>
       </SafeAreaView>
     </Background>
   );
 };
 
-export default Login;
+export default SignUp;

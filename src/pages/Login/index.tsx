@@ -44,7 +44,7 @@ const Login: React.FC = () => {
 
   function signUp() {
     try {
-      // navigation.navigate("SignUp");
+      navigation.navigate("SignUp");
     } catch (error) {
       console.log("error", error);
     }
