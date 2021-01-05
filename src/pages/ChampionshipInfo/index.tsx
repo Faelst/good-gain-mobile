@@ -92,7 +92,7 @@ const ChampionshipInfo: React.FC = () => {
           <ModalContent
             onFinish={() => {
               toggleModal();
-              navigation.navigate("Match");
+              navigation.navigate("Switching");
             }}
           />
         </CustomModal>

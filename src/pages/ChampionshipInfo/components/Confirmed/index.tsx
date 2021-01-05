@@ -6,7 +6,10 @@ import image from '../../../../images/bn_home1.png'
 
 import { Container, Title, Description, Button } from './styles';
 
-const Comfirmed: React.FC = () => {
+interface IConfirmed {
+  onCheckIn?: () => void
+}
+const Comfirmed: React.FC<IConfirmed> = ({onCheckIn}) => {
   return (
     <Container>
       <CustomBanner source={image} />
@@ -39,7 +42,7 @@ const Comfirmed: React.FC = () => {
         value="Ultimate Team"
       />
 
-      <Button>Check-in</Button>
+      <Button onPress={onCheckIn}>Check-in</Button>
     </Container>
   )
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Text } from "react-native";
+import { Image } from "react-native";
+import ic_calendar from "../../../../images/icons/ic_calendar.png";
 
 import {
   Button,
@@ -10,11 +11,14 @@ import {
 } from "../../styles";
 import CustomInput from "../../../../components/CustomInput";
 import CustomInputMask from "../../../../components/CustomInputMask";
+import { rsize } from "../../../../utils/size";
 
 interface IStep1 {
   next?(data: any): void;
   back?(): void;
 }
+
+const IcCalendar = () => <Image style={{ marginRight: rsize(14), tintColor: "rgba(169,169,169,0.8)" }} source={ic_calendar} />
 
 const Step1: React.FC<IStep1> = ({ next, back }) => {
   const { control, handleSubmit, errors } = useForm();
@@ -73,6 +77,7 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
             maskType="datetime"
             format="DD/MM/YYYY"
             onBlur={onBlur}
+            leftComponent={<IcCalendar />}
             onChangeText={(value) => onChange(value)}
             value={value}
             errorMessage={errors?.birthday?.message}
@@ -95,7 +100,7 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
             onChangeText={(value) => onChange(value)}
             value={value}
             errorMessage={errors?.sex?.message}
-          />
+          ></CustomInput>
         )}
         name="sex"
         rules={{ required: "Campo obrigatório" }}

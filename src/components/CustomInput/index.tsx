@@ -7,14 +7,16 @@ interface ICustomInput extends TextInputProps {
   label: string;
   height?: number;
   rightComponent?: React.ReactNode;
+  leftComponent?: React.ReactNode;
   errorMessage?: string;
-  type?: "date";
+  type?: "date" | "cpf";
 }
 
 const CustomInput: React.FC<ICustomInput> = ({
   label,
   height,
   errorMessage,
+  leftComponent,
   rightComponent,
   children,
   ...props
@@ -23,6 +25,7 @@ const CustomInput: React.FC<ICustomInput> = ({
     <View>
       <Label>{label}</Label>
       <Container height={height}>
+        {leftComponent}
         {children ? children : <Input {...props} />}
         {rightComponent}
       </Container>

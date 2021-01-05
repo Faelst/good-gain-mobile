@@ -44,7 +44,7 @@ const Switching: React.FC = (props: any) => {
           <StatusBar barStyle="light-content" backgroundColor="transparent" />
           <Header>
             <Title>{`Chaveamento\ndo Campeonato`}</Title>
-            <BackButton name="x" onPress={navigation.goBack} />
+            <BackButton name="x" onPress={() => navigation.navigate("Home")} />
           </Header>
           <TabControls>
             <ScrollView

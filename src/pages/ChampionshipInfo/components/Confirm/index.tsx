@@ -4,7 +4,10 @@ import { rsize } from '../../../../utils/size';
 
 import { Container, Title, Description, Span, Button } from './styles';
 
-const Confirm: React.FC = () => {
+interface IConfirm {
+  onConfirm?: () => void
+}
+const Confirm: React.FC<IConfirm> = ({onConfirm}) => {
   return (
     <Container>
       <Title variant="body1">Confirmação de inscrição.</Title>
@@ -32,7 +35,7 @@ const Confirm: React.FC = () => {
         *Valor válido apenas se a chave atingir
         o total de 16 participantes.
       </Span>
-      <Button>Confirmar participação</Button>
+      <Button onPress={onConfirm}>Confirmar participação</Button>
     </Container>
   )
 }

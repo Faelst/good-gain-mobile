@@ -43,28 +43,27 @@ const dataGames = [
     image: imFifa,
     name: "FIFA 20",
     type: "xbox",
-    available: true
+    available: true,
   },
   {
     id: 3,
     image: imCod,
     name: "Call of Duty - MW",
     type: "xbox",
-    available: false
+    available: false,
   }
 ]
 
 const GamesAvailable: React.FC = () => {
   const [isTabSelected, setTabSelected] = React.useState(0)
   const [isModalVisible, setModalVisible] = React.useState(false);
-  const [items, setItems] = React.useState({});
+  const [data, setData] = React.useState({});
 
   const navigation = useNavigation()
 
   const handleNextGames = () => {
-    navigation.navigate("GamesAvailable2")
+    navigation.navigate("GamesAvailable2", data)
     toggleModal()
-    console.log("nextGame")
   }
 
   const handleTab = (index: number) => {
@@ -78,7 +77,14 @@ const GamesAvailable: React.FC = () => {
 
   const handleSelected = (item: object | any) => {
     toggleModal()
-    setItems(item)
+    setData(item)
+  }
+
+  const handleGameMode = (event: { gameMode: string }) => {
+    setData((previousState) => {
+      const _prev = {...previousState, gameMode: event.gameMode};
+      return _prev
+    })
   }
 
   return (
@@ -94,16 +100,16 @@ const GamesAvailable: React.FC = () => {
           data={dataTab}
           keyExtractor={item => String(item)}
           renderItem={({item, index}) => (
-            <TabView
-              selected={isTabSelected === index ? true :  false}
-              style={separatorHorizontal(index, dataTab, 24, 12, 12 )}
-            >
-              <SimpleButton onPress={() => handleTab(index)}>
+            <SimpleButton onPress={() => handleTab(index)}>
+              <TabView
+                selected={isTabSelected === index ? true :  false}
+                style={separatorHorizontal(index, dataTab, 24, 12, 12 )}
+              >
                 {isTabSelected === index
                 ? <TabStrong>{item}</TabStrong>
                 : <TabTitle>{item}</TabTitle>}
-              </SimpleButton>
-            </TabView>
+              </TabView>
+            </SimpleButton>
           )}
         />
       </Tab>
@@ -139,7 +145,10 @@ const GamesAvailable: React.FC = () => {
           onClose={toggleModal}
           isVisible={isModalVisible}
         >
-          <ModalContent onPlay={(e) => console.log("GA" + e)} onPress={handleNextGames}/>
+          <ModalContent
+            onPlay={(event) => {handleGameMode(event)}}
+            onPress={handleNextGames}
+          />
         </CustomModal>
       </Main>
     </Container>

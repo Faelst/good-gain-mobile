@@ -56,14 +56,15 @@ const CameraRoll:React.FC<CameraRollProps> = ({
 
   return (
     <Container {...props}>
-      {label && <Label error={error}>{error && "*"}{label}</Label>}
+      {label && <Label>{label}</Label>}
       <SimpleButton onPress={pickImage}>
         <View error={error}>
-          <Icon error={error} />
+          <Icon />
           {image && <Image source={{uri: image}}/>}
-          <Text error={error}>{value ? value : defaultValue}</Text>
+          <Text>{value ? value : defaultValue}</Text>
         </View>
       </SimpleButton>
+      {error && <Label error={error}>*Campo obrigatório</Label>}
     </Container>
   );
 }

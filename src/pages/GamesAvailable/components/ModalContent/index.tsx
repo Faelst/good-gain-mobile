@@ -31,14 +31,14 @@ const dataGameMode = [
 
 interface ModalItemProps {
   onPress: () => void
-  onPlay?(event: number): void
+  onPlay?(event: {gameMode: string}): void
 }
 const ModalContent: React.FC<ModalItemProps> = ({onPress, onPlay}) => {
   const [isFocused, setFocused] = React.useState(undefined)
 
-  const handleSelect = (index: any) => {
+  const handleSelect = (index: any, title: string) => {
     setFocused(index)
-    onPlay?.(index)
+    onPlay?.({gameMode: title})
   }
 
   const isSelectedItem = (index: any) => {
@@ -54,7 +54,9 @@ const ModalContent: React.FC<ModalItemProps> = ({onPress, onPlay}) => {
           if (isFocused === index) {
             return (
               <Border key={item.id}>
-                <SimpleButton onPress={() => handleSelect(index)}>
+                <SimpleButton
+                  onPress={() => handleSelect(index, item.title)}
+                >
                   <ImageBG source={item.image}>
                     <TextContainer>
                       <Text
@@ -69,7 +71,10 @@ const ModalContent: React.FC<ModalItemProps> = ({onPress, onPlay}) => {
             )
           } else {
             return (
-              <SimpleButton key={item.id} onPress={() => handleSelect(index)}>
+              <SimpleButton
+                key={item.id}
+                onPress={() => handleSelect(index, item.title)}
+              >
                 <ButtonContent>
                   <ImageBG source={item.image} isFocused={isFocused}/>
                   <TextContainer>

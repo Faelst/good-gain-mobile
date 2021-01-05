@@ -12,7 +12,6 @@ import {
 } from './styles';
 
 import image from '../../../../images/bn_detail.png'
-import SupportModal from '../SupportModal';
 import SimpleButton from '../../../../components/SimpleButton';
 
 interface GameoverModalProps {
