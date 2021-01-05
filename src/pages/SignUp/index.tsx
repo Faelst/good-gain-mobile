@@ -22,6 +22,7 @@ import { StatusBar } from "expo-status-bar";
 import ButtonGradient from "../../components/ButtonGradient";
 import { api } from "../../services/api";
 import Step1 from "./components/Step1";
+import { TextInputMask } from 'react-native-masked-text'
 
 const SignUp: React.FC = () => {
   const [password_hidden, setPasswordHidden] = useState(true);

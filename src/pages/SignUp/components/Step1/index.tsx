@@ -113,7 +113,7 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
             onBlur={onBlur}
             onChangeText={(value) => onChange(value)}
             value={value}
-            errorMessage={errors?.email?.message}
+            errorMessage={errors?.cpf?.message}
           />
         )}
         name="cpf"
@@ -133,10 +133,10 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
             onBlur={onBlur}
             onChangeText={(value) => onChange(value)}
             value={value}
-            errorMessage={errors?.email?.message}
+            errorMessage={errors?.cpf?.message}
           />
         )}
-        name="cpf"
+        name="country"
         rules={{ required: "Campo obrigatório" }}
         defaultValue=""
       />
@@ -150,10 +150,10 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
             onBlur={onBlur}
             onChangeText={(value) => onChange(value)}
             value={value}
-            errorMessage={errors?.email?.message}
+            errorMessage={errors?.state?.message}
           />
         )}
-        name="cpf"
+        name="state"
         rules={{ required: "Campo obrigatório" }}
         defaultValue=""
       />
