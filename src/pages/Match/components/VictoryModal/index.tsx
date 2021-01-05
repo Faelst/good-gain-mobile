@@ -1,11 +1,12 @@
 import React from 'react';
-import SimpleButton from '../../../../components/SimpleButton';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { Container, Title, Icon, Span, Button, TextButton, } from './styles';
 
 interface VictoryModalProps {
   sendConfirm:(event: boolean) => void;
+  goBack?:() => void;
 }
-const VictoryModal: React.FC<VictoryModalProps> = ({sendConfirm}) => {
+const VictoryModal: React.FC<VictoryModalProps> = ({sendConfirm, goBack}) => {
   return (
     <Container>
       <Title color="primary">Seu resultado foi:</Title>
@@ -17,9 +18,9 @@ Uma vez enviado, você não poderá voltar atrás.
       </Span>
       <Button onPress={() => sendConfirm(true)}>Confirmar</Button>
       
-      <SimpleButton>
-        <TextButton>Voltar</TextButton>
-      </SimpleButton>
+      <BorderlessButton>
+        <TextButton onPress={goBack}>Voltar</TextButton>
+      </BorderlessButton>
     </Container>
   )
 }

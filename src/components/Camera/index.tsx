@@ -7,9 +7,8 @@ import { ImageInfo } from 'expo-image-picker/build/ImagePicker.types';
 
 interface CameraProps {
   label?: string,
-  value?: string,
   defaultValue?: string,
-  image?: string | null,
+  error?: boolean,
   /**
   * Retorna um objeto com os seguintes valores:
   * cancelled: boolean,
@@ -21,8 +20,11 @@ interface CameraProps {
  onChangeValue?: (event: ImageInfo) => void
 }
 const Camera:React.FC<CameraProps> = ({
-  label, value, defaultValue, image, onChangeValue, ...props
+  label, defaultValue, onChangeValue, error, ...props
 }) => {
+  const [image, setImage] = React.useState() as any
+  const [value, setValue] = React.useState("")
+
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -44,6 +46,11 @@ const Camera:React.FC<CameraProps> = ({
     /* console.log(result); */
     if (!result.cancelled) {
       onChangeValue !== undefined && onChangeValue(result)
+      setImage(result.uri)
+
+      let arr = result.uri.split('.');
+      let last = arr[arr.length - 1]
+      setValue(`${result.type}.${last}`)
     }
   };
 
@@ -51,12 +58,13 @@ const Camera:React.FC<CameraProps> = ({
     <Container {...props}>
       {label && <Label>{label}</Label>}
       <SimpleButton onPress={takePicture}>
-        <View>
+        <View error={error}>
           <Icon />
           {image && <Image source={{uri: image}}/>}
           <Text>{value ? value : defaultValue}</Text>
         </View>
       </SimpleButton>
+      {error && <Label error={error}>*Campo obrigatório</Label>}
     </Container>
   );
 }

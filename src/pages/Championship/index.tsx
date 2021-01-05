@@ -72,7 +72,7 @@ const Championship: React.FC = () => {
 
         <CustomButton
           style={{ marginVertical: rsize(10), marginHorizontal: rsize(24) }}
-          leftComponent={<CalendarIcon />}
+          /* leftComponent={<CalendarIcon />} */
           textAlign="left"
         >
           Filtrar por data

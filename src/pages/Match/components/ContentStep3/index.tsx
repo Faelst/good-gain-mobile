@@ -16,20 +16,13 @@ import {
 
 const ContentStep3: React.FC = () => {
   const [image, setImage] = React.useState(null);
-  const [value, setValue] = React.useState('');
   const [isSelected, setSelected] = React.useState();
   const [isVisible, setVisible] = React.useState(Boolean);
   const [isModalVisible, setModalVisible] = React.useState(false)
   const [borderErr, setBorderErr] = React.useState(0)
   const [step, setStep] = React.useState(false)
   const [openSupport, setOpen] = React.useState(false)
-
-  const splitURI = (uri: any, type: any) => {
-    let arr = uri.split('.');
-    let last = arr[arr.length - 1]
-    setValue(`${type}.${last}`)
-    setImage(uri)
-  }
+  const [err, setErr] = React.useState(false)
 
   const handleActions = (item: any, index: number | any) => {
     if (item === "Vitória") {setVisible(true)}
@@ -38,13 +31,18 @@ const ContentStep3: React.FC = () => {
     setBorderErr(0)
   }
 
+  const validateImage = () => {
+    setModalVisible(!isModalVisible)
+    setErr(false)
+  }
+
   const toggleModal = () => {
     switch (isSelected) {
       case undefined: setBorderErr(1);
         break;
       case 0: image
-        ? setModalVisible(!isModalVisible)
-        : alert("O vencedor é obrigatório a enviar uma foto do resultado final da partida, onde conste o placar e os IDs dos jogadores.");
+        ? validateImage()
+        : setErr(true)
         break;
       case 1: 
         alert("Selecionou derrota.");
@@ -81,10 +79,9 @@ conste o placar e os IDs dos jogadores.
       
       {isVisible &&
         <Camera
-          onChangeValue={(event) => splitURI(event.uri, event.type)}
+          onChangeValue={(event) => setImage(event.uri)}
           defaultValue="Tirar foto"
-          value={value}
-          image={image}
+          error={!image && err}
         />
       }
 
@@ -100,7 +97,10 @@ conste o placar e os IDs dos jogadores.
       >
         {!openSupport
           ? !step
-            ? <VictoryModal sendConfirm={(event) => setStep(event)} />
+            ? <VictoryModal
+                sendConfirm={(event) => setStep(event)}
+                goBack={toggleModal}
+              />
             : <GameoverModal sendOpenSupport={(event) => setOpen(event)} />
           : <SupportModal />
         }

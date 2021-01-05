@@ -6,7 +6,10 @@ import image from '../../../../images/bn_home1.png'
 
 import { Container, Title, Description, Strong, H1, Button } from './styles';
 
-const Award: React.FC = () => {
+interface IAward {
+  onContinues?: () => void
+}
+const Award: React.FC<IAward> = ({onContinues}) => {
   return (
     <Container>
       <Title variant="body1">
@@ -20,7 +23,7 @@ com 16 participantes incluíndo você.\n\n`}
 
       <H1>R$55,00</H1>
 
-      <Button>Continuar</Button>
+      <Button onPress={onContinues}>Continuar</Button>
     </Container>
   )
 }

@@ -16,7 +16,7 @@ const ModalContent: React.FC<ModalItemProps> = ({ onFinish }) => {
 
   useEffect(() => {
     if (step === 1 || step === 3)
-      setTimeout(() => setStep((prev) => prev + 1), 1000);
+      setTimeout(() => setStep((prev) => prev + 1), 2000);
   }, [step]);
 
   return (
