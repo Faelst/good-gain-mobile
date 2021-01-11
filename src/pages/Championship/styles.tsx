@@ -8,10 +8,8 @@ import { rsize } from "../../utils/size";
 import ic_calendar from "../../images/icons/ic_calendar.png";
 
 export const Container = styled(CustomContainer)`
-  /* align-items: center; */
-  /* justify-content: center; */
-  padding-bottom: ${rsize(48)}px;
-  background-color: #fafafa;
+  flex: 1;
+  background-color: ${props => props.theme.colors.backgroundLight};
 `;
 export const BackButton = styled(CustomBackButton).attrs({
   name: "arrow-left",

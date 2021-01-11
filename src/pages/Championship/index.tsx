@@ -52,8 +52,8 @@ const Championship: React.FC = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <Container>
+    <Container>
+      <ScrollView>
         <Header source={banner}>
           <BackButton onPress={() => navigation.goBack()} />
           <TextView>
@@ -91,8 +91,8 @@ const Championship: React.FC = () => {
             />
           ))}
         </ChampionshipListContainer>
-      </Container>
-    </ScrollView>
+      </ScrollView>
+    </Container>
   );
 };
 

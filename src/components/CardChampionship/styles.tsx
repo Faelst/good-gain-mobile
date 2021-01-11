@@ -60,8 +60,7 @@ export const StrongBig = styled(TextBold)`
   color: ${(props) => props.theme.colors.secondary};
 `;
 export const StrongM = styled(TextBold)`
-  font-size: ${(props) => props.theme.fontSizes.lg}px;
-  line-height: ${(props) => props.theme.fontSizes.lg}px;
+  font-size: ${(props) => props.theme.fontSizes.md}px;
 `;
 export const Span = styled(CustomTextBase)`
   font-family: ${(props) => props.theme.fontFamily.textMedium};

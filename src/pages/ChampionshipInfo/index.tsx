@@ -10,14 +10,15 @@ import {
   HeaderTitleXL,
   Title,
   Description,
-  Details1,
-  Details2,
-  Strong,
+  Subtitle,
   Footer,
   CheckboxView,
   Checkbox,
   Span,
   SpanUnderline,
+  TitleGradient,
+  CardContainer,
+  InfoContainer,
 } from "./styles";
 
 import banner from "../../images/bn_championship2.png";
@@ -25,6 +26,10 @@ import Button from "../../components/ButtonGradient";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import CustomModal from "../../components/CustomModal";
 import ModalContent from "./components/ModalContent";
+import CardThin from "../../components/CardThin";
+import Card from "./components/Card"
+import CardLight from "./components/CardLight"
+import { rsize } from "../../utils/size";
 
 const ChampionshipInfo: React.FC = () => {
   const route = useRoute();
@@ -43,61 +48,94 @@ const ChampionshipInfo: React.FC = () => {
     setModalVisible(!isModalVisible);
   };
 
-  useEffect(() => {
+/*   useEffect(() => {
     return () => {
       toggleModal();
     };
-  }, []);
+  }, []); */
 
   return (
-    <ScrollView>
+    <>
       <Container>
-        <Header source={banner}>
-          <BackButton onPress={() => navigation.goBack()} />
-          <TextView>
-            <HeaderTitleMD>Ultimate Team</HeaderTitleMD>
-            <HeaderTitleXL>FIFA 20</HeaderTitleXL>
-            <HeaderTitleMD>PS5</HeaderTitleMD>
-          </TextView>
-        </Header>
+        <ScrollView>
+          <Header source={banner}>
+            <BackButton onPress={() => navigation.goBack()} />
+            <TextView>
+              <HeaderTitleMD>Ultimate Team</HeaderTitleMD>
+              <HeaderTitleXL>FIFA 20</HeaderTitleXL>
+              <HeaderTitleMD>PS5</HeaderTitleMD>
+            </TextView>
+          </Header>
+          <Title>{championship.name}</Title>
+          <Description>{championship.description}</Description>
 
-        <Title>{championship.name}</Title>
-        <Description>{championship.description}</Description>
-
-        <Details1>
-          <Strong>Taxa de inscrição</Strong>
-          <Strong>R$5,00</Strong>
-        </Details1>
-        <Details2>
-          <Strong>Sua vitória vale</Strong>
-          <Strong>R$8,00</Strong>
-        </Details2>
-
-        <Footer>
-          <CheckboxView>
-            <Checkbox onPress={toggleChecked} checked={isChecked} />
-            <Span>
-              {`Li e concordo com o `}
-              <SpanUnderline onPress={() => alert("Regulamento")}>
-                Regulamento.
-              </SpanUnderline>
-            </Span>
-          </CheckboxView>
-          <Button onPress={toggleModal} disabled={!isChecked}>
-            Encontre seu adversário
-          </Button>
-        </Footer>
-
-        <CustomModal onClose={toggleModal} isVisible={isModalVisible}>
-          <ModalContent
-            onFinish={() => {
-              toggleModal();
-              navigation.navigate("Switching");
-            }}
+          <CardThin
+            title="Taxa de inscrição"
+            value="R$5,00"
           />
-        </CustomModal>
+          <CardThin
+            style={{marginTop: rsize(9)}}
+            title="Prêmio de até"
+            value="R$55,00*"
+            color="green"
+          />
+
+          <TitleGradient>Ainda dá tempo de participar</TitleGradient>
+          <Subtitle>As inscrições se encerram em</Subtitle>
+
+          <CardContainer>
+            <Card title="01" subtitle="dias" />
+            <Card title="05" subtitle="horas" />
+            <Card title="25" subtitle="minutos" />
+          </CardContainer>
+
+          <Card
+            style={{alignSelf: "center"}}
+            color="green"
+            title="16 vagas"
+            subtitle="disponíveis"
+          />
+
+          <InfoContainer>
+            <CardLight title="Inicia em" subtitle="20 ago às 18:00" />
+            <CardLight title="Console" subtitle="PS5" />
+            <CardLight title="Modo" subtitle="Ultimate Team" />
+            <CardLight title="Formato" subtitle="Mata-mata" />
+            <CardLight title="Número de Vagas" subtitle="16" />
+          </InfoContainer>
+
+          <Span style={{marginHorizontal: rsize(25), marginBottom: rsize(27)}}>
+            *Valor válido apenas se a chave atingir
+            o total de 16 participantes.
+          </Span>
+
+        </ScrollView>
       </Container>
-    </ScrollView>
+
+      <Footer>
+        <CheckboxView>
+          <Checkbox onPress={toggleChecked} checked={isChecked} />
+          <Span>
+            {`Li e concordo com o `}
+            <SpanUnderline onPress={() => alert("Regulamento")}>
+              Regulamento.
+            </SpanUnderline>
+          </Span>
+        </CheckboxView>
+        <Button onPress={toggleModal} disabled={!isChecked}>
+          Participar
+        </Button>
+      </Footer>
+
+      <CustomModal onClose={toggleModal} isVisible={isModalVisible}>
+        <ModalContent
+          onFinish={() => {
+            toggleModal();
+            navigation.navigate("Switching");
+          }}
+        />
+      </CustomModal>
+    </>
   );
 };
 

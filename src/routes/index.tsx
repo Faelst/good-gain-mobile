@@ -36,7 +36,7 @@ function App() {
         initialRouteName={signed ? "SignIn" : "Principal"}
         screenOptions={{ headerShown: false }}
       >
-        {!signed && (
+        {/* {!signed && (
           <>
             <Screen name="SignIn" component={Login} />
             <Screen name="SignUp" component={SignUp} />
@@ -69,8 +69,8 @@ function App() {
             <Screen name="Switching" component={Switching} />
             <Screen name="TransferReceived" component={TransferReceived} />
           </>
-        )}
-        {/* <>
+        )} */}
+        <>
             <Screen name="Principal" component={BottomTabs} />
             <Screen name="BannerDetail" component={BannerDetail} />
             <Screen name="Championship" component={Championship} />
@@ -93,7 +93,7 @@ function App() {
             <Screen name="TransferBank" component={TransferBank} />
             <Screen name="Switching" component={Switching} />
             <Screen name="TransferReceived" component={TransferReceived} />
-          </> */}
+          </>
       </Navigator>
     </NavigationContainer>
   );
