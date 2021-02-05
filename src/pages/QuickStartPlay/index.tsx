@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
 
 import {
@@ -19,16 +19,20 @@ import {
 
 import banner from "../../images/bn_games_a2.png";
 import Button from "../../components/ButtonGradient";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import CustomModal from "../../components/CustomModal";
 import ModalContent from "./components/ModalContent";
 import SimpleButton from "../../components/SimpleButton";
 import CardThin from "../../components/CardThin";
 import { rsize } from "../../utils/size";
+import { useApp } from "../../contexts/app";
 
 const QuickStartPlay: React.FC = () => {
   const [isChecked, setChecked] = React.useState(false);
   const [isModalVisible, setModalVisible] = React.useState(false);
+  const { params } = useRoute();
+  const { covers } = useApp();
+  const data: any = params?.data || {};
 
   const navigation = useNavigation();
 
@@ -51,11 +55,11 @@ const QuickStartPlay: React.FC = () => {
       <Container>
         <BackButton onPress={() => navigation.goBack()} />
         <ScrollView>
-          <Header source={banner}>
+          <Header source={{ uri: covers[data.cover]?.cover }}>
             <TextView>
-              <HeaderTitleMD>Ultimate Team</HeaderTitleMD>
-              <HeaderTitleXL>FIFA 20</HeaderTitleXL>
-              <HeaderTitleMD>PS5</HeaderTitleMD>
+              <HeaderTitleMD>{data.gameMode}</HeaderTitleMD>
+              <HeaderTitleXL>{data.name}</HeaderTitleXL>
+              <HeaderTitleMD>{data.type}</HeaderTitleMD>
             </TextView>
           </Header>
 
@@ -67,17 +71,18 @@ const QuickStartPlay: React.FC = () => {
 
           <CardThin
             title="Taxa de inscrição"
-            value="R$5,00"
+            value={`R$${data.option?.subscription},00`}
           />
           <CardThin
-            style={{marginTop: rsize(9)}}
+            style={{ marginTop: rsize(9) }}
             title="Sua vitória vale"
-            value="R$8,00"
+            value={`R$${data.option?.cashback},00`}
             color="green"
           />
 
           <CustomModal onClose={toggleModal} isVisible={isModalVisible}>
             <ModalContent
+              data={data}
               onFinish={() => {
                 toggleModal();
                 navigation.navigate("Match");

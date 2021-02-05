@@ -1,12 +1,12 @@
-import styled from 'styled-components/native';
-import CustomBackButton from '../../components/BackButton';
-import CustomContainer from '../../components/Container'
-import CustomTextBase from '../../components/CustomTextBase';
-import ImageGradient from '../../components/ImageGradient';
-import { LinearGradient } from 'expo-linear-gradient'
-import TextBold from '../../components/TextBold';
-import CheckboxBase from '../../components/Checkbox';
-import { rsize } from '../../utils/size';
+import styled from "styled-components/native";
+import CustomBackButton from "../../components/BackButton";
+import CustomContainer from "../../components/Container";
+import CustomTextBase from "../../components/CustomTextBase";
+import ImageGradient from "../../components/ImageGradient";
+import { LinearGradient } from "expo-linear-gradient";
+import TextBold from "../../components/TextBold";
+import CheckboxBase from "../../components/Checkbox";
+import { rsize } from "../../utils/size";
 
 export const Container = styled(CustomContainer)`
   align-items: center;
@@ -14,7 +14,7 @@ export const Container = styled(CustomContainer)`
   flex: 1;
 `;
 export const BackButton = styled(CustomBackButton).attrs({
-  name: 'arrow-left'
+  name: "arrow-left",
 })`
   position: absolute;
   top: ${rsize(24)}px;
@@ -31,31 +31,31 @@ export const Header = styled(ImageGradient).attrs({
 `;
 export const TextView = styled.View`
   height: ${rsize(60)}px;
-  width: ${rsize(108)}px;
   position: absolute;
   left: ${rsize(26)}px;
+  right: ${rsize(26)}px;
   bottom: ${rsize(26)}px;
   justify-content: space-around;
 `;
 export const HeaderTitleMD = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.md}px;
-  color: ${props => props.theme.colors.textLight};
+  font-size: ${(props) => props.theme.fontSizes.md}px;
+  color: ${(props) => props.theme.colors.textLight};
 `;
 export const HeaderTitleXL = styled(TextBold)`
-  font-size: ${props => props.theme.fontSizes.xxl}px;
-  color: ${props => props.theme.colors.textLight};
+  font-size: ${(props) => props.theme.fontSizes.xxl}px;
+  color: ${(props) => props.theme.colors.textLight};
 `;
 export const Title = styled(TextBold)`
   max-width: ${rsize(325)}px;
   align-self: flex-start;
   margin-top: ${rsize(25)}px;
   margin-left: ${rsize(26)}px;
-  font-size: ${props => props.theme.fontSizes.xxl - 2}px;
-  color: ${props => props.theme.colors.primary};
+  font-size: ${(props) => props.theme.fontSizes.xxl - 2}px;
+  color: ${(props) => props.theme.colors.primary};
 `;
 export const Description = styled(CustomTextBase)`
-  font-size: ${props => props.theme.fontSizes.md}px;
-  line-height: ${props => props.theme.fontSizes.xl}px;
+  font-size: ${(props) => props.theme.fontSizes.md}px;
+  line-height: ${(props) => props.theme.fontSizes.xl}px;
 
   width: ${rsize(325)}px;
   align-self: center;
@@ -70,7 +70,7 @@ export const Footer = styled.View`
   justify-content: space-between;
   padding-top: ${rsize(17)}px;
   padding-bottom: ${rsize(32)}px;
-  background-color: ${props => props.theme.colors.backgroundLighter};
+  background-color: ${(props) => props.theme.colors.backgroundLighter};
 `;
 export const CheckboxView = styled.View`
   flex-direction: row;
@@ -80,7 +80,7 @@ export const Checkbox = styled(CheckboxBase)`
   margin-right: ${rsize(3)}px;
 `;
 export const Span = styled(CustomTextBase)`
-  font-size: ${props => props.theme.fontSizes.md}px;
+  font-size: ${(props) => props.theme.fontSizes.md}px;
 `;
 export const SpanUnderline = styled(Span)`
   text-decoration: underline;

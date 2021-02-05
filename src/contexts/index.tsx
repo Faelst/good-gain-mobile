@@ -1,11 +1,19 @@
 import React from "react";
-import { View } from "react-native";
+import { AppProvider } from "./app";
 import { AuthProvider } from "./auth";
+import { SocketProvider } from "./socket";
+import { ToastProvider } from "./toast";
 
-// import { Container } from './styles';
-
-const AppProvider: React.FC = ({ children }) => {
-  return <AuthProvider>{children}</AuthProvider>;
+const RootProvider: React.FC = ({ children }) => {
+  return (
+    <ToastProvider>
+      <AuthProvider>
+        <SocketProvider>
+          <AppProvider>{children}</AppProvider>
+        </SocketProvider>
+      </AuthProvider>
+    </ToastProvider>
+  );
 };
 
-export default AppProvider;
+export default RootProvider;

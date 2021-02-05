@@ -7,6 +7,8 @@ import CustomTextBase from "../../components/CustomTextBase";
 import TextBold from "../../components/TextBold";
 
 import logo from "../../images/ic_logo.png";
+import ic_plus from "../../images/icons/ic_plus_circle.png";
+
 import { rsize } from "../../utils/size";
 import ButtonGradient from "../../components/ButtonGradient";
 
@@ -29,7 +31,7 @@ export const Container = styled.View`
 
 export const Form = styled.View`
   flex: 1;
-  padding-top: ${rsize(15)}px;
+  padding-top: ${rsize(25)}px;
   margin-top: ${rsize(20)}px;
   background-color: #fff;
   border-top-left-radius: ${rsize(40)}px;
@@ -40,6 +42,9 @@ export const TitleContainer = styled.View`
   margin-top: ${rsize(18)}px;
   margin-bottom: ${rsize(10)}px;
   padding: 0 ${rsize(24)}px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 interface ITitleProps {
@@ -54,6 +59,25 @@ export const Title = styled(TextBold)<ITitleProps>`
     css`
       font-weight: bold;
     `}
+`;
+
+export const Step = styled.View`
+  flex-direction: row;
+  height: ${rsize(42)}px;
+  width: ${rsize(42)}px;
+  border-radius: ${rsize(42 / 2)}px;
+  margin-left: ${rsize(28)}px;
+
+  align-items: center;
+  justify-content: center;
+  border: ${rsize(4)}px;
+  border-color: #fff;
+`;
+
+export const StepNumber = styled(TextBold)`
+  font-size: ${(props) => props.theme.fontSizes.xl}px;
+  line-height: ${(props) => props.theme.fontSizes.xl + 2}px;
+  color: #fff;
 `;
 
 export const Text = styled(CustomTextBase)<ITitleProps>`
@@ -116,6 +140,12 @@ export const TitleStrong = styled(TextBold)`
 
 export const Strong = styled(TextBold)``;
 
+export const AddText = styled(CustomTextBase)`
+  font-size: ${rsize(14)}px;
+  margin-left: ${rsize(10)}px;
+  color: ${(props) => props.theme.colors.primary};
+`;
+
 export const EyeIcon = styled(Feather).attrs((props: any) => ({
   size: rsize(24),
   name: props.open ? "eye" : "eye-off",
@@ -123,7 +153,32 @@ export const EyeIcon = styled(Feather).attrs((props: any) => ({
   color: #8d97b5;
 `;
 
+export const TrashIcon = styled(Feather).attrs((props: any) => ({
+  size: rsize(24),
+  name: "trash-2",
+}))`
+  color: ${(props) => props.theme.colors.primary};
+`;
+
 export const CheckBox = styled.View`
   margin-top: ${rsize(17)}px;
   margin-bottom: ${rsize(20)}px;
+`;
+
+export const BtnAdd = styled.TouchableOpacity`
+  flex-direction: row;
+  margin-top: ${rsize(18)}px;
+  margin-bottom: ${rsize(20)}px;
+  margin-left: ${rsize(28)}px;
+  align-items: center;
+  align-self: flex-start;
+`;
+
+export const IcPlus = styled.Image.attrs({
+  source: ic_plus,
+  resizeMode: "contain",
+})`
+  height: ${rsize(24)}px;
+  width: ${rsize(24)}px;
+  align-self: center;
 `;

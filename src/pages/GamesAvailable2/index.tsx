@@ -1,5 +1,5 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React from "react";
+import { ScrollView } from "react-native";
 import {
   Container,
   ButtonCancel,
@@ -8,13 +8,14 @@ import {
   Button,
   Strong,
   Span,
-  Divider
-} from './styles'
+  Divider,
+} from "./styles";
 
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 const GamesAvailable2: React.FC = () => {
-  const navigation = useNavigation()
+  const { params } = useRoute();
+  const navigation = useNavigation();
 
   return (
     <ScrollView>
@@ -24,24 +25,28 @@ const GamesAvailable2: React.FC = () => {
 
         <Title>Escolha uma das opções:</Title>
 
-        <Button
-          onPress={() => navigation.navigate('QuickStart')}
-        >Partida Rápida
+        <Button onPress={() => navigation.navigate("QuickStart", params)}>
+          Partida Rápida
         </Button>
-        <Strong>Aqui sua vitória vale dinheiro!{'\n'}
+        <Strong>
+          Aqui sua vitória vale dinheiro!{"\n"}
           <Span>Desafie alguém para um amistoso online no modo FUT.</Span>
         </Strong>
-        
+
         <Divider />
-        <Button onPress={() => navigation.navigate("Championship")}>Campeonatos</Button>
-        <Strong>Lucre alto com sua habilidade.{'\n'}
+        <Button onPress={() => navigation.navigate("Championship", params)}>
+          Campeonatos
+        </Button>
+        <Strong>
+          Lucre alto com sua habilidade.{"\n"}
           <Span>
-            Nesta opção você pode participar de campeonatos diários  no modo FUT que podem encher o seu bolso!
+            Nesta opção você pode participar de campeonatos diários no modo FUT
+            que podem encher o seu bolso!
           </Span>
         </Strong>
       </Container>
     </ScrollView>
-  )
-}
+  );
+};
 
-export default GamesAvailable2
+export default GamesAvailable2;

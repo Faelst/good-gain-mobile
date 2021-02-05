@@ -22,6 +22,8 @@ export const AuthProvider: React.FC = ({ children }) => {
   async function signIn(data: any) {
     const response = await auth.signIn(data);
 
+    console.log("AuthContext signIn", { data, response });
+
     setUser(response.personaldata);
 
     await AsyncStorage.setItem(

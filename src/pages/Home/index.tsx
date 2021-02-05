@@ -41,7 +41,7 @@ import mdHome4 from "../../images/md_home4.png";
 
 import ActionCard from "../../components/ActionCard";
 import SimpleButton from "../../components/SimpleButton";
-import { Button } from '../../components/index'
+import { Button } from "../../components/index";
 import { useNavigation } from "@react-navigation/native";
 import { separatorHorizontal } from "../../utils/separator";
 import { useAuth } from "../../contexts/auth";
@@ -144,7 +144,7 @@ const Home: React.FC = () => {
             <View>
               <BalanceTitle>Saldo atual</BalanceTitle>
               <BalanceCash>
-                {/* {convertToCurrency(user?.money.toString() || "0")} */}
+                {convertToCurrency(user?.money.toString() || "0")}
               </BalanceCash>
             </View>
             <ViewButton>

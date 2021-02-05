@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-
-import Routes from "./routes";
 import { FontDisplay, useFonts } from "expo-font";
 import { ThemeProvider } from "styled-components/native";
+
+import Routes from "./routes";
+
 import { light } from "./styles/themes/light";
 import AppProvider from "./contexts";
+import { NavigationContainer } from "@react-navigation/native";
+
+if (__DEV__) {
+  import("./services/ReactotronConfig").then(() =>
+    console.log("Reactotron configured")
+  );
+}
 
 const App: React.FC = () => {
   const [loaded, error] = useFonts({
@@ -44,12 +52,14 @@ const App: React.FC = () => {
   }
 
   return (
-    <ThemeProvider theme={light}>
-      <AppProvider>
-        <StatusBar style="auto" />
-        <Routes />
-      </AppProvider>
-    </ThemeProvider>
+    <NavigationContainer>
+      <ThemeProvider theme={light}>
+        <AppProvider>
+          <StatusBar style="auto" />
+          <Routes />
+        </AppProvider>
+      </ThemeProvider>
+    </NavigationContainer>
   );
 };
 

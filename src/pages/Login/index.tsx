@@ -25,6 +25,7 @@ import { ScrollView, Text } from "react-native";
 import { useAuth } from "../../contexts/auth";
 
 const Login: React.FC = () => {
+  const [isBusy, setIsBusy] = useState(false);
   const { control, handleSubmit, errors } = useForm();
   const { signIn } = useAuth();
   const [password_hidden, setPasswordHidden] = useState(true);
@@ -32,9 +33,12 @@ const Login: React.FC = () => {
 
   async function onSignIn(data: any) {
     try {
+      setIsBusy(true);
       await signIn(data);
     } catch (error) {
       console.log("error", error);
+    } finally {
+      setIsBusy(false);
     }
   }
 
@@ -124,7 +128,12 @@ const Login: React.FC = () => {
               <ButtonForgotPassText>Esqueceu sua senha?</ButtonForgotPassText>
             </ButtonForgotPass>
 
-            <Button onPress={handleSubmit(onSignIn, onInvalid)}>Entrar</Button>
+            <Button
+              loading={isBusy}
+              onPress={handleSubmit(onSignIn, onInvalid)}
+            >
+              Entrar
+            </Button>
 
             <ButtonSignUp onPress={signUp}>
               <ButtonSignUpText>

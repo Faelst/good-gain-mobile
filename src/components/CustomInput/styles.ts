@@ -13,7 +13,7 @@ export const Container = styled.View<ContainerProps>`
   flex-direction: ${(props) => (props.height ? "column" : "row")};
 
   box-shadow: 0px 10px 75px rgba(147, 147, 147, 0.1);
-  elevation: 5;
+  elevation: 2;
 `;
 
 export const Input = styled.TextInput.attrs((props) => ({

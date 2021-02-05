@@ -12,20 +12,28 @@ import {
 import CustomInput from "../../../../components/CustomInput";
 import CustomInputMask from "../../../../components/CustomInputMask";
 import { rsize } from "../../../../utils/size";
-
+import CustomPicker from "../../../../components/CustomPicker";
+import country_data from "country-region-data/data.json";
 interface IStep1 {
   next?(data: any): void;
   back?(): void;
 }
 
-const IcCalendar = () => <Image style={{ marginRight: rsize(14), tintColor: "rgba(169,169,169,0.8)" }} source={ic_calendar} />
+const IcCalendar = () => (
+  <Image
+    style={{ marginRight: rsize(14), tintColor: "rgba(169,169,169,0.8)" }}
+    source={ic_calendar}
+  />
+);
 
 const Step1: React.FC<IStep1> = ({ next, back }) => {
-  const { control, handleSubmit, errors } = useForm();
+  const { control, handleSubmit, watch, errors } = useForm();
 
   function onSubmit(data: any) {
     next?.(data);
   }
+
+  console.log("country", watch("country"));
 
   return (
     <Form>
@@ -58,10 +66,10 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
             onBlur={onBlur}
             onChangeText={(value) => onChange(value)}
             value={value}
-            errorMessage={errors?.nickname?.message}
+            errorMessage={errors?.nicknamegg?.message}
           />
         )}
-        name="nickname"
+        name="nicknamegg"
         rules={{ required: "Campo obrigatório" }}
         defaultValue=""
       />
@@ -90,17 +98,18 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
       <Controller
         control={control}
         render={({ onChange, onBlur, value }) => (
-          <CustomInput
+          <CustomPicker
             label="Sexo"
             placeholder="Selecione"
-            autoCapitalize="none"
-            keyboardType="numeric"
-            returnKeyType="next"
-            onBlur={onBlur}
-            onChangeText={(value) => onChange(value)}
+            items={[
+              { label: "Masculino", value: "M" },
+              { label: "Feminino", value: "F" },
+              { label: "Outros", value: "O" },
+            ]}
+            onValueChange={(value) => onChange(value)}
             value={value}
             errorMessage={errors?.sex?.message}
-          ></CustomInput>
+          />
         )}
         name="sex"
         rules={{ required: "Campo obrigatório" }}
@@ -109,7 +118,8 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
       <Controller
         control={control}
         render={({ onChange, onBlur, value }) => (
-          <CustomInput
+          <CustomInputMask
+            type="cpf"
             label="CPF"
             placeholder="Informe seu CPF"
             autoCapitalize="none"
@@ -129,16 +139,20 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
       <Controller
         control={control}
         render={({ onChange, onBlur, value }) => (
-          <CustomInput
+          <CustomPicker
             label="País"
             placeholder="Selecione"
-            autoCapitalize="none"
-            keyboardType="numeric"
-            returnKeyType="next"
-            onBlur={onBlur}
-            onChangeText={(value) => onChange(value)}
+            items={[
+              // { label: "Brasil", value: "Brasil" },
+              ...country_data.map((v) => ({
+                label: v.countryName,
+                value: v.countryName,
+                ...v,
+              })),
+            ]}
+            onValueChange={(value) => onChange(value)}
             value={value}
-            errorMessage={errors?.cpf?.message}
+            errorMessage={errors?.state?.message}
           />
         )}
         name="country"
@@ -149,11 +163,21 @@ const Step1: React.FC<IStep1> = ({ next, back }) => {
       <Controller
         control={control}
         render={({ onChange, onBlur, value }) => (
-          <CustomInput
+          <CustomPicker
             label="Estado"
             placeholder="Selecione"
-            onBlur={onBlur}
-            onChangeText={(value) => onChange(value)}
+            items={[
+              // { label: "São Paulo", value: "SP" },
+              ...(
+                country_data.filter(
+                  (v) => v.countryName === watch("country")
+                )?.[0] || { regions: [] }
+              )?.regions?.map((v: any) => ({
+                label: v.name,
+                value: v.shortCode,
+              })),
+            ]}
+            onValueChange={(value) => onChange(value)}
             value={value}
             errorMessage={errors?.state?.message}
           />

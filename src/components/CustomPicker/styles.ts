@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 import { rsize } from "../../utils/size";
 import CustomTextBase from "../CustomTextBase";
-import {Picker as PickerBase} from '@react-native-picker/picker'
-import { Feather } from '@expo/vector-icons'
+import { Picker as PickerBase } from "@react-native-picker/picker";
+import { Feather } from "@expo/vector-icons";
 
 export const View = styled.View`
   padding: 0 ${rsize(25)}px;
@@ -13,6 +13,9 @@ export const Container = styled.View`
   padding: 0 ${rsize(16)}px 0 ${rsize(20)}px;
   border-radius: ${rsize(27.5)}px;
   background-color: ${(props) => props.theme.colors.backgroundLighter};
+
+  box-shadow: 0px 10px 75px rgba(147, 147, 147, 0.1);
+  elevation: 2;
 `;
 export const Label = styled(CustomTextBase)`
   height: ${rsize(27)}px;
@@ -24,11 +27,11 @@ export const Label = styled(CustomTextBase)`
 `;
 export const Icon = styled(Feather).attrs({
   name: "chevron-down",
-  size: rsize(24)
+  size: rsize(24),
 })`
   position: absolute;
   right: 0;
-  color: ${props => props.theme.colors.textSecondary};
+  color: ${(props) => props.theme.colors.textSecondary};
   margin-top: ${rsize(2)}px;
   margin-left: ${rsize(16)}px;
 `;

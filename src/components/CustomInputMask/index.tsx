@@ -11,7 +11,7 @@ interface ICustomInput extends TextInputProps {
   rightComponent?: React.ReactNode;
   leftComponent?: React.ReactNode;
   errorMessage?: string;
-  type?: "date";
+  type?: "date" | "cpf";
   maskType?: TextInputMaskTypeProp;
   mask?: string;
   format?: string;
@@ -28,7 +28,6 @@ const CustomInputMask: React.FC<ICustomInput> = ({
   return (
     <CustomInput {...props}>
       <Input
-      
         type={maskType || "custom"}
         options={options}
         {...props}

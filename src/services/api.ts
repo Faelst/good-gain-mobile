@@ -6,7 +6,8 @@ import { api_uri } from ".";
 
 const api = axios.create({
   baseURL: api_uri,
-  timeout: 6000,
+  timeout: 20000,
+  maxBodyLength: 1024 * 1024 * 100,
 });
 
 api.interceptors.request.use(async (config) => {
