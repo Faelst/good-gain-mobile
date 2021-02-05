@@ -64,7 +64,7 @@ const CardChampionship: React.FC<CardChampionshipProps> = ({
           >
             <View>
               <Span>Inscrição</Span>
-              <StrongM>R${value2}</StrongM>
+              <StrongM style={{fontSize: rsize(18)}}>R${value2}</StrongM>
             </View>
             <View style={{ flex: 1, marginLeft: rsize(10) }}>
               <StrongM>Sua vitória vale</StrongM>

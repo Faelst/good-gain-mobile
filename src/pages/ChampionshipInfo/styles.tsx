@@ -3,21 +3,23 @@ import CustomBackButton from '../../components/BackButton';
 import CustomContainer from '../../components/Container'
 import CustomTextBase from '../../components/CustomTextBase';
 import ImageGradient from '../../components/ImageGradient';
-import { LinearGradient } from 'expo-linear-gradient'
 import TextBold from '../../components/TextBold';
 import CheckboxBase from '../../components/Checkbox';
 import { rsize } from '../../utils/size';
+import TextGradient from '../../components/TextGradient';
 
 export const Container = styled(CustomContainer)`
+  flex: 1;
   align-items: center;
   justify-content: center;
 `;
 export const BackButton = styled(CustomBackButton).attrs({
-  name: 'arrow-left'
+  name: 'x'
 })`
   position: absolute;
   top: ${rsize(24)}px;
-  left: ${rsize(24)}px;
+  right: ${rsize(24)}px;
+  z-index: 1;
 `;
 export const Header = styled(ImageGradient).attrs({
   opacity: 0.7,
@@ -43,13 +45,12 @@ export const HeaderTitleXL = styled(TextBold)`
   font-size: ${props => props.theme.fontSizes.xxl}px;
   color: ${props => props.theme.colors.textLight};
 `;
-export const Title = styled(TextBold)`
-  max-width: ${rsize(325)}px;
+export const Title = styled(TextBold).attrs({
+  variant: "body1"
+})`
   align-self: flex-start;
   margin-top: ${rsize(25)}px;
   margin-left: ${rsize(26)}px;
-  font-size: ${props => props.theme.fontSizes.xxl - 2}px;
-  color: ${props => props.theme.colors.primary};
 `;
 export const Description = styled(CustomTextBase)`
   font-size: ${props => props.theme.fontSizes.md}px;
@@ -59,38 +60,7 @@ export const Description = styled(CustomTextBase)`
   align-self: center;
   flex-direction: column;
   margin-top: ${rsize(15)}px;
-  margin-bottom: ${rsize(34)}px;
-`;
-export const Details1 = styled(LinearGradient).attrs(props => ({
-  colors: props.theme.colors.gradient,
-}))`
-  height: ${rsize(36)}px;
-  width: ${rsize(327)}px;
-  flex-direction: row;
-  align-self: center;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: ${rsize(10)}px;
-  padding-right: ${rsize(10)}px;
-  margin-bottom: ${rsize(9)}px;
-  border-radius: ${rsize(10)}px;
-`;
-export const Details2 = styled.View`
-  height: ${rsize(36)}px;
-  width: ${rsize(327)}px;
-  flex-direction: row;
-  align-self: center;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: ${rsize(10)}px;
-  padding-right: ${rsize(10)}px;
-  border-radius: ${rsize(10)}px;
-  background-color: ${props => props.theme.colors.secondary};
-`;
-export const Strong = styled.Text`
-  font-family: ${props => props.theme.fontFamily.titleBold};
-  font-size: ${props => props.theme.fontSizes.sm}px;
-  color: ${props => props.theme.colors.textLight};
+  margin-bottom: ${rsize(15)}px;
 `;
 export const Footer = styled.View`
   height: ${rsize(148)}px;
@@ -99,7 +69,6 @@ export const Footer = styled.View`
   justify-content: space-between;
   padding-top: ${rsize(17)}px;
   padding-bottom: ${rsize(32)}px;
-  margin-top: ${rsize(145)}px;
   background-color: ${props => props.theme.colors.backgroundLighter};
 `;
 export const CheckboxView = styled.View`
@@ -114,4 +83,33 @@ export const Span = styled(CustomTextBase)`
 `;
 export const SpanUnderline = styled(Span)`
   text-decoration: underline;
+`;
+export const TitleGradient = styled(TextGradient).attrs(props => ({
+  fontSize: props.theme.fontSizes.lg+2,
+  textAlign: "center",
+}))`
+  margin-top: ${rsize(25)}px;
+`;
+export const Subtitle = styled.Text`
+  font-family: ${props => props.theme.fontFamily.textMedium};
+  font-size: ${props => props.theme.fontSizes.lg+2}px;
+  text-align: center;
+
+  margin-top: ${rsize(4)}px;
+`;
+export const CardContainer = styled.View`
+  width: ${rsize(281)}px;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-between;
+  margin-top: ${rsize(8)}px;
+  margin-bottom: ${rsize(19)}px;
+`;
+export const InfoContainer = styled.View`
+  width: ${rsize(327)}px;
+  align-self: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: ${rsize(27)}px;
 `;
